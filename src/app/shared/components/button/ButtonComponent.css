@@ -1,0 +1,11 @@
+.button_component{
+    background-color: #002560;
+    border-radius: 8px;
+    height: 40px;
+}
+.titleBtn{
+    color: #fff;
+}
+.button_component:hover, .button_component:focus{
+    background-color: #002560;
+}

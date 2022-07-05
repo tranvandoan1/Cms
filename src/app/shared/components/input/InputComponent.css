@@ -1,0 +1,30 @@
+.container_input{
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    display: flex;
+    margin: 0 25px;
+    padding-left: 10px;
+    height: 35px;
+    align-items: center;
+}
+.container_input .input_login{
+    border: none !important;
+    margin-left: 10px;
+    outline: none !important;
+    background-color: #f4f4f4 !important;
+    border-radius: 10px;
+    height: 35px;
+}
+.container_input .input_login .ant-input{
+    background-color: #f4f4f4;
+}
+.container_input .ant-input-affix-wrapper:focus{
+    box-shadow: none !important;
+}
+.container_input img{
+    width: 24px;
+    height: 24px;
+}
+.container_input .ant-input-affix-wrapper-focused, .ant-input-affix-wrapper:focus{
+    box-shadow: none !important;
+}
