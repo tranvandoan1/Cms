@@ -1,0 +1,18 @@
+{
+  "StagePlot": [
+    {
+      "id": 1,
+      "name": "Mike",
+      "age": "M",
+      "color": "blue"
+
+    },
+    {
+      "id": 2,
+      "name": "John",
+      "age": "J",
+      "color": "red"
+    }
+  ],
+  "user": []
+}
