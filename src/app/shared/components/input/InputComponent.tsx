@@ -29,7 +29,7 @@ export default class InputComponent extends React.Component<
         {isLogin ? (
           <>
             <div className="container_input">
-              <img src={iconLeft ? iconLeft : images.ic_email} alt="" />
+              <img src={iconLeft ? iconLeft : null} alt="" />
               <Input
                 {...this.props}
                 //@ts-ignore

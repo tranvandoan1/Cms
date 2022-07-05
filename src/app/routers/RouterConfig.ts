@@ -6,7 +6,7 @@ import HomeScreen from "../views/home/HomeScreen";
 const RouterConfig = [
     {
         path: '/',
-        component: HomeScreen,
+        component: LoginScreen,
         moduleId: 1
     },
     {
