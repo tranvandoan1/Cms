@@ -1,28 +1,65 @@
-import { Button, DatePicker, Form, Input } from "antd";
+import { Button, DatePicker, Form, Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
-import { addArtist } from "../../../../Features/ArtistSlice/ArtistSlice";
+import {
+  addArtist,
+  getArtist,
+} from "../../../../Features/ArtistSlice/ArtistSlice";
+import {
+  getMember,
+  uploadMember,
+} from "./../../../../Features/MemberSlice/MemberSlice";
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 type Props = {};
+type Members = {
+  members: any;
+};
 
 const AddArtist = (props: Props) => {
-  const navigete = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+  const [members, setMembers]: any = useState();
+  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+  const dataArtist = useAppSelector((data: any) => data.artist.value);
+  const dataMember = useAppSelector((data: any) => data.member.value);
+  useEffect(() => {
+    dispatch(getArtist());
+    dispatch(getMember());
+  }, []);
 
   const onFinish = (values: any) => {
-    console.log("Success:", values);
+    const dataMemberUpload: any = [];
+    const artist_id = Math.random();
+    dataMember.map((item: any) => {
+      members.map((member: any) => {
+        if (member == item.id) {
+          dataMemberUpload.push({ ...item, artist_id: artist_id });
+        }
+      });
+    });
+    dataMemberUpload.map(
+      async (item: any) =>
+        await dispatch(uploadMember({ id: item.id, data: item }))
+    );
+
     const newData: any = {
       name: values.name,
       time_end: values.time_end,
       time_start: values.time_start,
+      number_members: members,
+      artist_id: artist_id
     };
-    console.log(newData);
     dispatch(addArtist(newData));
-    navigete("/manage-artist");
+    navigate("/admin/manage-artist");
+  };
+  const handleChange = (values: any) => {
+    console.log(values);
+
+    setMembers(values);
   };
 
   return (
@@ -34,7 +71,7 @@ const AddArtist = (props: Props) => {
           marginBottom: 10,
         }}
       >
-        <h3>Thêm artist</h3>
+        <h3>Thêm nhóm nhạc</h3>
       </div>
       <Form
         name="basic"
@@ -89,6 +126,25 @@ const AddArtist = (props: Props) => {
           ]}
         >
           <DatePicker />
+        </Form.Item>
+        <Form.Item
+          label="Thêm thành viên"
+          labelAlign="left"
+          name="number_members"
+        >
+          <Select
+            mode="multiple"
+            allowClear
+            style={{
+              width: "100%",
+            }}
+            placeholder="Thêm thành viên"
+            onChange={handleChange}
+          >
+            {dataMember.map((item: any, index: any) => {
+              return <Select.Option key={item.id}>{item.name}</Select.Option>;
+            })}
+          </Select>
         </Form.Item>
         <Form.Item
           wrapperCol={{

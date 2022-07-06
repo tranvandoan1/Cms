@@ -5,88 +5,107 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Button, Input, Table } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { AppDispatch, RootState } from "../../../../APP/Store";
+import { getSong, removeSong, removeSongg } from "./../../../../Features/SongSlice/SongSlice";
+import "../../../../Style/ListSong.css";
+type ListSongs = {
+  idd: any;
+};
 const IndexSongs: React.FC = () => {
-  const dataSource = [
-    {
-      key: "1",
-      name: "Mike",
-      age: "M",
-      color: "blue",
-    },
-    {
-      key: "2",
-      name: "John",
-      age: "J",
-      color: "red",
-    },
-  ];
+  const dispatch = useDispatch<AppDispatch>();
+  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+  const [showLyrics, setShowLyrics] = useState<ListSongs>();
+  const dataSong = useAppSelector((data: any) => data.songs.value);
+  useEffect(() => {
+    dispatch(getSong());
+  }, []);
   const columns = [
     {
       title: "Tên bài hát",
       dataIndex: "name",
       key: "name",
+      render:(name:any)=>(<div style={{width:100}}>{name}</div>)
     },
     {
       title: "Thời gian",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "time",
+      key: "time",
     },
     {
       title: "Lyrics",
-      dataIndex: "color",
-      key: "color",
-      render: (color: any) => (
-        <div style={{ width: "300px" }}>
-          Từ bao lâu naу Anh cứ mãi cô đơn bơ vơ bao lâu rồi ai đâu haу Ngàу cứ
-          thế trôi qua miên man riêng anh một mình nơi đâу Những phút giâу trôi
-          qua tầm taу Ϲhờ một ai đó đến bên anh Lặng nghe những tâm tư nàу Là
-          tia nắng ấm Là em đến bên anh cho vơi đi ưu phiền ngàу hôm qua Nhẹ
-          nhàng xóa đi bao mâу đen vâу quanh cuộc đời nơi anh Phút giâу anh mong
-          đến tình уêu ấу Giờ đâу là em, người anh mơ ước bao đêm Ѕẽ luôn thật
-          gần bên em Ѕẽ luôn là vòng taу ấm êm Ѕẽ luôn là người уêu em Ϲùng em
-          đi đến chân trời Lắng nghe từng nhịp tim anh Lắng nghe từng lời anh
-          muốn nói Vì em luôn đẹp nhất khi em cười Vì em luôn là tia nắng trong
-          anh Không xa rời Bình minh dẫn lối Ngàу sau có em luôn bên anh trên
-          con đường ta chung đôi Niềm hạnh phúc như trong cơn mơ chưa bao giờ
-          anh nghĩ tới Phút giâу ta trao nhau tình уêu ấу Giờ đâу là em, người
-          anh sẽ mãi không quên Ѕẽ luôn thật gần bên em Ѕẽ luôn là vòng taу ấm
-          êm Ѕẽ luôn là người уêu em Ϲùng em đi đến chân trời Lắng nghe từng
-          nhịp tim anh Lắng nghe từng lời anh muốn nói Vì em luôn đẹp nhất khi
-          em cười Vì em luôn là tia nắng trong anh Không xa rời Ѕẽ luôn thật gần
-          bên em Ѕẽ luôn là vòng taу ấm êm Ѕẽ luôn là người уêu em Ϲùng em đi
-          đến chân trời Lắng nghe từng nhịp tim anh Lắng nghe từng lời anh muốn
-          nói Vì em luôn đẹp nhất khi em cười Vì em luôn là tia nắng trong anh
-          Không xa rời Vì em luôn là tia nắng trong anh Không xa rời
-        </div>
+      dataIndex: "lyrics",
+      key: "lyrics",
+      render: (lyrics: any, data: any) => (
+        (
+          <div style={{ width: "350px" }}>
+            <p
+              style={{ width: "100%" }}
+              dangerouslySetInnerHTML={{
+                __html:
+                  showLyrics == data.id ? lyrics : `${lyrics.slice(0, 400)}...`,
+              }}
+            />
+            {showLyrics !== data.id && (
+              <span
+                className="see_more"
+                onClick={() =>
+                  setShowLyrics(
+                    showLyrics == undefined
+                      ? data.id
+                      : showLyrics == data.id
+                      ? undefined
+                      : data.id
+                  )
+                }
+              >
+                Xem thêm
+              </span>
+            )}
+            {showLyrics == data.id && (
+              <span
+                className="see_more"
+                onClick={() => setShowLyrics(undefined)}
+              >
+                Thu gọn
+              </span>
+            )}
+          </div>
+        )
       ),
     },
+
     {
       title: "Section",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "section",
+      key: "section",
     },
     {
       title: "Bar",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "bar",
+      key: "bar",
     },
     {
       title: "Thao tác",
-      dataIndex: "",
-      key: "address",
-      render: (address: any) => (
+      dataIndex: "id",
+      key: "id",
+      render: (id: any, data: any) => (
         <>
-          <EditOutlined style={{ marginRight: 10 }} />
-
-          <DeleteOutlined />
+          <Link to={`edit&&name=${data.name}&&id=${id}`}>
+            <EditOutlined style={{ marginRight: 10 }} />
+          </Link>
+          <DeleteOutlined onClick={()=>deleteSong(id)}/>
         </>
       ),
     },
   ];
-
+  const deleteSong = (id: any) => {
+    const data = dataSong.filter((item: any) => item.id !== id);
+    dispatch(removeSong(id));
+    dispatch(removeSongg(data));
+  };
   return (
     <div>
       <div
@@ -118,7 +137,7 @@ const IndexSongs: React.FC = () => {
           </Link>
         </div>
       </div>
-      <Table dataSource={dataSource} columns={columns} />
+      <Table dataSource={dataSong} columns={columns} />
     </div>
   );
 };

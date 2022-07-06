@@ -36,6 +36,20 @@ const IndexArtist: React.FC = () => {
       key: "name",
     },
     {
+      title: "Tổng số thành viên(Người)",
+      dataIndex: "number_members",
+      key: "number_members",
+      render: (number_members: any, data: any) => {
+        return (
+          <>
+            {data.number_members.length == 0
+              ? "Chưa có thành viên"
+              : data.number_members.length}
+          </>
+        );
+      },
+    },
+    {
       title: "Ngày tháng tạo",
       dataIndex: "time_start",
       key: "time_start",
@@ -72,7 +86,7 @@ const IndexArtist: React.FC = () => {
           marginBottom: 10,
         }}
       >
-        <h3>Quản lý artist</h3>
+        <h3>Quản lý nhóm nhạc</h3>
         <div
           style={{
             display: "flex",

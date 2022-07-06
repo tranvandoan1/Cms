@@ -5,68 +5,70 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { AppDispatch, RootState } from "../../../../APP/Store";
+import { getArtist } from "./../../../../Features/ArtistSlice/ArtistSlice";
+import { getSetList } from "../../../../Features/SetListSlice/SetListSlice";
 
 const IndexSetlist = () => {
-  const dataSource = [
-    {
-      key: "1",
-      name: "Mike",
-      age: 32,
-      address: "10 Downing Street",
-    },
-    {
-      key: "2",
-      name: "John",
-      age: 42,
-      address: "10 Downing Street",
-    },
-  ];
+  const dispatch = useDispatch<AppDispatch>();
+  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+  const dataSetList = useAppSelector((data: any) => data.setlist.value);
+  const dataArtist = useAppSelector((data: any) => data.artist.value);
+  useEffect(() => {
+    dispatch(getSetList());
+  }, []);
   const columns = [
     {
-      title: "Tên",
-      dataIndex: "name",
-      key: "name",
+      title: "Tên nhóm nhạc biểu diễn",
+      dataIndex: "group_name",
+      key: "group_name",
+    },
+    {
+      title: "Tên bài hát",
+      dataIndex: "name_music",
+      key: "name_music",
     },
     {
       title: "Thời gian",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "time",
+      key: "time",
     },
     {
       title: "BPM",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "bpm",
+      key: "bpm",
     },
     {
       title: "MP4",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "mp4",
+      key: "mp4",
     },
     {
       title: "SCENE",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "scene",
+      key: "scene",
     },
     {
       title: "MIC",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "mic",
+      key: "mic",
     },
     {
       title: " ⼩道 具",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "small_props",
+      key: "small_props",
     },
 
     {
       title: "Thao tác",
-      dataIndex: "",
-      key: "address",
-      render: (address: any) => (
+      dataIndex: "id",
+      key: "id",
+      render: (id: any, data: any) => (
         <>
-          <Link to={`edit&&name=${"ánh nắng của anh"}&&id=${"1"}`}>
+          <Link to={`edit&&name=${data.group_name}&&id=${id}`}>
             {" "}
             <EditOutlined style={{ marginRight: 10 }} />
           </Link>
@@ -88,7 +90,7 @@ const IndexSetlist = () => {
           marginBottom: 10,
         }}
       >
-        <h3>Quản lý setlist</h3>
+        <h3>Quản lý chương trình</h3>
         <div
           style={{
             display: "flex",
@@ -107,7 +109,7 @@ const IndexSetlist = () => {
           </Link>
         </div>
       </div>
-      <Table dataSource={dataSource} columns={columns} />
+      <Table dataSource={dataSetList} columns={columns} />
     </div>
   );
 };

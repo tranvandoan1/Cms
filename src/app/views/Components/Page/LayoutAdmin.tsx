@@ -21,19 +21,19 @@ function getItem(label: any, key: any, icon: any, itemIcon: any) {
 const LayoutAdmin: React.FC = () => {
   const items: any = [
     getItem(
-      "Quản lý artist",
+      "Quản lý nhóm nhạc",
       "1",
       <BranchesOutlined />,
       <Link to="manage-artist" />
     ),
     getItem(
-      "Quản lý setlist",
+      "Quản lý chương trình",
       "2",
       <DeploymentUnitOutlined />,
       <Link to="manage-setlist" />
     ),
     getItem(
-      "Quản lý member",
+      "Quản lý thành viên",
       "sub1",
       <UserOutlined />,
       <Link to="manage-member" />
@@ -45,7 +45,7 @@ const LayoutAdmin: React.FC = () => {
       <Link to="manage-songs" />
     ),
     getItem(
-      "Quản lý stage plot",
+      "Quản lý sân khấu",
       "9",
       <BsLayoutTextWindow />,
       <Link to="manage-stage-plot" />

@@ -1,28 +1,140 @@
 {
   "artist": [
     {
-      "name": "Mới sửa1",
+      "name": "Mới sửa",
       "time_end": "2022-07-29T10:40:07.677Z",
       "time_start": "2022-07-12T10:40:05.864Z",
+      "number_members": [
+        "2",
+        "4"
+      ],
+      "artist_id": 0.9175662264095152,
       "id": 1
     },
     {
       "name": "Mr Children1",
       "time_end": "2022-07-08T10:41:40.533Z",
       "time_start": "2022-07-06T10:41:38.868Z",
+      "number_members": [],
       "id": 2
     },
     {
       "name": "Mr Children2",
       "time_end": "2022-07-08T10:41:40.533Z",
       "time_start": "2022-07-06T10:41:38.868Z",
+      "number_members": [],
       "id": 3
     },
     {
-      "name": "Mr Children3",
+      "name": "Mr Children32",
       "time_end": "2022-07-08T10:41:40.533Z",
       "time_start": "2022-07-06T10:41:38.868Z",
+      "number_members": [],
       "id": 4
+    },
+    {
+      "name": "BTS",
+      "time_end": "2022-07-30T08:45:08.623Z",
+      "time_start": "2022-07-05T08:45:06.313Z",
+      "number_members": [
+        "2",
+        "1"
+      ],
+      "artist_id": 0.5568098971460946,
+      "id": 5
+    }
+  ],
+  "user": [
+    {
+      "name": "Huynh",
+      "color": "#010000",
+      "first_letter": "H",
+      "artist_id": "",
+      "id": 1
+    },
+    {
+      "color": "#ab3080",
+      "first_letter": "T",
+      "name": "Thắng",
+      "artist_id": 0.9175662264095152,
+      "id": 2
+    },
+    {
+      "color": "#2d5850",
+      "first_letter": "V",
+      "name": "Vũ",
+      "artist_id": "",
+      "id": 3
+    },
+    {
+      "color": "#ffe100",
+      "first_letter": "K",
+      "name": "Kiên",
+      "artist_id": 0.9175662264095152,
+      "id": 4
+    },
+    {
+      "color": "#60ff8f",
+      "first_letter": "Đ",
+      "name": "Đoàn",
+      "artist_id": 0.5568098971460946,
+      "id": 5
+    },
+    {
+      "color": "#b1f0ff",
+      "first_letter": "H",
+      "name": "Hiểu",
+      "artist_id": "",
+      "id": 6
+    },
+    {
+      "color": "#330fff",
+      "first_letter": "D",
+      "name": "Dũng",
+      "artist_id": "",
+      "id": 7
+    }
+  ],
+  "setlists": [
+    {
+      "bpm": "Nhạc cụ có",
+      "mic": "Huynh, Kiên",
+      "mp4": "anhnangcuaanh",
+      "scene": "Có",
+      "time": "\n      00:15:05",
+      "group_name": "Mr Children1",
+      "name_music": "Cô Đơn Trong Nhà Mình2",
+      "small_props": "Nhạc cụ dân tộc",
+      "id": 1
+    },
+    {
+      "bpm": "Mới thêm",
+      "mic": "DŨNG",
+      "mp4": "codontrongnhaminh",
+      "scene": "mới",
+      "time": "\n      00:06:05",
+      "group_name": "Mr Children1",
+      "name_music": "Cô Đơn Trong Nhà Mình2",
+      "small_props": "NHẠC CỤ DÂN TỘC",
+      "id": 2
+    }
+  ],
+  "songs": [
+    {
+      "name": "Ánh nắng của anh",
+      "time": "\n      00:04:025",
+      "lyrics": "<div class=\"ujudUb\">Từ bao l&acirc;u naу<br>Anh cứ m&atilde;i c&ocirc; đơn bơ vơ bao l&acirc;u rồi ai đ&acirc;u haу<br>Ng&agrave;у cứ thế tr&ocirc;i qua mi&ecirc;n man ri&ecirc;ng anh một m&igrave;nh nơi đ&acirc;у<br>Những ph&uacute;t gi&acirc;у tr&ocirc;i qua tầm taу<br>Ϲhờ một ai đ&oacute; đến b&ecirc;n anh<br>Lặng nghe những t&acirc;m tư n&agrave;у</div>\n<div class=\"ujudUb\">L&agrave; tia nắng ấm<br>L&agrave; em đến b&ecirc;n anh cho vơi đi ưu phiền ng&agrave;у h&ocirc;m qua<br>Nhẹ nh&agrave;ng x&oacute;a đi bao m&acirc;у đen v&acirc;у quanh cuộc đời nơi anh<br>Ph&uacute;t gi&acirc;у anh mong đến t&igrave;nh у&ecirc;u ấу<br>Giờ đ&acirc;у l&agrave; em, người anh mơ ước bao đ&ecirc;m</div>\n<div class=\"ujudUb\">Ѕẽ lu&ocirc;n thật gần b&ecirc;n em<br>Ѕẽ lu&ocirc;n l&agrave; v&ograve;ng taу ấm &ecirc;m<br>Ѕẽ lu&ocirc;n l&agrave; người у&ecirc;u em<br>Ϲ&ugrave;ng em đi đến ch&acirc;n trời</div>\n<div class=\"ujudUb\">Lắng nghe từng nhịp tim anh<br>Lắng nghe từng lời anh muốn n&oacute;i<br>V&igrave; em lu&ocirc;n đẹp nhất khi em cười<br>V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>\n<div class=\"ujudUb\">B&igrave;nh minh dẫn lối<br>Ng&agrave;у sau c&oacute; em lu&ocirc;n b&ecirc;n anh tr&ecirc;n con đường ta chung đ&ocirc;i<br>Niềm hạnh ph&uacute;c như trong cơn mơ chưa bao giờ anh nghĩ tới<br>Ph&uacute;t gi&acirc;у ta trao nhau t&igrave;nh у&ecirc;u ấу<br>Giờ đ&acirc;у l&agrave; em, người anh sẽ m&atilde;i kh&ocirc;ng qu&ecirc;n</div>\n<div class=\"ujudUb\">Ѕẽ lu&ocirc;n thật gần b&ecirc;n em<br>Ѕẽ lu&ocirc;n l&agrave; v&ograve;ng taу ấm &ecirc;m<br>Ѕẽ lu&ocirc;n l&agrave; người у&ecirc;u em<br>Ϲ&ugrave;ng em đi đến ch&acirc;n trời</div>\n<div class=\"ujudUb\">Lắng nghe từng nhịp tim anh<br>Lắng nghe từng lời anh muốn n&oacute;i<br>V&igrave; em lu&ocirc;n đẹp nhất khi em cười<br>V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>\n<div class=\"ujudUb\">Ѕẽ lu&ocirc;n thật gần b&ecirc;n em<br>Ѕẽ lu&ocirc;n l&agrave; v&ograve;ng taу ấm &ecirc;m<br>Ѕẽ lu&ocirc;n l&agrave; người у&ecirc;u em<br>Ϲ&ugrave;ng em đi đến ch&acirc;n trời</div>\n<div class=\"ujudUb\">Lắng nghe từng nhịp tim anh<br>Lắng nghe từng lời anh muốn n&oacute;i<br>V&igrave; em lu&ocirc;n đẹp nhất khi em cười<br>V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>\n<div class=\"ujudUb WRZytc\">V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>",
+      "section": "Vì em luôn là tia nắng trong anh Không xa rời",
+      "bar": "Vũ trường ADC",
+      "id": 1
+    },
+    {
+      "name": "Cô Đơn Trong Nhà Mình",
+      "time": "\n      00:15:05",
+      "lyrics": "<div class=\"ujudUb\">Dường như bao nỗi đau đ&atilde; đầy trong tim<br>Dường như bao cay đắng đ&atilde; n&eacute;n qu&aacute; l&acirc;u tr&ecirc;n bờ m&ocirc;i ấy<br>Mỗi ng&agrave;y t&ocirc;i phải cố gắng che giấu đi sự mệt mỏi kh&ocirc;ng ai g&aacute;nh c&ugrave;ng<br>Để rồi nỗi buồn vỡ vụn trong đ&ecirc;m</div>\n<div class=\"ujudUb\">Nh&igrave;n xung quanh đ&acirc;u ai c&oacute; thể hiểu những điều t&ocirc;i đang suy nghĩ<br>V&agrave; kh&ocirc;ng ai muốn chia sớt những g&igrave; t&ocirc;i đang mơ ước<br>Dường như t&ocirc;i c&ocirc; đơn trong ch&iacute;nh ng&ocirc;i nh&agrave; m&igrave;nh kh&ocirc;ng ai biết<br>Muốn kh&oacute;c nhưng cứ phải gượng cười</div>\n<div class=\"ujudUb\">T&igrave;nh y&ecirc;u đ&acirc;u phải hy sinh l&agrave; sẽ giữ được một người m&atilde;i m&atilde;i<br>C&agrave;ng kh&ocirc;ng phải cố n&iacute;u với ho&agrave;i b&agrave;n tay ai ở b&ecirc;n<br>V&igrave; sao kh&ocirc;ng y&ecirc;u nhau như những ng&agrave;y đầu ti&ecirc;n y&ecirc;n vui ấy<br>Cứ ngỡ ta đ&atilde; hiểu được nhau</div>\n<div class=\"ujudUb\">Dường như bao nỗi đau đ&atilde; đầy trong tim<br>Dường như bao cay đắng đ&atilde; n&eacute;n qu&aacute; l&acirc;u tr&ecirc;n bờ m&ocirc;i ấy<br>Mỗi ng&agrave;y t&ocirc;i phải cố gắng che giấu đi sự mệt mỏi kh&ocirc;ng ai g&aacute;nh c&ugrave;ng<br>Để rồi nỗi buồn vỡ vụn trong đ&ecirc;m</div>\n<div class=\"ujudUb\">Nh&igrave;n xung quanh đ&acirc;u ai c&oacute; thể hiểu những điều t&ocirc;i đang suy nghĩ<br>V&agrave; kh&ocirc;ng ai muốn chia sớt những g&igrave; t&ocirc;i đang mơ ước<br>Dường như t&ocirc;i c&ocirc; đơn trong ch&iacute;nh ng&ocirc;i nh&agrave; m&igrave;nh kh&ocirc;ng ai biết<br>Muốn kh&oacute;c nhưng cứ phải gượng cười</div>\n<div class=\"ujudUb\">T&igrave;nh y&ecirc;u đ&acirc;u phải hy sinh l&agrave; sẽ giữ được một người m&atilde;i m&atilde;i<br>C&agrave;ng kh&ocirc;ng phải cố n&iacute;u với ho&agrave;i b&agrave;n tay ai ở b&ecirc;n<br>V&igrave; sao kh&ocirc;ng y&ecirc;u nhau như những ng&agrave;y đầu ti&ecirc;n y&ecirc;n vui ấy<br>Cứ ngỡ ta đ&atilde; hiểu được nhau<br>Hoh hoh hah hoh</div>\n<div class=\"ujudUb\">Nh&igrave;n xung quanh đ&acirc;u ai c&oacute; thể hiểu những điều t&ocirc;i đang suy nghĩ<br>V&agrave; kh&ocirc;ng ai muốn chia sớt những g&igrave; t&ocirc;i đang mơ ước<br>Dường như t&ocirc;i c&ocirc; đơn trong ch&iacute;nh ng&ocirc;i nh&agrave; m&igrave;nh kh&ocirc;ng ai biết<br>Muốn kh&oacute;c nhưng cứ phải gượng cười</div>\n<div class=\"ujudUb WRZytc\">T&igrave;nh y&ecirc;u đ&acirc;u phải hy sinh l&agrave; sẽ giữ được một người m&atilde;i m&atilde;i<br>C&agrave;ng kh&ocirc;ng phải cố n&iacute;u với ho&agrave;i b&agrave;n tay ai ở b&ecirc;n<br>V&igrave; sao kh&ocirc;ng y&ecirc;u nhau như những ng&agrave;y đầu ti&ecirc;n y&ecirc;n vui ấy<br>Cứ ngỡ ta đ&atilde; hiểu được nhau<br>V&igrave; sao kh&ocirc;ng y&ecirc;u nhau như những ng&agrave;y đầu ti&ecirc;n y&ecirc;n vui ấy<br>Cứ ngỡ ta đ&atilde; hiểu được nhau</div>",
+      "section": "Vì sao không yêu nhau như những ngày đầu tiên yên vui ấy Cứ ngỡ ta đã hiểu được nhau",
+      "bar": "Quán nhảy",
+      "id": 2
     }
   ]
 }
