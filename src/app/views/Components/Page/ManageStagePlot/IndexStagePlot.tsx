@@ -10,7 +10,7 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ReactSketchCanvas } from "react-sketch-canvas";
-import { filterStagePlot, getStagePlot,removeStagePlot } from "../../../Slide/StagePlot";
+import { filterStagePlot, getAllStagePlot,removeStagePlot } from "../../../Slide/StagePlot";
 
 const IndexStagePlot: React.FC = () => {
   const canvas: any = useRef<HTMLInputElement>();
@@ -18,15 +18,17 @@ const IndexStagePlot: React.FC = () => {
   const  dispath:any = useDispatch()
 
   useEffect(() =>{
-    dispath(getStagePlot())
+    dispath(getAllStagePlot())
   },[])
 
-  const onHandleRemove = async (id:any) => {
-    // const isConfirm = window.confirm(
-    //   "bạn muốn xóa sản phẩm này vào thùng rác ?"
-    // );
+  const onHandleRemove = async (id:number) => {
+    const isConfirm = window.confirm(
+      "bạn muốn xóa sản phẩm này?"
+    );
    
-     dispath(removeStagePlot(id))
+    if(isConfirm){
+      dispath(removeStagePlot(id))
+    }
    
   };
   const Search = () =>{
@@ -38,7 +40,7 @@ const IndexStagePlot: React.FC = () => {
     }
    
   }
-  console.log(StagePlot);
+  // console.log(StagePlot);
   
   const columns = [
     {
@@ -67,7 +69,7 @@ const IndexStagePlot: React.FC = () => {
       render: (item: any) => (
         <>
           <div>
-            <Link to={`/admin/manage-stage-plot/edit/${item.id}`}>
+            <Link to={`/admin/manage-stage-plot/edit&&name=${item.name}&&id=${item.id}`}>
               <EditOutlined style={{ marginRight: 10 }} />
             </Link>
             <span onClick={() => onHandleRemove(item.id)}>

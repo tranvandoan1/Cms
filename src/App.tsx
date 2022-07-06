@@ -15,6 +15,7 @@ import AddSetlist from "./app/views/Components/Page/ManageSetlist/AddSetlist";
 import EidtSetlist from './app/views/Components/Page/ManageSetlist/EidtSetlist';
 import AdminRoute from "./app/views/Auth/AdminRoute";
 import AddStagePlot from "./app/views/Components/Page/ManageStagePlot/AddStagePlot";
+import EditStagePlot from "./app/views/Components/Page/ManageStagePlot/EditStagePlot";
 
 function App() {
   return (
@@ -40,6 +41,10 @@ function App() {
         <Route path="manage-songs" element={<IndexSongs />} />
         <Route path="manage-stage-plot" element={<IndexStagePlot />} />
         <Route path="manage-stage-plot/add" element={<AddStagePlot />} />
+        <Route
+          path="manage-stage-plot/edit&&name=:name&&id=:id"
+          element={<EditStagePlot />}
+        />
       </Route>
     </Routes>
   );

@@ -10,6 +10,16 @@ export const get = (id:number) =>{
     return instance.get(url)
 }
 
+export const add = (item:any) =>{
+    const url =  "/StagePlot"
+    return instance.post(url,item)
+}
+
+export const edit = (item:any) =>{
+    const url = `/StagePlot/${item.id}`
+    return instance.put(url,item)
+}
+
 export const remove = (id:any) =>{
     const url=  `/StagePlot/${id}`
     return instance.delete(url)

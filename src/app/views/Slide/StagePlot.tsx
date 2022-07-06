@@ -1,5 +1,6 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import { filter, garbage, getAll, remove } from "../Api/StagePlot";
+import axios from "axios";
+import { add, filter, garbage, get, getAll, remove } from "../Api/StagePlot";
 
 const initialState = {
     StagePlot: [],
@@ -8,29 +9,47 @@ const initialState = {
     max:0
 }
 
-export const getStagePlot = createAsyncThunk(
-    "StagePlot/get",
+export const getAllStagePlot = createAsyncThunk(
+    "StagePlot/getAll",
     async () =>{
         const {data} = await getAll();
         return data
     }
 )
 
+
+
 export const garbageStagePlot = createAsyncThunk(
     "StagePlot/garbage",
     async(item) =>{
         const {data} = await garbage(item)
         console.log(data);
-        
         return data
     }
 ) 
+
+export const editStagePlot = createAsyncThunk(
+    "StagePlot/edit",
+    async(item:any)=>{
+        console.log(item);
+        const {data} = await axios.put(`http://localhost:3001/StagePlot/${item.id}`,item)
+        return data
+    }
+)
 
 
 export const removeStagePlot = createAsyncThunk(
     "StagePlot/remove",
     async (id:any) =>{
-        const {data} = await remove(id)
+        await remove(id)
+        return id
+    }
+)
+
+export const addStagePlot = createAsyncThunk(
+    "StagePlot/add",
+    async(item:any) =>{
+        const {data} = await axios.post("http://localhost:3001/StagePlot",item)
         return data
     }
 )
@@ -49,7 +68,7 @@ const StagePlot = createSlice({
     reducers: {
     },
     extraReducers: (builder) =>{
-      builder.addCase(getStagePlot.fulfilled, (state:any,action:any) =>{
+      builder.addCase(getAllStagePlot.fulfilled, (state:any,action:any) =>{
         state.StagePlot = action.payload
       });
       
@@ -58,9 +77,20 @@ const StagePlot = createSlice({
       });
       
       builder.addCase(removeStagePlot.fulfilled, (state:any,action:any) =>{
-        const newStagePlot:any = state.StagePlot.filter((item:any)  => item.id !== action.payload.id);
-        state.StagePlot = newStagePlot
+        const newStagePlot:any = state.StagePlot.filter((item:any)  => item.id !== action.payload);
+        state.StagePlot = newStagePlot        
       });
+
+      builder.addCase(addStagePlot.fulfilled, (state:any,action:any) =>{
+        state.StagePlot = [...state.StagePlot,action.payload]
+      });
+
+     builder.addCase(editStagePlot.fulfilled, (state:any,action:any) =>{
+        const newProducts = state.StagePlot.map((item:any) =>
+            item.id === action.payload.id ? action.payload : item
+        ) 
+        state.StagePlot = newProducts;
+        })
     }
 })
 
