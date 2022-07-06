@@ -1,6 +1,6 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import { add, filter, garbage, get, getAll, remove } from "../Api/StagePlot";
+import { add, edit, filter, garbage, get, getAll, remove } from "../Api/StagePlot";
 
 const initialState = {
     StagePlot: [],
@@ -32,7 +32,8 @@ export const editStagePlot = createAsyncThunk(
     "StagePlot/edit",
     async(item:any)=>{
         console.log(item);
-        const {data} = await axios.patch(`http://localhost:3001/StagePlot/${item.id}`,item)
+        const {data} = await edit(item)
+        // axios.patch(`http://localhost:3001/StagePlot/${item.id}`,item)
         return data
     }
 )
@@ -49,7 +50,8 @@ export const removeStagePlot = createAsyncThunk(
 export const addStagePlot = createAsyncThunk(
     "StagePlot/add",
     async(item:any) =>{
-        const {data} = await axios.post("http://localhost:3001/StagePlot",item)
+        const {data} = await add(item)
+        // axios.post("http://localhost:3001/StagePlot",item)
         return data
     }
 )
