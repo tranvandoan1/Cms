@@ -32,7 +32,7 @@ export const editStagePlot = createAsyncThunk(
     "StagePlot/edit",
     async(item:any)=>{
         console.log(item);
-        const {data} = await axios.put(`http://localhost:3001/StagePlot/${item.id}`,item)
+        const {data} = await axios.patch(`http://localhost:3001/StagePlot/${item.id}`,item)
         return data
     }
 )
