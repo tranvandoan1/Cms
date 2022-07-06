@@ -5,24 +5,29 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Button, Input, Table } from "antd";
-import React from "react";
+import useSelection from "antd/lib/table/hooks/useSelection";
+import React, { useEffect } from "react";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { AppDispatch, RootState } from "../../../../APP/Store";
+import {
+  getArtist,
+  removeArtist,
+  removeArtistt,
+} from "../../../../Features/ArtistSlice/ArtistSlice";
 
 const IndexArtist: React.FC = () => {
-  const dataSource: any = [
-    {
-      key: "1",
-      name: "Mike",
-      age: 32,
-      address: "10 Downing Street",
-    },
-    {
-      key: "2",
-      name: "John",
-      age: 42,
-      address: "10 Downing Street",
-    },
-  ];
+  const dispatch = useDispatch<AppDispatch>();
+  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+  const dataArtist = useAppSelector((data: any) => data.artist.value);
+  useEffect(() => {
+    dispatch(getArtist());
+  }, []);
+  const deleteArtist = (id: any) => {
+    const data = dataArtist.filter((item: any) => item.id !== id);
+    dispatch(removeArtist(id));
+    dispatch(removeArtistt(data));
+  };
 
   const columns: any = [
     {
@@ -32,25 +37,25 @@ const IndexArtist: React.FC = () => {
     },
     {
       title: "Ngày tháng tạo",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "time_start",
+      key: "time_start",
     },
     {
       title: "Ngày tháng sửa",
-      dataIndex: "address",
-      key: "address",
+      dataIndex: "time_end",
+      key: "time_end",
     },
 
     {
       title: "Thao tác",
-      dataIndex: "",
-      key: "address",
-      render: (address: any) => (
+      dataIndex: "id",
+      key: "id",
+      render: (id: any, data: any) => (
         <>
-          <Link to={`edit&&name=${"Mr Children"}&&id=${"1"}`}>
+          <Link to={`edit&&name=${data.name}&&id=${id}`}>
             <EditOutlined style={{ marginRight: 10 }} />
           </Link>
-          <DeleteOutlined />
+          <DeleteOutlined onClick={() => deleteArtist(id)} />
         </>
       ),
     },
@@ -86,7 +91,11 @@ const IndexArtist: React.FC = () => {
           </Link>
         </div>
       </div>
-      <Table dataSource={dataSource} columns={columns} />
+      <Table
+        rowKey={(item: any) => item.id}
+        dataSource={dataArtist}
+        columns={columns}
+      />
     </div>
   );
 };

@@ -1,18 +1,30 @@
 import { Button, DatePicker, Form, Input } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { AppDispatch, RootState } from "../../../../APP/Store";
+import { addArtist } from "../../../../Features/ArtistSlice/ArtistSlice";
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 type Props = {};
 
 const AddArtist = (props: Props) => {
+  const navigete = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+
   const onFinish = (values: any) => {
     console.log("Success:", values);
+    const newData: any = {
+      name: values.name,
+      time_end: values.time_end,
+      time_start: values.time_start,
+    };
+    console.log(newData);
+    dispatch(addArtist(newData));
+    navigete("/manage-artist");
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
   return (
     <div>
       <div
@@ -36,7 +48,6 @@ const AddArtist = (props: Props) => {
           remember: true,
         }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
@@ -56,7 +67,7 @@ const AddArtist = (props: Props) => {
         <Form.Item
           label="Thời gian bắt đầu"
           labelAlign="left"
-          name="time-start"
+          name="time_start"
           rules={[
             {
               required: true,
@@ -69,7 +80,7 @@ const AddArtist = (props: Props) => {
         <Form.Item
           label="Thời gian kết thúc"
           labelAlign="left"
-          name="time-end"
+          name="time_end"
           rules={[
             {
               required: true,
