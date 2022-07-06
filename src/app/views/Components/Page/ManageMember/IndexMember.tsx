@@ -5,24 +5,23 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { AppDispatch, RootState } from "../../../../APP/Store";
+import { getMember } from "./../../../../Features/MemberSlice/MemberSlice";
+import { getArtist } from "./../../../../Features/ArtistSlice/ArtistSlice";
 
 const IndexMember: React.FC = () => {
-  const dataSource = [
-    {
-      key: "1",
-      name: "Mike",
-      age: "M",
-      color: "blue",
-    },
-    {
-      key: "2",
-      name: "John",
-      age: "J",
-      color: "red",
-    },
-  ];
+  const dispatch = useDispatch<AppDispatch>();
+  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+  const dataMember = useAppSelector((data: any) => data.member.value);
+  const dataArtist = useAppSelector((data: any) => data.artist.value);
+  useEffect(() => {
+    dispatch(getMember());
+    dispatch(getArtist());
+  }, []);
+
   const columns = [
     {
       title: "Tên",
@@ -30,9 +29,23 @@ const IndexMember: React.FC = () => {
       key: "name",
     },
     {
+      title: "Nhóm nhạc",
+      dataIndex: "artist_id",
+      key: "artist_id",
+      render: (artist_id: any, data: any) => {
+        return (
+          <>
+            {dataArtist.map(
+              (item: any) => item.artist_id == artist_id && item.name
+            )}
+          </>
+        );
+      },
+    },
+    {
       title: "Chữ cái đại diện",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "first_letter",
+      key: "first_letter",
     },
     {
       title: "Màu đại diện",
@@ -45,12 +58,13 @@ const IndexMember: React.FC = () => {
 
     {
       title: "Thao tác",
-      dataIndex: "",
-      key: "address",
-      render: (address: any) => (
+      dataIndex: "id",
+      key: "id",
+      render: (id: any, data: any) => (
         <>
-          <EditOutlined style={{ marginRight: 10 }} />
-
+          <Link to={`edit&&name=${data.name}&&id=${id}`}>
+            <EditOutlined style={{ marginRight: 10 }} />
+          </Link>
           <DeleteOutlined />
         </>
       ),
@@ -69,7 +83,7 @@ const IndexMember: React.FC = () => {
           marginBottom: 10,
         }}
       >
-        <h3>Quản lý member</h3>
+        <h3>Quản lý thành viên</h3>
         <div
           style={{
             display: "flex",
@@ -88,7 +102,7 @@ const IndexMember: React.FC = () => {
           </Link>
         </div>
       </div>
-      <Table dataSource={dataSource} columns={columns} />
+      <Table dataSource={dataMember} columns={columns} />
     </div>
   );
 };

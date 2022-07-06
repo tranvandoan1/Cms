@@ -1,18 +1,31 @@
 import { Button, DatePicker, Form, Input } from "antd";
 import React, { useState } from "react";
+import { HexColorPicker } from "react-colorful";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { AppDispatch } from "../../../../APP/Store";
+import { addMember } from "../../../../Features/MemberSlice/MemberSlice";
+
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 type Props = {};
 
-const AddArtist = (props: Props) => {
+const AddMember = (props: Props) => {
+  const [color, setColor] = useState();
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
   const onFinish = (values: any) => {
-    console.log("Success:", values);
+    const newData = {
+      color: color,
+      first_letter: values.first_letter,
+      name: values.name,
+      artist_id: "",
+    };
+    dispatch(addMember(newData));
+    navigate("/admin/manage-member");
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
   return (
     <div>
       <div
@@ -22,7 +35,7 @@ const AddArtist = (props: Props) => {
           marginBottom: 10,
         }}
       >
-        <h3>Thêm artist</h3>
+        <h3>Thêm thành viên</h3>
       </div>
       <Form
         name="basic"
@@ -36,11 +49,10 @@ const AddArtist = (props: Props) => {
           remember: true,
         }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
-          label="Tên các nhóm nhạc"
+          label="Tên thành viên"
           name="name"
           labelAlign="left"
           rules={[
@@ -50,26 +62,26 @@ const AddArtist = (props: Props) => {
             },
           ]}
         >
-          <Input placeholder="Tên các nhóm nhạc mà công ty hợp tác, quản lý" />
+          <Input placeholder="Tên thành viên" />
         </Form.Item>
 
         <Form.Item
-          label="Thời gian bắt đầu"
+          label="Chữ cái"
           labelAlign="left"
-          name="time-start"
+          name="first_letter"
           rules={[
             {
               required: true,
-              message: "Bạn chưa chọn thời gian bắt đầu!",
+              message: "Bạn chưa nhập chữ cái!",
             },
           ]}
         >
-          <DatePicker placeholder="Ngày bắt đầu" />
+          <Input placeholder="Chữ cái dùng để tạo symbol" />
         </Form.Item>
         <Form.Item
-          label="Thời gian kết thúc"
+          label="Màu để tạo symbol"
           labelAlign="left"
-          name="time-end"
+          name="color"
           rules={[
             {
               required: true,
@@ -77,7 +89,7 @@ const AddArtist = (props: Props) => {
             },
           ]}
         >
-          <DatePicker />
+          <HexColorPicker color={color} onChange={(e: any) => setColor(e)} />
         </Form.Item>
         <Form.Item
           wrapperCol={{
@@ -93,4 +105,4 @@ const AddArtist = (props: Props) => {
     </div>
   );
 };
-export default AddArtist;
+export default AddMember;
