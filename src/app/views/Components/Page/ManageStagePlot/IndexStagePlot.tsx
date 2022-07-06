@@ -50,8 +50,8 @@ const IndexStagePlot: React.FC = () => {
     },
     {
       title: "Chữ cái đại diện",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "represen",
+      key: "represen",
     },
     {
       title: "Màu đại diện",
@@ -59,6 +59,17 @@ const IndexStagePlot: React.FC = () => {
       key: "color",
       render: (color: any) => (
         <div style={{ width: "50px", background: color, height: "50px" }}></div>
+      ),
+    },
+
+    {
+      title: "Ảnh",
+      dataIndex: "images",
+      key: "images",
+      render: (images: any) => (
+        <>
+          <img src={images} width="180" />
+        </>
       ),
     },
 
@@ -114,7 +125,14 @@ const IndexStagePlot: React.FC = () => {
           </Link>
         </div>
       </div>
-      <ReactSketchCanvas ref={canvas} strokeWidth={1} strokeColor="black" />
+      {/* <ReactSketchCanvas 
+        ref={canvas} 
+        style={{border:"0.0625rem solid #9c9c9c", borderRadius:"0.25rem"}}
+        strokeWidth={4} 
+        strokeColor="black"
+        width="600"
+        height="400px"
+      />
       <button
         onClick={() => {
           canvas.current
@@ -128,7 +146,7 @@ const IndexStagePlot: React.FC = () => {
         }}
       >
         Get Image
-      </button>
+      </button> */}
 
       <Table dataSource={StagePlot} columns={columns} rowKey={item => item.id} />
     </div>
