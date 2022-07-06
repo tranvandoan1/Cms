@@ -21,9 +21,9 @@ function App() {
   return (
     <Routes>
       <Route path="/admin/*" element={
-        // <AdminRoute>
+        <AdminRoute>
           <LayoutAdmin />
-        // </AdminRoute>
+        </AdminRoute>
       }>
         <Route path="manage-artist" element={<IndexArtist />} />
         <Route path="manage-artist/add" element={<AddArtist />} />
