@@ -50,7 +50,7 @@ const LayoutAdmin: React.FC = () => {
       <BsLayoutTextWindow />,
       <Link to="manage-stage-plot" />
     ),
-    getItem("Generate password", "10", <BsKey />, <Link to="manage-setlist" />),
+    getItem("Generate password", "10", <BsKey />, <Link to="manage-generate-password" />),
   ];
   return (
     <div>

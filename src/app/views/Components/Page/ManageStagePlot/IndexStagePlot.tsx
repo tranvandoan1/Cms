@@ -5,43 +5,40 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import { Button, Input, Table } from "antd";
-import Search from "antd/lib/transfer/search";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { ReactSketchCanvas } from "react-sketch-canvas";
-import { filterStagePlot, getAllStagePlot,removeStagePlot } from "../../../Slide/StagePlot";
+import {
+  filterStagePlot,
+  getAllStagePlot,
+  removeStagePlot,
+} from "../../../Slide/StagePlot";
 
 const IndexStagePlot: React.FC = () => {
-  const canvas: any = useRef<HTMLInputElement>();
-  const StagePlot = useSelector((state:any) => state.StagePlot.StagePlot);
-  const  dispath:any = useDispatch()
+  const StagePlot = useSelector((state: any) => state.StagePlot.StagePlot);
+  const dispath: any = useDispatch();
 
-  useEffect(() =>{
-    dispath(getAllStagePlot())
-  },[])
+  useEffect(() => {
+    dispath(getAllStagePlot());
+  },[]);
 
-  const onHandleRemove = async (id:number) => {
-    const isConfirm = window.confirm(
-      "bạn muốn xóa sản phẩm này?"
-    );
-   
-    if(isConfirm){
-      dispath(removeStagePlot(id))
+  const onHandleRemove = async (id: number) => {
+    const isConfirm = window.confirm("bạn muốn xóa sản phẩm này?");
+
+    if (isConfirm) {
+      dispath(removeStagePlot(id));
     }
-   
   };
-  const Search = () =>{
-    const values:any = document.getElementById("search")
-    const value:any= values.value
+  const Search = () => {
+    const values: any = document.getElementById("search");
+    const value: any = values.value;
     console.log(value);
-    if(StagePlot){
-      dispath(filterStagePlot(value))
+    if (StagePlot) {
+      dispath(filterStagePlot(value));
     }
-   
-  }
+  };
   // console.log(StagePlot);
-  
+
   const columns = [
     {
       title: "Tên",
@@ -80,7 +77,9 @@ const IndexStagePlot: React.FC = () => {
       render: (item: any) => (
         <>
           <div>
-            <Link to={`/admin/manage-stage-plot/edit&&name=${item.name}&&id=${item.id}`}>
+            <Link
+              to={`/admin/manage-stage-plot/edit&&name=${item.name}&&id=${item.id}`}
+            >
               <EditOutlined style={{ marginRight: 10 }} />
             </Link>
             <span onClick={() => onHandleRemove(item.id)}>
@@ -148,7 +147,11 @@ const IndexStagePlot: React.FC = () => {
         Get Image
       </button> */}
 
-      <Table dataSource={StagePlot} columns={columns} rowKey={item => item.id} />
+      <Table
+        dataSource={StagePlot}
+        columns={columns}
+        rowKey={(item) => item.id}
+      />
     </div>
   );
 };
