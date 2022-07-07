@@ -30,6 +30,8 @@ const IndexGeneratePassword: React.FC = () => {
     const onHandleRemove = (item:any) =>{
         if(item.id ===1){
             alert("bạn không thể xóa tài khoản admin")
+        }else{
+          alert("xoa thanh cong")
         }
     }
     console.log(users);
@@ -114,7 +116,7 @@ const IndexGeneratePassword: React.FC = () => {
       <Table
         dataSource={users}
         columns={columns}
-        rowKey={(item) => item}
+        rowKey={(item:any) => item.id}
       />
     </div>
   );

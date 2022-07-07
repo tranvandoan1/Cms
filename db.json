@@ -25,9 +25,15 @@
   "users": [
     {
       "email": "thienhotdog@gmail.com",
-      "password": "$2a$10$HAi6ghL6nyyXDMA/e/s9/ebMThJlazN9GqbuFbxcCg8hg.8pFLUDO",
+      "password": "$2a$10$atrQzrMl7BFFe5MXFryxZeo8DlS9a.dpwaFDt/tNJO8CaQuHgjOI6",
       "id": 1,
       "name": "Hiểu"
+    },
+    {
+      "email": "a@gmail.com",
+      "password": "$2a$10$w05pi6LO23e6ElW09dAKp.gNji3JFMEfcxk5rPWqWjnXwsgh97GdK",
+      "id": 2,
+      "name": "Đoàn"
     }
   ]
 }

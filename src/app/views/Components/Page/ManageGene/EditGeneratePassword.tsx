@@ -21,11 +21,11 @@ const EditGeneratePassword:React.FC = ()=>{
             name:values.name,
             images: values.images
         }
-        // await edit(newUsers)
-        // alert("update thành công")
-        // navigate("/admin/manage-generate-password")
+        await edit(newUsers)
+        alert("update thành công")
+        navigate("/admin/manage-generate-password")
     }
-    console.log(user);
+    // console.log(user);
     return(
         <div>
         <div
@@ -59,8 +59,7 @@ const EditGeneratePassword:React.FC = ()=>{
               rules={[
                   {
                     transform(value) {
-                      console.log(value.length);
-                      
+                      // console.log(value.length);
                         if(value.length === 0){
                          return{ required: true}
                         }

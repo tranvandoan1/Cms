@@ -14,8 +14,9 @@ const AddGeneratePassword: React.FC = () => {
         await signup(user);
         alert("Tạo tài khoản thành công")
         navigate("/admin/manage-generate-password");
-      } catch (error) {
-        console.log(error);
+      } catch (error:any) {
+        console.log(error)
+        alert(error.response.data)
       }
     } else {
       alert("nhập lại password chưa khớp");
