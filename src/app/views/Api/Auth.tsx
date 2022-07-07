@@ -24,3 +24,8 @@ export const filter = (value:string) =>{
     const url =`/users?email_like=${value}`
     return instance.get(url)
 }
+
+export const remove = (id:any) =>{
+    const url  =  `/users/${id}`
+    return instance.delete(url)
+}

@@ -5,7 +5,7 @@ const AddGeneratePassword: React.FC = () => {
   const navigate = useNavigate();
   const onFinish = async (values: any) => {
     console.log(values);
-    if (values.password == values.idpassword) {
+    if (values.password === values.idpassword) {
       try {
         const user = {
           email: values.email,

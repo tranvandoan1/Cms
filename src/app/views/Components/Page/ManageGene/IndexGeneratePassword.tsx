@@ -6,18 +6,17 @@ import {
 } from "@ant-design/icons";
 import { Input, Button, Table } from "antd";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { filter, getAll } from "../../../Api/Auth";
+import { deleteUser, getAllUser } from "../../../Slide/AuthSlide";
 
 const IndexGeneratePassword: React.FC = () => {
 
-    const [users,setUsers]= useState([])
+    const users = useSelector((state:any) => state.user.user)
+    const dispath:any = useDispatch()
     useEffect(()=>{
-        const getUser = async()=>{
-            const {data} = await getAll()
-            setUsers(data)
-        }
-        getUser()
+        dispath(getAllUser())
     },[])
     const Search = async() => {
       const values: any = document.getElementById("search");
@@ -25,13 +24,15 @@ const IndexGeneratePassword: React.FC = () => {
       console.log(value);
       const {data} = await filter(value)
       console.log(data);
-      setUsers(data)
     };
     const onHandleRemove = (item:any) =>{
         if(item.id ===1){
             alert("bạn không thể xóa tài khoản admin")
         }else{
-          alert("xoa thanh cong")
+          const isConfirm = window.confirm("bạn muốn xóa sản phẩm này?");
+          if(isConfirm){
+            dispath(deleteUser(item.id))
+          }
         }
     }
     console.log(users);
@@ -112,12 +113,15 @@ const IndexGeneratePassword: React.FC = () => {
           </Link>
         </div>
       </div>
-
-      <Table
-        dataSource={users}
-        columns={columns}
-        rowKey={(item:any) => item.id}
-      />
+          {
+          (users) ?(
+             <Table
+             dataSource={users}
+             columns={columns}
+             rowKey={(item:any) => item.id}
+           />
+          ):null}
+     
     </div>
   );
 };

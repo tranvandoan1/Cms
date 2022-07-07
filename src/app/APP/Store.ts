@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import artistsSlice from "../Features/ArtistSlice/ArtistSlice";
+import AuthSlide from "../views/Slide/AuthSlide";
 import StagePlot from "../views/Slide/StagePlot";
 export const store = configureStore({
   reducer: {
     artist: artistsSlice,
-    StagePlot: StagePlot.reducer
+    StagePlot: StagePlot.reducer,
+    user: AuthSlide.reducer
   },
 });
 export type RootState = ReturnType<typeof store.getState>; // A global type to access reducers types

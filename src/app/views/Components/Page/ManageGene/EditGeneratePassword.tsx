@@ -1,8 +1,9 @@
 import { Form,Button,Input } from "antd"
 import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
-import { transform } from "typescript"
 import { edit, get } from "../../../Api/Auth"
+import { editUser } from "../../../Slide/AuthSlide"
 const EditGeneratePassword:React.FC = ()=>{
     const {id} = useParams()
     const [user,setUsers] = useState<any>()
@@ -13,6 +14,7 @@ const EditGeneratePassword:React.FC = ()=>{
         }
         getUsers()
     },[])
+    const dispath:any = useDispatch()
     const navigate = useNavigate()
     const onFinish = async(values:any)=>{
         console.log(values);
@@ -21,7 +23,9 @@ const EditGeneratePassword:React.FC = ()=>{
             name:values.name,
             images: values.images
         }
-        await edit(newUsers)
+        console.log(newUsers);
+        
+       dispath(editUser(newUsers))
         alert("update thành công")
         navigate("/admin/manage-generate-password")
     }
@@ -37,7 +41,7 @@ const EditGeneratePassword:React.FC = ()=>{
         >
           <h3>Tài khoản</h3>
         </div>
-        {(user != undefined)?(
+        {(user !== undefined)?(
             <Form
             name="basic"
             labelCol={{
@@ -67,7 +71,12 @@ const EditGeneratePassword:React.FC = ()=>{
                   } 
               ]}
             >
-              <Input type="text" placeholder="Tên người dùng" defaultValue={user?.name} value={user.name}  />
+              <Input 
+                type="text" 
+                placeholder="Tên người dùng" 
+                defaultValue={user?.name} 
+                value={user.name}  
+              />
               
             </Form.Item>
 
