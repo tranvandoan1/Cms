@@ -9,12 +9,16 @@ import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
-import { getSong, removeSong, removeSongg } from "./../../../../Features/SongSlice/SongSlice";
+import {
+  getSong,
+  removeSong,
+  removeSongg,
+} from "../../../../Features/SongSlice/SongSlice";
 import "../../../../Style/ListSong.css";
 type ListSongs = {
   idd: any;
 };
-const IndexSongs: React.FC = () => {
+const ListSongs: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const [showLyrics, setShowLyrics] = useState<ListSongs>();
@@ -27,7 +31,7 @@ const IndexSongs: React.FC = () => {
       title: "Tên bài hát",
       dataIndex: "name",
       key: "name",
-      render:(name:any)=>(<div style={{width:100}}>{name}</div>)
+      render: (name: any) => <div style={{ width: 100 }}>{name}</div>,
     },
     {
       title: "Thời gian",
@@ -39,41 +43,36 @@ const IndexSongs: React.FC = () => {
       dataIndex: "lyrics",
       key: "lyrics",
       render: (lyrics: any, data: any) => (
-        (
-          <div style={{ width: "350px" }}>
-            <p
-              style={{ width: "100%" }}
-              dangerouslySetInnerHTML={{
-                __html:
-                  showLyrics == data.id ? lyrics : `${lyrics.slice(0, 400)}...`,
-              }}
-            />
-            {showLyrics !== data.id && (
-              <span
-                className="see_more"
-                onClick={() =>
-                  setShowLyrics(
-                    showLyrics == undefined
-                      ? data.id
-                      : showLyrics == data.id
-                      ? undefined
-                      : data.id
-                  )
-                }
-              >
-                Xem thêm
-              </span>
-            )}
-            {showLyrics == data.id && (
-              <span
-                className="see_more"
-                onClick={() => setShowLyrics(undefined)}
-              >
-                Thu gọn
-              </span>
-            )}
-          </div>
-        )
+        <div style={{ width: "350px" }}>
+          <p
+            style={{ width: "100%" }}
+            dangerouslySetInnerHTML={{
+              __html:
+                showLyrics == data.id ? lyrics : `${lyrics.slice(0, 400)}...`,
+            }}
+          />
+          {showLyrics !== data.id && (
+            <span
+              className="see_more"
+              onClick={() =>
+                setShowLyrics(
+                  showLyrics == undefined
+                    ? data.id
+                    : showLyrics == data.id
+                    ? undefined
+                    : data.id
+                )
+              }
+            >
+              Xem thêm
+            </span>
+          )}
+          {showLyrics == data.id && (
+            <span className="see_more" onClick={() => setShowLyrics(undefined)}>
+              Thu gọn
+            </span>
+          )}
+        </div>
       ),
     },
 
@@ -96,7 +95,7 @@ const IndexSongs: React.FC = () => {
           <Link to={`edit&&name=${data.name}&&id=${id}`}>
             <EditOutlined style={{ marginRight: 10 }} />
           </Link>
-          <DeleteOutlined onClick={()=>deleteSong(id)}/>
+          <DeleteOutlined onClick={() => deleteSong(id)} />
         </>
       ),
     },
@@ -111,30 +110,26 @@ const IndexSongs: React.FC = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          paddingBottom: 10,
-          borderBottom: "1px solid rgb(228, 228, 228) ",
-          marginBottom: 10,
+          margin: "20px 0",
+          justifyContent: "space-between",
         }}
       >
-        <h3>Quản lý bài hát</h3>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <Input
-            style={{ marginRight: 10 }}
-            placeholder="Tìm kiếm"
-            prefix={<SearchOutlined />}
-          />
-          <Link to="add">
-            <Button
-              icon={<PlusOutlined style={{ color: "#1890ff" }} />}
-            ></Button>
-          </Link>
+        <div className="flex">
+          <Input placeholder="Basic usage" />
+          <Button
+            style={{ background: "black", color: "#fff", marginLeft: 10 }}
+          >
+            Search
+          </Button>
+        </div>
+        <div className="flex">
+          <Button style={{ background: "black", color: "#fff" }}>
+            <PlusOutlined />
+          </Button>
+          <span className="add" style={{ marginLeft: 10 }}>
+            Create New Artist
+          </span>
         </div>
       </div>
       <Table dataSource={dataSong} columns={columns} />
@@ -142,4 +137,4 @@ const IndexSongs: React.FC = () => {
   );
 };
 
-export default IndexSongs;
+export default ListSongs;

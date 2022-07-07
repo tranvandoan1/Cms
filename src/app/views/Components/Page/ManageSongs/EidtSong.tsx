@@ -58,11 +58,11 @@ const EidtSong = (props: Props) => {
         newData.push(item);
       }
     });
-    dispatch(uploadSong({ id: id, data: editData }));
-    dispatch(uploadSongg(newData));
-    navigete("/admin/manage-songs");
+    // dispatch(uploadSong({ id: id, data: editData }));
+    // dispatch(uploadSongg(newData));
+    // navigete("/admin/manage-songs");
   };
-
+console.log(valueText)
   return (
     <div>
       <div
@@ -105,7 +105,7 @@ const EidtSong = (props: Props) => {
           <Form.Item label="Lời bài hát" labelAlign="left" name="lyrics">
             <Editor
               apiKey="f5r9v2m5jorsgp469noiiqpd10fc7xhmn3th5897ghxcpank"
-              onEditorChange={(newText: any) => setValueText(newText)}
+              onEditorChange={(newText: any) => (setValueText(newText),console.log(valueText))}
               value={valueText == undefined ? dataEdit.lyrics : valueText}
               init={{
                 height: 400,

@@ -1,0 +1,9 @@
+.ant-table-thead > tr > th {
+  background-color: #00b0f0 !important;
+
+}
+.ant-table-tbody > tr > td{
+  background-color: black !important;
+  border-bottom: none ;
+  color: #FFFFFF;
+}
