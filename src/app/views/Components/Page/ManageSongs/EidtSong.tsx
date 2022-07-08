@@ -30,7 +30,7 @@ const { TextArea } = Input;
 type Props = {};
 
 const EidtSong = (props: Props) => {
-  const navigete = useNavigate();
+  const navigate = useNavigate();
   const { name, id, name_song, id_song } = useParams();
 
   const [valueText, setValueText] = useState("");
@@ -80,7 +80,7 @@ const EidtSong = (props: Props) => {
     };
 
     dispatch(uploadSong({ id: id_song, data: editData }));
-    navigete(`/artist&&name=${name}&&id=${id}/songs`);
+    navigate(`/artist&&name=${name}&&id=${id}/songs`);
     message.success("Edit successful");
   };
   return (

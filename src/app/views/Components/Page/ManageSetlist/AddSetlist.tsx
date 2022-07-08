@@ -28,19 +28,17 @@ const AddSetlist = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const dataSongs = useAppSelector((data: any) => data.songs.value);
-  const dataArtist = useAppSelector((data: any) => data.artist.value);
   useEffect(() => {
     dispatch(getSong());
-    dispatch(getArtist());
   }, []);
   const onFinish = (values: any) => {
     const time_start = new Date(values.time_start._d);
-    const time_end = new Date(values.time_end._d);
     const newData = {
       detail: values.detail,
       name: values.name,
       artist_id: id,
       songs: values.id_music,
+      time_upload: "",
       time_start: `
       ${
         String(time_start.getHours()).length == 1 && 0
@@ -143,7 +141,6 @@ const AddSetlist = (props: Props) => {
               <TimePicker defaultOpenValue={moment("00:00:00", "HH:mm:ss")} />
             </Form.Item>
           </Col>
-        
         </Row>
         <Form.Item
           label="Detail"

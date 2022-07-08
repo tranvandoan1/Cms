@@ -4,6 +4,7 @@ import {
   DatePicker,
   Form,
   Input,
+  message,
   Row,
   Select,
   TimePicker,
@@ -27,26 +28,26 @@ type Props = {};
 
 const EidtSetlist = (props: Props) => {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { name, id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const dataSetList = useAppSelector((data: any) => data.setlist.value);
-  const dataArtist = useAppSelector((data: any) => data.artist.value);
   const dataSongs = useAppSelector((data: any) => data.songs.value);
   const dataEdit = dataSetList?.find((item: any) => item.id == id);
   useEffect(() => {
     dispatch(getSetList());
-    dispatch(getArtist());
     dispatch(getSong());
   }, []);
   const onFinish = (values: any) => {
     const time = new Date(values.time._d);
+    const time_upload = new Date();
     const editData: any = {
-      bpm: values.bpm == undefined ? dataEdit.bpm : values.bpm,
-      mic: values.mic == undefined ? dataEdit.mic : values.mic,
-      mp4: values.mp4 == undefined ? dataEdit.mp4 : values.mp4,
-      scene: values.scene == undefined ? dataEdit.scene : values.scene,
-      time:
+      detail: values.detail == undefined ? dataEdit.detail : values.detail,
+      time_upload: time_upload,
+      name: values.name == undefined ? dataEdit.name : values.name_munamesic,
+      artist_id: dataEdit.artist_id,
+      id_music: values.songs == undefined ? dataEdit.songs : values.songs,
+      time_start:
         time == undefined
           ? dataEdit.time
           : `
@@ -55,30 +56,11 @@ const EidtSetlist = (props: Props) => {
             }${time.getMinutes()}:${
               String(time.getMilliseconds()).length == 1 && 0
             }${time.getSeconds()}`,
-      group_name:
-        values.group_name == undefined
-          ? dataEdit.group_name
-          : values.group_name,
-      name_music:
-        values.name_music == undefined
-          ? dataEdit.name_music
-          : values.name_music,
-      small_props:
-        values.small_props == undefined
-          ? dataEdit.small_props
-          : values.small_props,
     };
-    const newData: any = [];
-    dataArtist.map((item: any) => {
-      if (item.id == id) {
-        newData.push({ ...editData, id });
-      } else {
-        newData.push(item);
-      }
-    });
+
     dispatch(uploadSetList({ id: id, data: editData }));
-    dispatch(uploadSetListt(newData));
-    navigate("/admin/manage-setlist");
+    navigate(`/artist&&name=${name}&&id=${id}/songs`);
+    message.success("Edit successful");
   };
 
   return (
@@ -87,10 +69,10 @@ const EidtSetlist = (props: Props) => {
         style={{
           paddingBottom: 10,
           borderBottom: "1px solid rgb(228, 228, 228) ",
-          marginBottom: 10,
+          marginBottom: 30,
         }}
       >
-        <h3>Sửa chương trình</h3>
+        <h3 style={{ color: "#fff", marginTop: "20px" }}>Add setlist</h3>
       </div>
       {dataEdit !== undefined && (
         <Form
@@ -110,109 +92,75 @@ const EidtSetlist = (props: Props) => {
           <Row>
             <Col xs={12} sm={4} md={12} lg={12} xl={12}>
               <Form.Item
-                label="Tên nhóm nhạc"
-                name="group_name"
-                labelAlign="left"
-                style={{ padding: "0 20px" }}
-              >
-                <Select
-                  placeholder="Chọn nhóm nhạc"
-                  defaultValue={`${dataEdit.group_name}`}
-                >
-                  {dataArtist.map((item: any, index: any) => (
-                    <Select.Option key={index} value={item.name}>
-                      {item.name}
-                    </Select.Option>
-                  ))}
-                </Select>
-              </Form.Item>
-            </Col>
-            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-              <Form.Item
-                label="Bài hát"
-                name="name_music"
-                labelAlign="left"
-                style={{ padding: "0 20px" }}
-              >
-                <Select
-                  placeholder="Chọn bài hát"
-                  defaultValue={`${dataEdit.name_music}`}
-                >
-                  {dataSongs.map((item: any, index: any) => (
-                    <Select.Option key={index} value={item.name}>
-                      {item.name}
-                    </Select.Option>
-                  ))}
-                </Select>
-              </Form.Item>
-            </Col>
-            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-              <Form.Item
-                label="Thời gian"
-                name="time"
-                labelAlign="left"
-                style={{ padding: "0 20px" }}
-              >
-                <TimePicker
-                  defaultValue={moment(`${dataEdit.time}`, "HH:mm:ss")}
-                />
-              </Form.Item>
-            </Col>
-            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-              <Form.Item
-                label="Bpm"
-                name="bpm"
-                labelAlign="left"
-                style={{ padding: "0 20px" }}
-              >
-                <Input defaultValue={dataEdit.bpm} placeholder="Bpm" />
-              </Form.Item>
-            </Col>
-            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-              <Form.Item
-                label="MP4"
-                name="mp4"
-                labelAlign="left"
-                style={{ padding: "0 20px" }}
-              >
-                <Input defaultValue={dataEdit.mp4} placeholder="MP4" />
-              </Form.Item>
-            </Col>
-            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-              <Form.Item
-                label="SCENE"
-                name="scene"
-                style={{ padding: "0 20px" }}
-                labelAlign="left"
-              >
-                <Input defaultValue={dataEdit.scene} placeholder="SCENE" />
-              </Form.Item>
-            </Col>
-            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-              <Form.Item
-                label="MIC"
-                name="mic"
-                labelAlign="left"
-                style={{ padding: "0 20px" }}
-              >
-                <Input defaultValue={dataEdit.mic} placeholder="Mic" />
-              </Form.Item>
-            </Col>
-            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-              <Form.Item
-                label="Đạo cụ"
-                name="small_props"
+                label="Name setlist"
+                name="name"
                 labelAlign="left"
                 style={{ padding: "0 20px" }}
               >
                 <Input
-                  defaultValue={dataEdit.small_props}
-                  placeholder="Đạo cụ"
+                  defaultValue={dataEdit.name}
+                  placeholder="Name setlist"
+                />
+              </Form.Item>
+            </Col>
+            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
+              <Form.Item
+                label="Songs"
+                name="id_music"
+                labelAlign="left"
+                style={{ padding: "0 20px" }}
+              >
+                <Select
+                  mode="multiple"
+                  allowClear
+                  style={{
+                    width: "100%",
+                  }}
+                  defaultValue={dataEdit.id_music}
+                  placeholder="Choose a song"
+                >
+                  {dataSongs.map((item: any, index: any) => (
+                    <Select.Option key={index} value={item.id}>
+                      {item.name}
+                    </Select.Option>
+                  ))}
+                </Select>
+              </Form.Item>
+            </Col>
+            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
+              <Form.Item
+                label="Time start"
+                name="time_start"
+                labelAlign="left"
+                style={{ padding: "0 20px" }}
+              >
+                <TimePicker
+                  defaultValue={moment(`${dataEdit.time_start}`, "HH:mm:ss")}
+                  defaultOpenValue={moment("00:00:00", "HH:mm:ss")}
                 />
               </Form.Item>
             </Col>
           </Row>
-
+          <Form.Item
+            label="Detail"
+            name="detail"
+            labelAlign="left"
+            wrapperCol={{
+              offset: 0,
+              span: 20,
+            }}
+            labelCol={{
+              offset: 0,
+              span: 4,
+            }}
+            style={{ padding: "0 20px" }}
+          >
+            <TextArea
+              defaultValue={dataEdit.detail}
+              rows={4}
+              placeholder="Detail"
+            />
+          </Form.Item>
           <Form.Item
             wrapperCol={{
               offset: 12,
@@ -220,7 +168,7 @@ const EidtSetlist = (props: Props) => {
             }}
           >
             <Button type="primary" htmlType="submit">
-              Sửa
+              Thêm
             </Button>
           </Form.Item>
         </Form>
