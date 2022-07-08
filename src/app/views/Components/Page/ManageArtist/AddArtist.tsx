@@ -1,4 +1,6 @@
-import { Button, DatePicker, Form, Input, Select } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import { Button, DatePicker, Form, Input, Select, Spin, Upload } from "antd";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,14 +9,18 @@ import {
   addArtist,
   getArtist,
 } from "../../../../Features/ArtistSlice/ArtistSlice";
+import { storage } from "../../../firebase";
 import {
   getMember,
   uploadMember,
 } from "./../../../../Features/MemberSlice/MemberSlice";
+import "../../../../Style/ListDetailArtist.css";
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-type Props = {};
+type Props = {
+  check: () => void;
+};
 type Members = {
   members: any;
 };
@@ -48,20 +54,27 @@ const AddArtist = (props: Props) => {
 
     const newData: any = {
       name: values.name,
-      time_end: values.time_end,
       time_start: values.time_start,
+      avatar: imageUrlAvatar,
       number_members: members,
-      artist_id: artist_id
+      artist_id: artist_id,
     };
     dispatch(addArtist(newData));
-    navigate("/admin/manage-artist");
-  };
-  const handleChange = (values: any) => {
-    console.log(values);
-
-    setMembers(values);
+    props.check();
   };
 
+  const [loading, setLoading] = useState(false);
+  const [imageUrlAvatar, setImageUrlAvatar] = useState();
+  const UploadAvatatr = (file: any) => {
+    const imageRef = ref(storage, `images/${file.name}`);
+    setLoading(true);
+    uploadBytes(imageRef, file).then(() => {
+      getDownloadURL(imageRef).then(async (url: any) => {
+        setImageUrlAvatar(url);
+        setLoading(false);
+      });
+    });
+  };
   return (
     <div>
       <div
@@ -71,7 +84,7 @@ const AddArtist = (props: Props) => {
           marginBottom: 10,
         }}
       >
-        <h3>Thêm nhóm nhạc</h3>
+        <h3 className="title-add-artist"> Create New Artist</h3>
       </div>
       <Form
         name="basic"
@@ -88,64 +101,67 @@ const AddArtist = (props: Props) => {
         autoComplete="off"
       >
         <Form.Item
-          label="Tên các nhóm nhạc"
+          label="Name Artist"
           name="name"
           labelAlign="left"
           rules={[
             {
               required: true,
-              message: "Bạn chưa nhập tên!",
+              message: "You have not entered your name artist!",
             },
           ]}
         >
-          <Input placeholder="Tên các nhóm nhạc mà công ty hợp tác, quản lý" />
+          <Input placeholder="Name artist" />
         </Form.Item>
 
         <Form.Item
-          label="Thời gian bắt đầu"
+          label="Time start"
           labelAlign="left"
           name="time_start"
           rules={[
             {
               required: true,
-              message: "Bạn chưa chọn thời gian bắt đầu!",
+              message: "You have not entered your time start!",
             },
           ]}
         >
-          <DatePicker placeholder="Ngày bắt đầu" />
+          <DatePicker placeholder="Time start" />
         </Form.Item>
-        <Form.Item
-          label="Thời gian kết thúc"
-          labelAlign="left"
-          name="time_end"
-          rules={[
-            {
-              required: true,
-              message: "Bạn chưa chọn thời gian kết thúc!",
-            },
-          ]}
-        >
-          <DatePicker />
-        </Form.Item>
-        <Form.Item
-          label="Thêm thành viên"
-          labelAlign="left"
-          name="number_members"
-        >
+
+        <Form.Item label="Add members" labelAlign="left" name="number_members">
           <Select
             mode="multiple"
             allowClear
             style={{
               width: "100%",
             }}
-            placeholder="Thêm thành viên"
-            onChange={handleChange}
+            placeholder="Add members"
+            onChange={(e: any) => setMembers(e)}
           >
             {dataMember.map((item: any, index: any) => {
               return <Select.Option key={item.id}>{item.name}</Select.Option>;
             })}
           </Select>
         </Form.Item>
+        <Form.Item name="avatar" labelAlign="left" label="Avatar">
+          <Upload
+            disabled={loading == true && true}
+            showUploadList={false}
+            beforeUpload={UploadAvatatr}
+            name="logo"
+            listType="picture"
+          >
+            <Button icon={<UploadOutlined />}>Upload Image</Button>
+          </Upload>
+          {loading == true ? (
+            <Spin style={{ marginLeft: 10 }} />
+          ) : (
+            <div className="edit">
+              <img src={imageUrlAvatar == undefined ? "" : imageUrlAvatar} />
+            </div>
+          )}
+        </Form.Item>
+
         <Form.Item
           wrapperCol={{
             offset: 6,

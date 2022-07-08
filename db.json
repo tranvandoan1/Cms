@@ -1,39 +1,36 @@
 {
   "artist": [
     {
-      "name": "Mới sửa",
-      "time_upload": "2022-07-29T10:40:07.677Z",
+      "name": "Mới sửa3e",
+      "time_upload": "2022-7-8",
       "time_start": "2022-07-12T10:40:05.864Z",
-      "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
-      "number_members": [
-        "2",
-        "4"
-      ],
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fsticker.webp?alt=media&token=ebf2af05-aee6-48ec-8f73-b6ca79023a79",
+      "number_members": ["2", "4"],
       "artist_id": 0.9175662264095152,
       "id": 1
     },
     {
-      "name": "Mr Children1",
-      "time_upload": "2022-07-08T10:41:40.533Z",
+      "name": "YG",
+      "time_upload": "2022-7-8",
       "time_start": "2022-07-06T10:41:38.868Z",
-      "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2FBlackpink-G.jpg?alt=media&token=b9697eb8-d3b5-4f62-9f6c-4463a3db46df",
       "number_members": [],
       "artist_id": 0.9175662264095154,
       "id": 2
     },
     {
-      "name": "Mr Children2",
-      "time_upload": "2022-07-08T10:41:40.533Z",
-      "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
+      "name": "BLACKPINK",
+      "time_upload": "2022-7-8",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fthanh-tich-sau-24-gio-dau-phat-hanh-lovesick-girls-luot-xem-qua-thap-so-voi-ky-vong-buoc-thut-lui-cua-blackpink-160-5271054.jpg?alt=media&token=7ffbb05c-591a-4eca-90b3-d47d7da30856",
       "time_start": "2022-07-06T10:41:38.868Z",
       "number_members": [],
       "artist_id": 0.9175662264095152,
       "id": 3
     },
     {
-      "name": "Mr Children32",
-      "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
-      "time_upload": "2022-07-08T10:41:40.533Z",
+      "name": "Lesserafim",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fhinh-anh-nhom-nhac-moi.jpg?alt=media&token=0f3a4e99-db61-4762-89ea-4285a5cf1bee",
+      "time_upload": "2022-7-8",
       "time_start": "2022-07-06T10:41:38.868Z",
       "number_members": [],
       "artist_id": 0.9175662264095152,
@@ -44,10 +41,7 @@
       "time_upload": "2022-07-30T08:45:08.623Z",
       "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
       "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": [
-        "2",
-        "1"
-      ],
+      "number_members": ["2", "1"],
       "artist_id": 0.5568098971460946,
       "id": 5
     },
@@ -56,22 +50,16 @@
       "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
       "time_upload": "2022-07-30T08:45:08.623Z",
       "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": [
-        "2",
-        "1"
-      ],
+      "number_members": ["2", "1"],
       "artist_id": 0.5568098971460946,
       "id": 6
     },
     {
       "name": "BTS",
-      "avatar": "https://i.doanhnhansaigon.vn/2019/03/26/2-1553591476_750x0.jpg",
-      "time_upload": "2022-07-30T08:45:08.623Z",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Ftieu-su-gfriend-1-1.jpg?alt=media&token=304ff1e4-91fe-4b6e-b78a-5e20f3b0399a",
+      "time_upload": "2022-7-8",
       "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": [
-        "2",
-        "1"
-      ],
+      "number_members": ["2", "1"],
       "artist_id": 0.5568098971460946,
       "id": 7
     },
@@ -80,12 +68,35 @@
       "time_upload": "2022-07-30T08:45:08.623Z",
       "time_start": "2022-07-05T08:45:06.313Z",
       "avatar": "https://i.doanhnhansaigon.vn/2019/03/26/2-1553591476_750x0.jpg",
-      "number_members": [
-        "2",
-        "1"
-      ],
+      "number_members": ["2", "1"],
       "artist_id": 0.5568098971460946,
       "id": 8
+    },
+    {
+      "name": "K-Pop BTS",
+      "time_upload": "2022-7-8",
+      "time_start": "2022-07-05T08:45:06.313Z",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2F71631-twitter.jpeg?alt=media&token=fee68dc9-a3dc-4f8e-a0a2-50bad4ca9ac5",
+      "number_members": ["2", "1"],
+      "artist_id": 0.9175662264095154,
+      "id": 9
+    },
+    {
+      "name": "GFriend ",
+      "time_start": "2022-07-14T04:30:30.081Z",
+      "number_members": ["1", "4", "5"],
+      "artist_id": 0.7536581127978996,
+      "id": 10,
+      "time_upload": "2022-7-8",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Ftieu-su-gfriend-1-1.jpg?alt=media&token=bcee825c-cd28-4bd6-ae9c-5dee17346976"
+    },
+    {
+      "name": "Kpop Twice",
+      "time_start": "2022-07-13T05:07:44.231Z",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2FHinh-anh-nhom-nhac-nu-kpop-TWICE-dep-moi-nhat-09.jpg?alt=media&token=d93b0374-acf6-4fef-b107-8870887f91d0",
+      "number_members": ["2", "6"],
+      "artist_id": 0.6665617322581583,
+      "id": 11
     }
   ],
   "user": [
@@ -93,14 +104,15 @@
       "name": "Huynh",
       "color": "#010000",
       "first_letter": "H",
-      "artist_id": 0.9175662264095154,
+      "artist_id": 0.7536581127978996,
       "id": 1
     },
     {
       "name": "Thắng",
       "color": "T",
       "first_letter": "T",
-      "id": 2
+      "id": 2,
+      "artist_id": 0.6665617322581583
     },
     {
       "color": "#2d5850",
@@ -113,21 +125,21 @@
       "color": "#ffe100",
       "first_letter": "K",
       "name": "Kiên",
-      "artist_id": 0.9175662264095152,
+      "artist_id": 0.7536581127978996,
       "id": 4
     },
     {
       "color": "#60ff8f",
       "first_letter": "Đ",
       "name": "Đoàn",
-      "artist_id": 0.5568098971460946,
+      "artist_id": 0.7536581127978996,
       "id": 5
     },
     {
       "color": "#b1f0ff",
       "first_letter": "H",
       "name": "Hiểu",
-      "artist_id": 0.9175662264095152,
+      "artist_id": 0.6665617322581583,
       "id": 6
     },
     {
@@ -140,44 +152,102 @@
   ],
   "setlists": [
     {
-      "bpm": "Nhạc cụ có",
-      "mic": "Huynh, Kiên",
-      "mp4": "anhnangcuaanh",
-      "scene": "Có",
-      "time": "\n      00:15:05",
-      "group_name": "Mr Children1",
-      "name_music": "Cô Đơn Trong Nhà Mình2",
-      "small_props": "Nhạc cụ dân tộc",
-      "id": 1
+      "time_start": "00:15:05",
+      "detail": "thực hành sớm đi1",
+      "time_upload": "2022-07-30T08:45:08.623Z",
+      "id": 1,
+      "name": "Cháy lên đi",
+      "artist_id": "2",
+      "songs": [4]
     },
     {
-      "bpm": "Mới thêm",
-      "mic": "DŨNG",
-      "mp4": "codontrongnhaminh",
-      "scene": "mới",
-      "time": "\n      00:06:05",
-      "group_name": "Mr Children1",
-      "name_music": "Cô Đơn Trong Nhà Mình2",
-      "small_props": "NHẠC CỤ DÂN TỘC",
+      "detail": "text",
+      "name": "Cháy phố đê",
+      "artist_id": "2",
+      "songs": [4, 5, 7],
+      "time_start": "\n      00:03:05",
+      "time_upload": "\n      00:13:05",
       "id": 2
     }
   ],
   "songs": [
     {
-      "name": "Ánh nắng của anh",
-      "time": "\n      00:04:025",
-      "lyrics": "<div class=\"ujudUb\">Từ bao l&acirc;u naу<br>Anh cứ m&atilde;i c&ocirc; đơn bơ vơ bao l&acirc;u rồi ai đ&acirc;u haу<br>Ng&agrave;у cứ thế tr&ocirc;i qua mi&ecirc;n man ri&ecirc;ng anh một m&igrave;nh nơi đ&acirc;у<br>Những ph&uacute;t gi&acirc;у tr&ocirc;i qua tầm taу<br>Ϲhờ một ai đ&oacute; đến b&ecirc;n anh<br>Lặng nghe những t&acirc;m tư n&agrave;у</div>\n<div class=\"ujudUb\">L&agrave; tia nắng ấm<br>L&agrave; em đến b&ecirc;n anh cho vơi đi ưu phiền ng&agrave;у h&ocirc;m qua<br>Nhẹ nh&agrave;ng x&oacute;a đi bao m&acirc;у đen v&acirc;у quanh cuộc đời nơi anh<br>Ph&uacute;t gi&acirc;у anh mong đến t&igrave;nh у&ecirc;u ấу<br>Giờ đ&acirc;у l&agrave; em, người anh mơ ước bao đ&ecirc;m</div>\n<div class=\"ujudUb\">Ѕẽ lu&ocirc;n thật gần b&ecirc;n em<br>Ѕẽ lu&ocirc;n l&agrave; v&ograve;ng taу ấm &ecirc;m<br>Ѕẽ lu&ocirc;n l&agrave; người у&ecirc;u em<br>Ϲ&ugrave;ng em đi đến ch&acirc;n trời</div>\n<div class=\"ujudUb\">Lắng nghe từng nhịp tim anh<br>Lắng nghe từng lời anh muốn n&oacute;i<br>V&igrave; em lu&ocirc;n đẹp nhất khi em cười<br>V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>\n<div class=\"ujudUb\">B&igrave;nh minh dẫn lối<br>Ng&agrave;у sau c&oacute; em lu&ocirc;n b&ecirc;n anh tr&ecirc;n con đường ta chung đ&ocirc;i<br>Niềm hạnh ph&uacute;c như trong cơn mơ chưa bao giờ anh nghĩ tới<br>Ph&uacute;t gi&acirc;у ta trao nhau t&igrave;nh у&ecirc;u ấу<br>Giờ đ&acirc;у l&agrave; em, người anh sẽ m&atilde;i kh&ocirc;ng qu&ecirc;n</div>\n<div class=\"ujudUb\">Ѕẽ lu&ocirc;n thật gần b&ecirc;n em<br>Ѕẽ lu&ocirc;n l&agrave; v&ograve;ng taу ấm &ecirc;m<br>Ѕẽ lu&ocirc;n l&agrave; người у&ecirc;u em<br>Ϲ&ugrave;ng em đi đến ch&acirc;n trời</div>\n<div class=\"ujudUb\">Lắng nghe từng nhịp tim anh<br>Lắng nghe từng lời anh muốn n&oacute;i<br>V&igrave; em lu&ocirc;n đẹp nhất khi em cười<br>V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>\n<div class=\"ujudUb\">Ѕẽ lu&ocirc;n thật gần b&ecirc;n em<br>Ѕẽ lu&ocirc;n l&agrave; v&ograve;ng taу ấm &ecirc;m<br>Ѕẽ lu&ocirc;n l&agrave; người у&ecirc;u em<br>Ϲ&ugrave;ng em đi đến ch&acirc;n trời</div>\n<div class=\"ujudUb\">Lắng nghe từng nhịp tim anh<br>Lắng nghe từng lời anh muốn n&oacute;i<br>V&igrave; em lu&ocirc;n đẹp nhất khi em cười<br>V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>\n<div class=\"ujudUb WRZytc\">V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>",
-      "section": "Vì em luôn là tia nắng trong anh Không xa rời",
-      "bar": "Vũ trường ADC",
-      "id": 1
+      "name": "Từ đó",
+      "time": "\n      00:04:02",
+      "lyrics": "<div id=\"\">\n<p>V&agrave; hồn t&ocirc;i từ đ&oacute; l&agrave; kh&uacute;c ca vang trong ngần, l&agrave;m đ&ocirc;i m&ocirc;i rạng rỡ t&igrave;nh ban đầu&hellip;</p>\n<p>H&ograve;a v&agrave;o c&acirc;y vương v&agrave;o nắng v&agrave; giấc mơ t&ocirc;i c&oacute; n&agrave;ng</p>\n<p>Trong b&agrave;i ca ta bước th&ecirc;nh thang.</p>\n<p>Khi dừng ch&acirc;n nhặt chiếc l&aacute; rơi trong gi&oacute; chiều, v&agrave; ho&agrave;ng h&ocirc;n, chợt đến l&agrave;m t&ocirc;i nhớ..</p>\n<p>Khi m&ugrave;a xu&acirc;n nh&agrave;nh hoa t&iacute;m em đưa tay c&agrave;i, nghe từ tim rung l&ecirc;n h&acirc;n hoan.</p>\n<p>V&agrave; hồn t&ocirc;i từ đ&oacute; l&agrave; kh&uacute;c ca vang trong ngần, l&agrave;m đ&ocirc;i m&ocirc;i rạng rỡ t&igrave;nh ban đầu&hellip;</p>\n</div>\n<div id=\"ads-zone-63\" class=\"box-adv d-none d-xl-block box-taitro clearfix\">\n<div class=\"VnnAdsPos clearfix Ads-Top\" data-pos=\"midarticle_banner1\">&nbsp;</div>\n</div>\n<div id=\"\">\n<p>H&ograve;a v&agrave;o c&acirc;y vương v&agrave;o nắng v&agrave; giấc mơ t&ocirc;i c&oacute; n&agrave;ng</p>\n<p>Trong b&agrave;i ca ta bước th&ecirc;nh thang.</p>\n<p>Brigde1:</p>\n<p>Thấy nhớ chiếc l&aacute; vừa rơi, chiều nổi gi&oacute;, đứng lại, c&oacute; những mộng mơ.</p>\n<p>Ngậm nh&agrave;nh cỏ dại tr&ecirc;n m&ocirc;i, t&ocirc;i kh&aacute;c một ng&agrave;y.</p>\n<p>Từ h&ocirc;m nay t&ocirc;i đ&atilde; biết y&ecirc;u em</p>\n<p>Nơi b&igrave;nh y&ecirc;n niềm vui giữa th&aacute;ng năm học tr&ograve;, c&oacute; đồng xanh, phượng thắm, đạp xe qua chợ v&atilde;n, v&agrave; Em c&ugrave;ng t&ocirc;i l&agrave; mu&ocirc;n nốt &acirc;m thanh diệu kỳ, bản t&igrave;nh ca sương mai chỉ ta lắng nghe</p>\n</div>",
+      "section": "1B",
+      "bar": "12",
+      "bpm": "5433",
+      "mic": "H/S3",
+      "mp4": "00:08:02",
+      "costume": "M",
+      "small_props": "TRỐNG",
+      "id": 3
     },
     {
-      "name": "Cô Đơn Trong Nhà Mình",
-      "time": "00:11:05",
-      "lyrics": "<p class=\"hrQhmh\">Bộ Thể Thao Nam Cộc Tay Phối M&agrave;u Cao Cấp AVIANO</p>\n<p class=\"hrQhmh\">&nbsp;</p>\n<p class=\"hrQhmh\">🔰 TH&Ocirc;NG TIN CHI TIẾT</p>\n<p class=\"hrQhmh\">🎗 Chất liệu: Poly</p>\n<p class=\"hrQhmh\">🎗 M&agrave;u sắc: Trắng - Đen - Xanh -V&agrave;ng</p>\n<p class=\"hrQhmh\">🎗 Thương hiệu: AVIANO</p>\n<p class=\"hrQhmh\">🎗 Xuất xứ: Việt Nam</p>",
-      "section": "Vì sao không yêu nhau như những ngày đầu tiên yên vui ấy Cứ ngỡ ta đã hiểu được nhau",
-      "bar": "Quán nhảy",
-      "id": 2
+      "name": "Ánh nắng của anh",
+      "time": "\n      00:04:03",
+      "lyrics": "<div class=\"ujudUb\">Từ bao l&acirc;u naу<br>Anh cứ m&atilde;i c&ocirc; đơn bơ vơ bao l&acirc;u rồi ai đ&acirc;u haу<br>Ng&agrave;у cứ thế tr&ocirc;i qua mi&ecirc;n man ri&ecirc;ng anh một m&igrave;nh nơi đ&acirc;у<br>Những ph&uacute;t gi&acirc;у tr&ocirc;i qua tầm taу<br>Ϲhờ một ai đ&oacute; đến b&ecirc;n anh<br>Lặng nghe những t&acirc;m tư n&agrave;у</div>\n<div class=\"ujudUb\">L&agrave; tia nắng ấm<br>L&agrave; em đến b&ecirc;n anh cho vơi đi ưu phiền ng&agrave;у h&ocirc;m qua<br>Nhẹ nh&agrave;ng x&oacute;a đi bao m&acirc;у đen v&acirc;у quanh cuộc đời nơi anh<br>Ph&uacute;t gi&acirc;у anh mong đến t&igrave;nh у&ecirc;u ấу<br>Giờ đ&acirc;у l&agrave; em, người anh mơ ước bao đ&ecirc;m</div>\n<div class=\"ujudUb\">Ѕẽ lu&ocirc;n thật gần b&ecirc;n em<br>Ѕẽ lu&ocirc;n l&agrave; v&ograve;ng taу ấm &ecirc;m<br>Ѕẽ lu&ocirc;n l&agrave; người у&ecirc;u em<br>Ϲ&ugrave;ng em đi đến ch&acirc;n trời</div>\n<div class=\"ujudUb\">Lắng nghe từng nhịp tim anh<br>Lắng nghe từng lời anh muốn n&oacute;i<br>V&igrave; em lu&ocirc;n đẹp nhất khi em cười<br>V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>\n<div class=\"ujudUb\">B&igrave;nh minh dẫn lối<br>Ng&agrave;у sau c&oacute; em lu&ocirc;n b&ecirc;n anh tr&ecirc;n con đường ta chung đ&ocirc;i<br>Niềm hạnh ph&uacute;c như trong cơn mơ chưa bao giờ anh nghĩ tới<br>Ph&uacute;t gi&acirc;у ta trao nhau t&igrave;nh у&ecirc;u ấу<br>Giờ đ&acirc;у l&agrave; em, người anh sẽ m&atilde;i kh&ocirc;ng qu&ecirc;n</div>\n<div class=\"ujudUb\">Ѕẽ lu&ocirc;n thật gần b&ecirc;n em<br>Ѕẽ lu&ocirc;n l&agrave; v&ograve;ng taу ấm &ecirc;m<br>Ѕẽ lu&ocirc;n l&agrave; người у&ecirc;u em<br>Ϲ&ugrave;ng em đi đến ch&acirc;n trời</div>\n<div class=\"ujudUb\">Lắng nghe từng nhịp tim anh<br>Lắng nghe từng lời anh muốn n&oacute;i<br>V&igrave; em lu&ocirc;n đẹp nhất khi em cười<br>V&igrave; em lu&ocirc;n l&agrave; tia nắng trong anh<br>Kh&ocirc;ng xa rời</div>",
+      "section": "1C",
+      "bar": "12",
+      "bpm": "433",
+      "mic": "H/S4",
+      "mp4": "00:09:02",
+      "costume": "NM",
+      "small_props": "LÁ",
+      "id": 4
+    },
+    {
+      "name": "Ta là của nhau",
+      "time": "00:04:03",
+      "lyrics": "<div class=\"ujudUb\">Khi gặp nhau ph&uacute;t đầu, từ &aacute;nh mắt anh đ&atilde; trao nụ cười<br>Khẽ ngại ng&ugrave;ng anh n&oacute;i: \"M&igrave;nh cầm tay nh&eacute;\"<br>Đưa em qua những con đường t&igrave;nh y&ecirc;u</div>\n<div class=\"ujudUb\">Em chẳng thể dối l&ograve;ng rằng em đ&atilde; y&ecirc;u anh từ l&uacute;c n&agrave;o<br>Nghe nhịp đập con tim, l&ograve;ng m&igrave;nh thổn thức<br>Anh muốn ta l&agrave; của nhau</div>\n<div class=\"ujudUb\">Từ đ&acirc;y em kh&ocirc;ng c&ograve;n kh&oacute;c<br>Kh&ocirc;ng c&ograve;n nước mắt đ&ecirc;m về một m&igrave;nh đơn c&ocirc;i<br>V&igrave; giờ b&ecirc;n em đ&atilde; c&oacute; anh sớt chia những buồn vui</div>\n<div class=\"ujudUb\">L&ograve;ng em lu&ocirc;n lu&ocirc;n nguyện ước<br>Cho d&ugrave; năm th&aacute;ng phai nh&ograve;a, t&igrave;nh ta vẫn sẽ<br>Vượt qua s&oacute;ng gi&oacute; cuộc đời<br>M&atilde;i m&atilde;i ta l&agrave; của nhau</div>\n<div class=\"ujudUb\">Mai n&agrave;y em xấu đi th&igrave; anh c&oacute; c&ograve;n y&ecirc;u em như l&uacute;c đầu?<br>Khẽ mỉm cười anh n&oacute;i: \"Em thật ngốc nghếch\"<br>\"Anh y&ecirc;u em đến khi nhắm mắt xu&ocirc;i tay\"</div>\n<div class=\"ujudUb\">Th&ocirc;i th&igrave; em giấu cho ri&ecirc;ng anh<br>Ng&ocirc;i nh&agrave; trong tr&aacute;i tim em<br>L&uacute;c giận hờn tr&aacute;ch m&oacute;c, lo sợ mất nhau<br>Xin h&atilde;y tựa v&agrave;o vai nhau</div>",
+      "section": "4G",
+      "bar": "23",
+      "bpm": "345",
+      "mic": "HUYNH",
+      "mp4": "00:04:03",
+      "costume": "H",
+      "small_props": "MIC",
+      "id": 5
+    },
+    {
+      "name": "Yêu là cưới",
+      "time": "00:03:08",
+      "lyrics": "<p>Đếm bao ng&agrave;y xu&acirc;n đi qua<br>Xin ph&eacute;p gia đ&igrave;nh Mẹ Cha<br>Cho rước em về l&agrave;m d&acirc;u 2 đứa sau n&agrave;y l&agrave;m gi&agrave;u<br>K&eacute;o theo đ&agrave;n trai bưng m&acirc;m<br>Coi b&oacute;i ngay ng&agrave;y 25<br>N&agrave;ng ơi anh tới anh đ&oacute;n em về kết t&igrave;nh trăm năm</p>\n<p>Đ&ecirc;m nằm mơ ng&agrave;y l&agrave;m thơ<br>Thương rồi nhớ m&agrave; cớ sao l&ograve;ng thẫn thờ<br>Y&ecirc;u l&agrave; cưới tr&ecirc;n dưới hai nh&agrave; l&agrave;m sui<br>Rượu bia chơi l&aacute;ng 9 th&aacute;ng 10 ng&agrave;y c&oacute; cục cưng nu&ocirc;i</p>\n<p>T&igrave;nh mặn nồng..y&ecirc;u đậm s&acirc;u&hellip;c&oacute; đứt tơ hồng th&igrave; cũng kh&ocirc;ng l&agrave;m cho ta xa c&aacute;ch nhau<br>Em trồng rau..anh cắm c&acirc;u&hellip;t&iacute;nh to&aacute;n trong đầu&hellip;nhất quyết đ&oacute;n em về l&agrave;m d&acirc;u</p>\n<p>D&agrave;n nhạc xập x&igrave;nh xập x&igrave;nh&hellip;kh&ocirc;ng kh&iacute; t&acirc;n h&ocirc;n linh đ&igrave;nh<br>Ai cũng x&igrave; xầm đ&ocirc;i m&igrave;nh&hellip;nh&igrave;n tụi n&oacute; t&igrave;nh bể b&igrave;nh<br>Nhậu s&aacute;ng đ&ecirc;m&hellip;rượu 5 l&iacute;t bia 5 chục lon<br>Động ph&ograve;ng &acirc;n &aacute;i&hellip;lo cuốc lo c&agrave;y kiếm tiền nu&ocirc;i con</p>\n<p>2 nh&agrave; ta&hellip;nay th&agrave;nh sui&hellip;th&ecirc;m thằng cu hay c&ocirc; c&ocirc;ng ch&uacute;a lại c&agrave;ng vui<br>Lo mần ăn&hellip;kh&ocirc;ng l&agrave; ti&ecirc;u&hellip;.anh em ch&iacute; cốt đừng rủ chơi bời tui c&ograve;n vợ y&ecirc;u</p>\n<p>Y&ecirc;u thương nhau từ l&acirc;u m&agrave; anh chỉ muốn y&ecirc;u lại từ đầu<br>Y&ecirc;u em khi c&ograve;n thơ y&ecirc;u cho đến khi răng long bạc đầu<br>Em ơi em đừng lo kề b&ecirc;n em lu&ocirc;n lu&ocirc;n c&oacute; anh<br>Thề một c&acirc;u lu&ocirc;n khi anh y&ecirc;u l&agrave; cưới.</p>",
+      "section": "6N",
+      "bar": "432",
+      "bpm": "321",
+      "mic": "THẮNG",
+      "mp4": "00:03:08",
+      "costume": "P",
+      "small_props": "CHUÔNG",
+      "id": 6
+    },
+    {
+      "name": "Đi về nhà",
+      "time": "00:04:019",
+      "lyrics": "<div class=\"ujudUb\">Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu nắng mưa gần xa<br>Thất b&aacute;t vang danh<br>Nh&agrave; vẫn lu&ocirc;n chờ ta<br>Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu c&oacute; mu&ocirc;n tr&ugrave;ng qua<br>Vật đổi sao dời<br>Nh&agrave; vẫn lu&ocirc;n l&agrave; nh&agrave; (đi v&ecirc;̀ nhà)</div>\n<div class=\"ujudUb\">Ya lao v&agrave;o đời và kiếm cơm lao v&agrave;o đời t&igrave;m cơ hội<br>Những th&agrave;nh thị thường lấp l&aacute;nh còn đ&ecirc;m th&agrave;nh thị thường trơ trọi<br>Như mọi đứa trẻ kh&aacute;c lớn l&ecirc;n muốn đi xa ho&agrave;i (xa hoài)<br>Nh&agrave; th&igrave; vẫn ở y&ecirc;n đ&oacute; đợi những đứa con đang ra ngo&agrave;i</div>\n<div class=\"ujudUb\">Bước ra ngo&agrave;i mới biết kh&ocirc;ng ở đ&acirc;u bằng ở nh&agrave; (ở nh&agrave;)<br>Bi&ecirc;́t c&oacute; g&igrave; để m&acirc;́t trước khi sẵn s&agrave;ng mở qu&agrave; (mở quà)<br>Kh&ocirc;ng phải l&agrave; v&otilde; sĩ nhưng m&agrave; phải giỏi đấu đ&aacute;<br>Nhiều khi kiệt sức chỉ v&igrave; gắng giữ m&igrave;nh kh&ocirc;ng xấu xa</div>\n<div class=\"ujudUb\">Đ&ocirc;i l&uacute;c bỗng thấy đồng cảm với Mai An Ti&ecirc;m<br>Bước ch&acirc;n ra l&agrave; s&oacute;ng gi&oacute; chỉ c&oacute; nh&agrave; m&atilde;i an y&ecirc;n<br>Ngo&agrave;i kia phức tạp như rễ m&aacute; v&agrave; d&acirc;y mơ (d&acirc;y mơ)<br>Về nh&agrave; để c&oacute; l&uacute;c cho ph&eacute;p m&igrave;nh được ng&acirc;y thơ</div>\n<div class=\"ujudUb\">Mang theo bao n&aacute;o nức l&ecirc;n chiếc xe n&agrave;y<br>Trọn một niềm thao thức xu&acirc;n níu đ&ecirc;m ng&agrave;y<br>C&ugrave;ng d&ograve;ng người tr&ecirc;n phố mang sắc mai hương đ&agrave;o<br>T&igrave;m về nơi ấm &ecirc;m</div>\n<div class=\"ujudUb\">Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu nắng mưa gần xa<br>Thất b&aacute;t vang danh<br>Nh&agrave; vẫn lu&ocirc;n chờ ta<br>Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu c&oacute; mu&ocirc;n tr&ugrave;ng qua (dẫu mu&ocirc;n trùng qua)<br>Vật đổi sao dời (vật đ&ocirc;̉i sao dời)<br>Nh&agrave; vẫn lu&ocirc;n l&agrave; nh&agrave;</div>\n<div class=\"ujudUb\">Về ng&ocirc;i nh&agrave; c&oacute; g&oacute;c vườn nhiều ch&oacute; nhiều g&agrave;<br>Đ&aacute;m bạn n&oacute;i con kh&oacute; chiều<br>M&agrave; lại th&iacute;ch gi&oacute; trời hơn gi&oacute; điều hoà ah<br>Về ăn cơm mẹ nấu về mặc &aacute;o mẹ may<br>Về đưa ba ra chợ mua c&acirc;y đ&agrave;o c&acirc;y mai về b&agrave;y</div>\n<div class=\"ujudUb\">Cả năm trời l&agrave;m việc nhiều khi r&atilde; rời như c&aacute;i m&aacute;y oh<br>Về nh&agrave; thấy &aacute;p lực nhẹ như bấc thổi c&aacute;i l&agrave; bay (th&ocirc;̉i cái là bay)<br>Ấm &ecirc;m hơn bếp lửa ngọt b&ugrave;i hơn l&uacute;a non<br>Nh&agrave; vẫn lu&ocirc;n ở đ&oacute; mong chờ những đứa con</div>\n<div class=\"ujudUb\">Dẫu cho mưa cho nắng vẫn kh&ocirc;ng bao giờ nề h&agrave;<br>Hạnh ph&uacute;c chỉ đơn giản l&agrave; c&ograve;n được về nh&agrave; oh<br>Hạnh ph&uacute;c đi về nh&agrave;<br>C&ocirc; đơn đi về nh&agrave;<br>Th&agrave;nh c&ocirc;ng đi về nh&agrave;<br>Thất bại đi về nh&agrave;</div>\n<div class=\"ujudUb\">Mệt qu&aacute; đi về nh&agrave;<br>M&ocirc;ng lung đi về nh&agrave;<br>Ch&ecirc;nh v&ecirc;nh đi về nh&agrave;<br>Kh&ocirc;ng c&oacute; việc g&igrave; vậy th&igrave; đi về nh&agrave;<br>Kh&ocirc;ng c&oacute; việc g&igrave; vậy th&igrave; đi về nh&agrave;<br>Đi về nh&agrave; đi về nh&agrave;</div>\n<div class=\"ujudUb\">Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu nắng mưa gần xa<br>Thất b&aacute;t vang danh<br>Nh&agrave; vẫn lu&ocirc;n chờ ta<br>Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu c&oacute; mu&ocirc;n tr&ugrave;ng qua<br>Vật đổi sao dời<br>Nh&agrave; vẫn lu&ocirc;n l&agrave; nh&agrave;</div>\n<div class=\"ujudUb\">Nh&agrave; c&oacute; thể lớn c&oacute; thể nhỏ c&oacute; thể kh&ocirc;ng khang trang<br>Cha mẹ n&agrave;o cũng muốn con được sống đ&agrave;ng ho&agrave;ng<br>Lớn l&ecirc;n l&agrave;m người mong một tương lai s&aacute;ng lạng<br>Cặm cụi cả đời kh&ocirc;ng bao giờ thấy than v&atilde;n</div>\n<div class=\"ujudUb WRZytc\">Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu nắng mưa gần xa<br>Thất b&aacute;t vang danh<br>Nh&agrave; vẫn lu&ocirc;n chờ ta<br>Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu c&oacute; mu&ocirc;n tr&ugrave;ng qua<br>Vật đổi sao dời<br>Nh&agrave; vẫn lu&ocirc;n l&agrave; nh&agrave;</div>",
+      "section": "5K",
+      "bar": "342",
+      "bpm": "434",
+      "mic": "VŨ",
+      "mp4": "00:04:019",
+      "costume": "X",
+      "small_props": "KÈN",
+      "id": 7
+    },
+    {
+      "name": "Hãy trao cho anh",
+      "time": "00:04:03",
+      "lyrics": "<div class=\"ujudUb\">H&igrave;nh b&oacute;ng ai đ&oacute; nhẹ nh&agrave;ng vụt qua nơi đ&acirc;y<br>Quyến rũ ng&acirc;y ngất loạn nhịp l&agrave;m tim m&ecirc; say<br>Cuốn lấy &aacute;ng m&acirc;y theo cơn s&oacute;ng x&ocirc; dập d&igrave;u<br>Nụ cười ngọt ng&agrave;o cho ta tan v&agrave;o ph&uacute;t gi&acirc;y mi&ecirc;n man qu&ecirc;n hết con đường về eh</div>\n<div class=\"ujudUb\">Let me know your name<br>Chẳng thể t&igrave;m thấy lối về eh<br>Let me know your name<br>Điệu nhạc h&ograve;a quyện trong &aacute;nh mắt đ&ocirc;i m&ocirc;i</div>\n<div class=\"ujudUb\">Dẫn lối những bối rối rung động khẽ l&ecirc;n ng&ocirc;i<br>V&agrave; rồi khẽ v&agrave; rồi khẽ khẽ<br>Chạm nhau mang v&ocirc; v&agrave;n đắm đuối vấn vương d&acirc;ng tr&agrave;n<br>Lấp k&iacute;n chốn nh&acirc;n gian l&agrave;n gi&oacute; ho&aacute; sắc hương mơ m&agrave;ng<br>Một gi&acirc;y ngang qua đời cất tiếng n&oacute;i kh&ocirc;ng n&ecirc;n lời<br>Ấm &aacute;p đến trao tay ng&agrave;n sao trời th&ecirc;m chơi vơi</div>\n<div class=\"ujudUb\">Dịu &ecirc;m kh&ocirc;ng gian bừng s&aacute;ng đ&aacute;nh thức mu&ocirc;n hoa mừng<br>Quấn qu&iacute;t h&aacute;t ng&acirc;n nga từng ch&uacute;t n&iacute;u bước ch&acirc;n em dừng<br>Bao &yacute; thơ tương tư ngẩn ngơ (la la la)<br>Lưu dấu nơi m&ecirc; cung đẹp thẫn thờ<br>Oh oh oh oh uh</div>\n<div class=\"ujudUb\">H&atilde;y trao cho anh h&atilde;y trao cho anh<br>H&atilde;y trao cho anh thứ anh đang mong chờ (oh oh oh oh)<br>H&atilde;y trao cho anh h&atilde;y trao cho anh<br>H&atilde;y mau l&agrave;m điều ta muốn v&agrave;o khoảnh khắc n&agrave;y đ&ecirc; (oh oh oh oh)</div>\n<div class=\"ujudUb\">H&atilde;y trao cho anh đ&ecirc; h&atilde;y trao cho anh đ&ecirc;<br>H&atilde;y trao anh trao cho anh đi những y&ecirc;u thương nồng ch&aacute;y (chỉ m&igrave;nh anh th&ocirc;i)<br>Trao anh &aacute;i &acirc;n nguy&ecirc;n vẹn đong đầy</div>\n<div class=\"ujudUb\">Lala lala<br>Lala lala<br>Lala lala<br>Lala lala</div>\n<div class=\"ujudUb\">Looking at my Gucci is about that time<br>We can smoke a blunt and pop a bottle of wine<br>Now get yourself together and be ready by nine<br>Cuz we gon' do some things that will shatter your spine</div>\n<div class=\"ujudUb\">Come one undone Snoop Dogg Son Tung<br>Long Beach is the city that I come from<br>So if you want some get some<br>Better enough take some take some</div>\n<div class=\"ujudUb\">Chạm nhau mang v&ocirc; v&agrave;n đắm đuối vấn vương d&acirc;ng tr&agrave;n<br>Lấp k&iacute;n chốn nh&acirc;n gian l&agrave;n gi&oacute; h&oacute;a sắc hương mơ m&agrave;ng<br>Một gi&acirc;y ngang qua đời cất tiếng n&oacute;i kh&ocirc;ng n&ecirc;n lời<br>Ấm &aacute;p đến trao tay ng&agrave;n sao trời l&ograve;ng c&agrave;ng th&ecirc;m chơi vơi</div>\n<div class=\"ujudUb\">Dịu &ecirc;m kh&ocirc;ng gian bừng s&aacute;ng đ&aacute;nh thức mu&ocirc;n hoa mừng<br>Quấn qu&iacute;t h&aacute;t ng&acirc;n nga từng ch&uacute;t n&iacute;u bước ch&acirc;n em dừng<br>Bao &yacute; thơ tương tư ngẩn ngơ (la la la)<br>Lưu dấu nơi m&ecirc; cung đẹp thẫn thờ<br>Oh oh oh oh uh</div>\n<div class=\"ujudUb\">H&atilde;y trao cho anh h&atilde;y trao cho anh<br>H&atilde;y trao cho anh thứ anh đang mong chờ (oh oh oh oh)<br>H&atilde;y trao cho anh h&atilde;y trao cho anh<br>H&atilde;y mau l&agrave;m điều ta muốn v&agrave;o khoảnh khắc n&agrave;y đ&ecirc; (oh oh oh oh)</div>\n<div class=\"ujudUb\">H&atilde;y trao cho anh đ&ecirc; h&atilde;y trao cho anh đ&ecirc;<br>H&atilde;y trao anh trao cho anh đi những y&ecirc;u thương nồng ch&aacute;y (chỉ m&igrave;nh anh th&ocirc;i)<br>Trao anh &aacute;i &acirc;n nguy&ecirc;n vẹn đong đầy</div>\n<div class=\"ujudUb\">Lala lala<br>Lala lala<br>Lala lala<br>Lala lala</div>\n<div class=\"ujudUb\">L&agrave;m cho ta ngắm th&ecirc;m n&agrave;ng vội v&agrave;ng qua chốc l&aacute;t<br>Như thanh &acirc;m chứa bao lời gọi mời trong kh&uacute;c h&aacute;t<br>Li&ecirc;u xi&ecirc;u ta xuyến xao rạo rực kh&aacute;t khao tr&ocirc;ng mong<br>Dịu d&agrave;ng lại gần nhau hơn dang tay &ocirc;m em v&agrave;o l&ograve;ng</div>\n<div class=\"ujudUb\">Th&ocirc;i trao đi trao hết đi đừng ngập ngừng che dấu nữa<br>Qu&ecirc;n đi qu&ecirc;n hết đi ngại ng&ugrave;ng lại gần th&ecirc;m ch&uacute;t nữa<br>Ch&igrave;m đắm giữa khung trời ri&ecirc;ng hai ta như dần h&ograve;a quyện<br>Mắt nhắm mắt tay đan tay hồn lạc về miền trăng sao</div>\n<div class=\"ujudUb\">Bu&ocirc;ng lơi cho ta ngắm th&ecirc;m n&agrave;ng vội v&agrave;ng qua chốc l&aacute;t<br>Như thanh &acirc;m chứa bao lời gọi mời trong kh&uacute;c h&aacute;t<br>Li&ecirc;u xi&ecirc;u ta xuyến xao rạo rực kh&aacute;t khao tr&ocirc;ng mong<br>Dịu d&agrave;ng lại gần nhau hơn dang tay &ocirc;m em v&agrave;o l&ograve;ng</div>\n<div class=\"ujudUb\">Trao đi trao hết đi đừng ngập ngừng che dấu nữa<br>Qu&ecirc;n đi qu&ecirc;n hết đi ngại ng&ugrave;ng lại gần th&ecirc;m ch&uacute;t nữa<br>Ch&igrave;m đắm giữa khung trời ri&ecirc;ng hai ta như dần h&ograve;a quyện<br>Mắt nhắm mắt tay đan tay hồn lạc về miền trăng sao</div>",
+      "section": "8H",
+      "bar": "32",
+      "bpm": "5443",
+      "mic": "huynh",
+      "mp4": "00:04:03",
+      "costume": "GH",
+      "small_props": "CÀNH",
+      "id": 8
     }
   ]
 }

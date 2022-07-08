@@ -20,7 +20,13 @@ import {
 } from "antd";
 import React, { useEffect, useState } from "react";
 import "../../../Style/LayoutAdmin.css";
-import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  Outlet,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { AppDispatch, RootState } from "../../../APP/Store";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { getArtist } from "../../../Features/ArtistSlice/ArtistSlice";
@@ -44,9 +50,9 @@ const LayoutArtist: React.FC = () => {
   }, []);
 
   const items: any = [
-    getItem("Setlist", "2", <Link to="manage-setlist" />),
-    getItem("Member", "sub1", <Link to="manage-member" />),
-    getItem("Songs", "sub2", <Link to="manage-songs" />),
+    getItem("Setlist", "2", <Link to="setlist" />),
+    getItem("Member", "sub1", <Link to="member" />),
+    getItem("Songs", "sub2", <Link to="songs" />),
   ];
 
   const logout = () => {
@@ -79,18 +85,18 @@ const LayoutArtist: React.FC = () => {
               width: "100%",
             }}
           >
-            <Link to="/list-artist">
-              <EnterOutlined
-                style={{
-                  fontSize: 20,
-                  cursor: "pointer",
-                  color: "#0647EE",
-                  marginTop: 10,
-                }}
-              />
-            </Link>
+            <EnterOutlined
+              onClick={() => navigate(-1)}
+              style={{
+                fontSize: 20,
+                cursor: "pointer",
+                color: "#0647EE",
+                marginTop: 10,
+              }}
+            />
             <Menu
               theme="dark"
+              defaultSelectedKeys={["2"]}
               style={{
                 background: "#C3D1F6",
                 color: "blue",

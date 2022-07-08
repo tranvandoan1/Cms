@@ -5,7 +5,7 @@ import {
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Button, Input, Table } from "antd";
+import { Button, Input, message, Popconfirm, Table } from "antd";
 import React, { useEffect } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -16,67 +16,26 @@ import {
   removeArtistt,
 } from "../../../../Features/ArtistSlice/ArtistSlice";
 import "../../../../Style/ListDetailArtist.css";
+import {
+  getSetList,
+  removeSetList,
+} from "./../../../../Features/SetListSlice/SetListSlice";
+const { Column, ColumnGroup } = Table;
 const ListMember: React.FC = () => {
   const { name, id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const dataArtists = useAppSelector((data: any) => data.artist.value);
-  const dataArtist = dataArtists?.filter((item: any) => item.id == id);
+  const setLists = useAppSelector((data: any) => data.setlist.value);
+  const dataSetLists = setLists?.filter((item: any) => item.artist_id == id);
   useEffect(() => {
-    dispatch(getArtist());
+    dispatch(getSetList());
   }, []);
-  const deleteArtist = (id: any) => {
-    const data = dataArtist.filter((item: any) => item.id !== id);
-    dispatch(removeArtist(id));
-    dispatch(removeArtistt(data));
+
+  const confirm = (id: any) => {
+    dispatch(removeSetList(id));
+    message.success("Successful delete");
   };
 
-  const columns: any = [
-    {
-      title: "Title",
-      dataIndex: "name",
-      key: "name",
-    },
-
-    {
-      title: "Created",
-      dataIndex: "time_start",
-      key: "time_start",
-    },
-    {
-      title: "Updated",
-      dataIndex: "time_upload",
-      key: "time_upload",
-    },
-    {
-      title: "Detailed",
-      dataIndex: "time_upload",
-      key: "time_upload",
-    },
-    {
-      title: "Genpass",
-      dataIndex: "time_upload",
-      key: "time_upload",
-      render: (id: any) => (
-        <Button style={{ background: "#00B0F0", color: "#fff" }}>
-          Created password
-        </Button>
-      ),
-    },
-    {
-      title: "Thao tác",
-      dataIndex: "id",
-      key: "id",
-      render: (id: any, data: any, index: any) => (
-        <>
-          <Link to={`edit&&name=${data.name}&&id=${id}`}>
-            <EditOutlined style={{ marginRight: 10 }} />
-          </Link>
-          <DeleteOutlined />
-        </>
-      ),
-    },
-  ];
   return (
     <div>
       <div
@@ -96,19 +55,68 @@ const ListMember: React.FC = () => {
           </Button>
         </div>
         <div className="flex">
-          <Button style={{ background: "black", color: "#fff" }}>
-            <PlusOutlined />
-          </Button>
+          <Link to="add">
+            <Button style={{ background: "black", color: "#fff" }}>
+              <PlusOutlined />
+            </Button>
+          </Link>
           <span className="add" style={{ marginLeft: 10 }}>
             Create New SetList
           </span>
         </div>
       </div>
-      <Table
-        rowKey={(item: any) => item.id}
-        dataSource={dataArtist}
-        columns={columns}
-      />
+      <Table dataSource={dataSetLists} rowKey={(item: any) => item.id}>
+        <Column
+          title="No"
+          dataIndex="id"
+          key="id"
+          render={(name: any, data: any, index: any) => (
+            <span style={{ color: "#fff" }}>{index}</span>
+          )}
+        />
+        <Column
+          title="Title"
+          dataIndex="name"
+          key="name"
+          render={(name: any, data: any) => (
+            <Link to={`id=${data.id}`}>
+              <span style={{ color: "#fff" }}>{name}</span>
+            </Link>
+          )}
+        />
+        <Column title="Created" dataIndex="time_start" key="time_start" />
+        <Column title="Updated" dataIndex="time_upload" key="time_upload" />
+        <Column title="Detailed" dataIndex="detail" key="detail" />
+        <Column
+          title="Generated password"
+          dataIndex="id"
+          key="id"
+          render={(id: any) => (
+            <Button style={{ background: "#00B0F0", color: "#fff" }}>
+              Created password
+            </Button>
+          )}
+        />
+
+        <Column
+          dataIndex="id"
+          render={(id: any, data: any) => (
+            <>
+              <Link to={`edit&&name=${data.name}&&id=${id}`}>
+                <EditOutlined style={{ marginRight: 10, color: "#fff" }} />
+              </Link>
+              <Popconfirm
+                title="Are you sure to delete this task?"
+                onConfirm={() => confirm(id)}
+                okText="Yes"
+                cancelText="No"
+              >
+                <DeleteOutlined style={{ color: "#FF0000" }} />
+              </Popconfirm>
+            </>
+          )}
+        />
+      </Table>
     </div>
   );
 };

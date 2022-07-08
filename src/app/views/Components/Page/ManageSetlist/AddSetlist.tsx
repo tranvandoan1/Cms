@@ -4,6 +4,7 @@ import {
   DatePicker,
   Form,
   Input,
+  message,
   Row,
   Select,
   TimePicker,
@@ -15,13 +16,14 @@ import { AppDispatch, RootState } from "../../../../APP/Store";
 import { getSong } from "./../../../../Features/SongSlice/SongSlice";
 import { getArtist } from "./../../../../Features/ArtistSlice/ArtistSlice";
 import { addSetList } from "../../../../Features/SetListSlice/SetListSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 type Props = {};
 
 const AddSetlist = (props: Props) => {
+  const { name, id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
@@ -32,24 +34,26 @@ const AddSetlist = (props: Props) => {
     dispatch(getArtist());
   }, []);
   const onFinish = (values: any) => {
-    const time = new Date(values.time._d);
+    const time_start = new Date(values.time_start._d);
+    const time_end = new Date(values.time_end._d);
     const newData = {
-      bpm: values.bpm,
-      mic: values.mic,
-      mp4: values.mp4,
-      scene: values.scene,
-      time: `
-      ${String(time.getHours()).length == 1 && 0}${time.getHours()}:${
-        String(time.getMinutes()).length == 1 ? 0 : ""
-      }${time.getMinutes()}:${
-        String(time.getMilliseconds()).length == 1 && 0
-      }${time.getSeconds()}`,
-      group_name: values.group_name,
-      name_music: values.name_music,
-      small_props: values.small_props,
+      detail: values.detail,
+      name: values.name,
+      artist_id: id,
+      songs: values.id_music,
+      time_start: `
+      ${
+        String(time_start.getHours()).length == 1 && 0
+      }${time_start.getHours()}:${
+        String(time_start.getMinutes()).length == 1 ? 0 : ""
+      }${time_start.getMinutes()}:${
+        String(time_start.getMilliseconds()).length == 1 && 0
+      }${time_start.getSeconds()}`,
     };
+    console.log(newData);
     dispatch(addSetList(newData));
-    navigate("/admin/manage-setlist");
+    navigate(`/artist&&name=${name}&&id=${id}/setlist`);
+    message.success("Add successful");
   };
 
   return (
@@ -58,10 +62,10 @@ const AddSetlist = (props: Props) => {
         style={{
           paddingBottom: 10,
           borderBottom: "1px solid rgb(228, 228, 228) ",
-          marginBottom: 10,
+          marginBottom: 30,
         }}
       >
-        <h3>Thêm chương trình</h3>
+        <h3 style={{ color: "#fff", marginTop: "20px" }}>Add setlist</h3>
       </div>
       <Form
         name="basic"
@@ -80,42 +84,43 @@ const AddSetlist = (props: Props) => {
         <Row>
           <Col xs={12} sm={4} md={12} lg={12} xl={12}>
             <Form.Item
-              label="Tên nhóm nhạc"
-              name="group_name"
+              label="Name setlist"
+              name="name"
               labelAlign="left"
               style={{ padding: "0 20px" }}
               rules={[
                 {
                   required: true,
-                  message: "Bạn chưa chọn nhóm nhạc!",
+                  message: "You haven't entered the setlist!",
                 },
               ]}
             >
-              <Select placeholder="Chọn nhóm nhạc">
-                {dataArtist.map((item: any, index: any) => (
-                  <Select.Option key={index} value={item.name}>
-                    {item.name}
-                  </Select.Option>
-                ))}
-              </Select>
+              <Input placeholder="Name setlist" />
             </Form.Item>
           </Col>
           <Col xs={12} sm={4} md={12} lg={12} xl={12}>
             <Form.Item
-              label="Bài hát"
-              name="name_music"
+              label="Songs"
+              name="id_music"
               labelAlign="left"
               style={{ padding: "0 20px" }}
               rules={[
                 {
                   required: true,
-                  message: "Bạn chưa nhập tên bài hát!",
+                  message: "You have not entered the song name!",
                 },
               ]}
             >
-              <Select placeholder="Chọn bài hát">
+              <Select
+                mode="multiple"
+                allowClear
+                style={{
+                  width: "100%",
+                }}
+                placeholder="Choose a song"
+              >
                 {dataSongs.map((item: any, index: any) => (
-                  <Select.Option key={index} value={item.name}>
+                  <Select.Option key={index} value={item.id}>
                     {item.name}
                   </Select.Option>
                 ))}
@@ -124,102 +129,44 @@ const AddSetlist = (props: Props) => {
           </Col>
           <Col xs={12} sm={4} md={12} lg={12} xl={12}>
             <Form.Item
-              label="Thời gian"
-              name="time"
+              label="Time start"
+              name="time_start"
               labelAlign="left"
               style={{ padding: "0 20px" }}
               rules={[
                 {
                   required: true,
-                  message: "Bạn chưa nhập thời gian!",
+                  message: "No time to start yet!",
                 },
               ]}
             >
               <TimePicker defaultOpenValue={moment("00:00:00", "HH:mm:ss")} />
             </Form.Item>
           </Col>
-          <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-            <Form.Item
-              label="Bpm"
-              name="bpm"
-              labelAlign="left"
-              style={{ padding: "0 20px" }}
-              rules={[
-                {
-                  required: true,
-                  message: "Bạn chưa nhập bpm!",
-                },
-              ]}
-            >
-              <Input placeholder="Bpm" />
-            </Form.Item>
-          </Col>
-          <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-            <Form.Item
-              label="MP4"
-              name="mp4"
-              labelAlign="left"
-              style={{ padding: "0 20px" }}
-              rules={[
-                {
-                  required: true,
-                  message: "Bạn chưa nhập mp4!",
-                },
-              ]}
-            >
-              <Input placeholder="MP4" />
-            </Form.Item>
-          </Col>
-          <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-            <Form.Item
-              label="SCENE"
-              name="scene"
-              style={{ padding: "0 20px" }}
-              labelAlign="left"
-              rules={[
-                {
-                  required: true,
-                  message: "Bạn chưa nhập SCENE!",
-                },
-              ]}
-            >
-              <Input placeholder="SCENE" />
-            </Form.Item>
-          </Col>
-          <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-            <Form.Item
-              label="MIC"
-              name="mic"
-              labelAlign="left"
-              style={{ padding: "0 20px" }}
-              rules={[
-                {
-                  required: true,
-                  message: "Bạn chưa nhập mic!",
-                },
-              ]}
-            >
-              <Input placeholder="Mic" />
-            </Form.Item>
-          </Col>
-          <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-            <Form.Item
-              label="Đạo cụ"
-              name="small_props"
-              labelAlign="left"
-              style={{ padding: "0 20px" }}
-              rules={[
-                {
-                  required: true,
-                  message: "Bạn chưa nhập đạo cụ!",
-                },
-              ]}
-            >
-              <Input placeholder="Đạo cụ" />
-            </Form.Item>
-          </Col>
+        
         </Row>
-
+        <Form.Item
+          label="Detail"
+          name="detail"
+          labelAlign="left"
+          wrapperCol={{
+            offset: 0,
+            span: 20,
+          }}
+          labelCol={{
+            offset: 0,
+            span: 4,
+          }}
+          style={{ padding: "0 20px" }}
+          rules={[
+            {
+              required: true,
+              message: "Bạn chưa nhập bpm!",
+            },
+          ]}
+        >
+          <TextArea rows={4} placeholder="Detail" />
+        </Form.Item>
         <Form.Item
           wrapperCol={{
             offset: 12,

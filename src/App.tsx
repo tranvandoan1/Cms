@@ -22,46 +22,44 @@ import EidtMember from "./app/views/Components/Page/ManageMember/EidtMember";
 import SignUp from "./app/views/Components/LogIn/SignUp";
 import SignIn from "./app/views/Components/LogIn/SignIn";
 import ListArtist from "./app/views/Components/Page/ListArtist";
+import ListSetlistDetail from "./app/views/Components/Page/ManageSetlist/ListSetlistDetail";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<SignIn />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signin/" element={<SignIn />} />
+      <Route path="/signup/" element={<SignUp />} />
       <Route path="/list-artist" element={<ListArtist />} />
-      {/* <Route index element={<Navigate to="/admin/manage-artist" />} /> */}
-      <Route
-        path="/detail_artist/name=:name&&id=:id/"
-        element={<LayoutArtist />}
-      >
+      <Route path="/artist&&name=:name&&id=:id/" element={<LayoutArtist />}>
         <Route index element={<ListDetailArtist />} />
         <Route
-          path="manage-artist/edit&&name=:name&&id=:id"
+          path="artist/edit&&name=:name&&id=:id"
           element={<EidtArtist />}
         />
-        <Route path="manage-setlist" element={<ListSetlist />} />
-        <Route path="manage-setlist/add" element={<AddSetlist />} />
+        <Route path="setlist" element={<ListSetlist />} />
+        <Route path="setlist/id=:id" element={<ListSetlistDetail />} />
+        <Route path="setlist/add" element={<AddSetlist />} />
         <Route
-          path="manage-setlist/edit&&name=:name&&id=:id"
+          path="setlist/edit&&name=:name&&id=:id"
           element={<EidtSetlist />}
         />
-        <Route path="manage-member" element={<ListMember />} />
-        <Route path="manage-member/add" element={<AddMember />} />
+        <Route path="member" element={<ListMember />} />
+        <Route path="member/add" element={<AddMember />} />
         <Route
-          path="manage-member/edit&&name=:name&&id=:id"
+          path="member/edit&&name=:name&&id=:id"
           element={<EidtMember />}
         />
-        <Route path="manage-songs" element={<ListSongs />} />
-        <Route path="manage-songs/add" element={<AddSong />} />
+        <Route path="songs" element={<ListSongs />} />
+        <Route path="song/add" element={<AddSong />} />
         <Route
-          path="manage-songs/edit&&name=:name&&id=:id"
+          path="song/edit&&name_song=:name_song&&id_song=:id_song"
           element={<EidtSong />}
         />
-        <Route path="manage-stage-plot" element={<IndexStagePlot />} />
-        <Route path="manage-stage-plot/add" element={<AddStagePlot />} />
+        <Route path="stage-plot" element={<IndexStagePlot />} />
+        <Route path="stage-plot/add" element={<AddStagePlot />} />
         <Route
-          path="manage-stage-plot/edit&&name=:name&&id=:id"
+          path="stage-plot/edit&&name=:name&&id=:id"
           element={<EditStagePlot />}
         />
       </Route>
