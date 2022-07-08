@@ -2,3 +2,12 @@
   cursor: pointer;
   color: blue;
 }
+.tox-toolbar__primary{
+  background-color: black !important;
+  color: #fff !important; 
+  border-bottom: 1px solid rgb(243, 243, 243) !important;
+}
+.tox-editor-header,.tox-statusbar{
+  background-color: black !important;
+
+}

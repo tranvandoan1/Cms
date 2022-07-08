@@ -13,9 +13,9 @@ const SignIn = () => {
   };
 
   return (
-    <div className={styles.background}>
+    <div className="background">
       <Modal title="NRC - Sân khấu" visible={true} width={500}>
-        <h3>Đăng nhập</h3>
+        <h3 className="title">Login</h3>
         <Form
           name="basic"
           labelCol={{
@@ -37,7 +37,7 @@ const SignIn = () => {
             rules={[
               {
                 required: true,
-                message: "Bạn chưa nhập email!",
+                message: "You have not entered your email!",
               },
             ]}
             style={{ color: "#fff" }}
@@ -51,7 +51,7 @@ const SignIn = () => {
             rules={[
               {
                 required: true,
-                message: "Bạn chưa nhập password!",
+                message: "You have not entered your password!",
               },
             ]}
           >
@@ -65,17 +65,17 @@ const SignIn = () => {
             }}
           >
             <Button type="primary" htmlType="submit" className="button-login">
-              Đăng nhập
+              Login
             </Button>
             <br />
             <div className="hr">Hoặc</div>
             <Link to="/signup" className="button-signup">
-              Tạo tài khoản mới
+              Create new accoun
             </Link>{" "}
             <br />
             <div style={{ textAlign: "center" }}>
               <a style={{ color: "black" }} href="">
-                Quên mật khẩu?
+                Forgot password?
               </a>
             </div>
           </Form.Item>

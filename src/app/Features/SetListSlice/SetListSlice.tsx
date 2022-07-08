@@ -5,24 +5,27 @@ export const getSetList = createAsyncThunk("setLists/getSetList", async () => {
   return SetLists;
 });
 export const addSetList = createAsyncThunk(
-  "setLists/getSetList",
+  "setLists/addSetList",
   async (data: any) => {
-    const { data: SetLists } = await add(data);
-    console.log(SetLists);
+    await add(data);
+    const { data: SetLists } = await getAll();
+    return SetLists;
   }
 );
 export const uploadSetList = createAsyncThunk(
   "setLists/uploadSetList",
   async (data: any) => {
     await upload(data.id, data.data);
+    const { data: SetLists } = await getAll();
+    return SetLists;
   }
 );
 export const removeSetList = createAsyncThunk(
-  "setLists/uploadSetList",
+  "setLists/removeSetList",
   async (id: any) => {
     await remove(id);
+    await getAll();
     const { data: SetLists } = await getAll();
-    console.log(SetLists);
     return SetLists;
   }
 );
@@ -44,6 +47,16 @@ const setListsSlice = createSlice({
     builder.addCase(getSetList.fulfilled, (state, action) => {
       state.value = action.payload;
     });
+    builder.addCase(removeSetList.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(addSetList.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(uploadSetList.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+
   },
 });
 export const { removeSetListt, uploadSetListt } = setListsSlice.actions;

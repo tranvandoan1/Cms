@@ -5,24 +5,26 @@ export const getArtist = createAsyncThunk("artists/getArtist", async () => {
   return artists;
 });
 export const addArtist = createAsyncThunk(
-  "artists/getArtist",
+  "artists/addArtist",
   async (data: any) => {
-    const { data: artists } = await add(data);
-    console.log(artists);
+    add(data);
+    const { data: artists } = await getAll();
+    return artists;
   }
 );
 export const uploadArtist = createAsyncThunk(
   "artists/uploadArtist",
   async (data: any) => {
     await upload(data.id, data.data);
+    const { data: artists } = await getAll();
+    return artists;
   }
 );
 export const removeArtist = createAsyncThunk(
-  "artists/uploadArtist",
+  "artists/removeArtist",
   async (id: any) => {
     await remove(id);
     const { data: artists } = await getAll();
-    console.log(artists);
     return artists;
   }
 );
@@ -42,6 +44,15 @@ const artistsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getArtist.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(uploadArtist.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(removeArtist.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(addArtist.fulfilled, (state, action) => {
       state.value = action.payload;
     });
   },

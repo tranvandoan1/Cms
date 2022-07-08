@@ -1,26 +1,24 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { add, getAll, remove, upload } from "../../API/SongAPI";
-export const getSong = createAsyncThunk(
-  "songs/getSongSlice",
-  async () => {
-    const { data: songs } = await getAll();
-    return songs;
-  }
-);
-export const addSong = createAsyncThunk(
-  "songs/getSongSlice",
-  async (data: any) => {
-    const { data: songs } = await add(data);
-  }
-);
+export const getSong = createAsyncThunk("songs/getSongSlice", async () => {
+  const { data: songs } = await getAll();
+  return songs;
+});
+export const addSong = createAsyncThunk("songs/addSong", async (data: any) => {
+  await add(data);
+  const { data: songs } = await getAll();
+  return songs;
+});
 export const uploadSong = createAsyncThunk(
   "songs/uploadSong",
   async (data: any) => {
     await upload(data.id, data.data);
+    const { data: songs } = await getAll();
+    return songs;
   }
 );
 export const removeSong = createAsyncThunk(
-  "songs/uploadSong",
+  "songs/removeSong",
   async (id: any) => {
     await remove(id);
     const { data: songs } = await getAll();
@@ -43,6 +41,15 @@ const songSlices = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getSong.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(uploadSong.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(removeSong.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(addSong.fulfilled, (state, action) => {
       state.value = action.payload;
     });
   },

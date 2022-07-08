@@ -24,10 +24,11 @@
   align-items: center;
   justify-content: space-between;
 }
-.outlet {
+.ant-row {
+  row-gap: 0 !important;
 }
 .list-artist {
-  margin-top: 10px;
+  margin-top: 5px;
   background-color: black;
   width: 100%;
   font-size: 18px;
@@ -35,7 +36,6 @@
   font-style: normal;
   font-weight: 400;
   border-radius: 5px;
-  cursor: pointer;
   padding: 5px;
 }
 .avatar {
@@ -43,8 +43,9 @@
   height: 212px;
   position: relative;
   overflow: hidden;
+  background-color: #2f2f2f;
 }
-.avatar > img {
+.avatar > a > img {
   position: absolute;
   top: 0;
   left: 0;
@@ -110,4 +111,47 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+}
+
+.edit > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.ant-upload.ant-upload-select-picture-card {
+  width: 100%;
+  height: 100%;
+}
+.ant-upload-picture-card-wrapper {
+  height: 100%;
+}
+.ant-modal-wrap {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+.ant-modal-content {
+  background-color: #fff !important;
+}
+.ant-form-item-label > label {
+  /* color: black !important; */
+}
+.title-add-artist h3 {
+  margin-bottom: 0 !important;
+  margin-top: 5px !important;
+  color: black ;
 }
