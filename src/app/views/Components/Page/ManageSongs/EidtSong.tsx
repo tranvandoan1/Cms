@@ -15,7 +15,6 @@ import { AppDispatch, RootState } from "../../../../APP/Store";
 import {
   getArtist,
   uploadArtist,
-  uploadArtistt,
 } from "../../../../Features/ArtistSlice/ArtistSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";

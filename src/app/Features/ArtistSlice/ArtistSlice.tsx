@@ -35,12 +35,7 @@ const artistsSlice = createSlice({
     value: [],
   },
   reducers: {
-    removeArtistt(state: any, action: any) {
-      state.value = action.payload;
-    },
-    uploadArtistt(state: any, action: any) {
-      state.value = action.payload;
-    },
+  
   },
   extraReducers: (builder) => {
     builder.addCase(getArtist.fulfilled, (state, action) => {
@@ -57,6 +52,5 @@ const artistsSlice = createSlice({
     });
   },
 });
-export const { removeArtistt, uploadArtistt } = artistsSlice.actions;
 
 export default artistsSlice.reducer;

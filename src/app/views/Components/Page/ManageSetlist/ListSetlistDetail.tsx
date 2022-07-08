@@ -1,30 +1,16 @@
-import {
-  DeleteOutlined,
-  EditOutlined,
-  LeftOutlined,
-  PlusOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
+import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Input, message, Popconfirm, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
-import {
-  getArtist,
-  removeArtist,
-  removeArtistt,
-} from "../../../../Features/ArtistSlice/ArtistSlice";
+
 import "../../../../Style/ListDetailArtist.css";
-import {
-  getSetList,
-  removeSetList,
-} from "../../../../Features/SetListSlice/SetListSlice";
+import { getSetList } from "../../../../Features/SetListSlice/SetListSlice";
 import {
   getSong,
   removeSong,
 } from "./../../../../Features/SongSlice/SongSlice";
-const { Column, ColumnGroup } = Table;
 const ListSetlistDetail: React.FC = () => {
   const { name, id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
@@ -124,7 +110,10 @@ const ListSetlistDetail: React.FC = () => {
         }}
       >
         <div className="flex">
-          <Input placeholder="Basic usage" />
+          <Input
+            onChange={(e: any) => search(e.target.value)}
+            placeholder="Basic usage"
+          />
           <Button
             style={{ background: "black", color: "#fff", marginLeft: 10 }}
           >

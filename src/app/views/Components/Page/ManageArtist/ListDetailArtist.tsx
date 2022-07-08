@@ -13,7 +13,6 @@ import { AppDispatch, RootState } from "../../../../APP/Store";
 import {
   getArtist,
   removeArtist,
-  removeArtistt,
 } from "../../../../Features/ArtistSlice/ArtistSlice";
 import "../../../../Style/ListDetailArtist.css";
 const ListArtist: React.FC = () => {
@@ -28,7 +27,6 @@ const ListArtist: React.FC = () => {
   const deleteArtist = (id: any) => {
     const data = dataArtist.filter((item: any) => item.id !== id);
     dispatch(removeArtist(id));
-    dispatch(removeArtistt(data));
   };
 
   const columns: any = [

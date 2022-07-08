@@ -5,15 +5,14 @@ import {
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Button, Input, message, Popconfirm, Table } from "antd";
-import React, { useEffect } from "react";
+import { Button, Input, message, Modal, Popconfirm, Table } from "antd";
+import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
 import {
   getArtist,
   removeArtist,
-  removeArtistt,
 } from "../../../../Features/ArtistSlice/ArtistSlice";
 import "../../../../Style/ListDetailArtist.css";
 import {
@@ -34,6 +33,20 @@ const ListMember: React.FC = () => {
   const confirm = (id: any) => {
     dispatch(removeSetList(id));
     message.success("Successful delete");
+  };
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
 
   return (
@@ -92,7 +105,10 @@ const ListMember: React.FC = () => {
           dataIndex="id"
           key="id"
           render={(id: any) => (
-            <Button style={{ background: "#00B0F0", color: "#fff" }}>
+            <Button
+              onClick={showModal}
+              style={{ background: "#00B0F0", color: "#fff" }}
+            >
               Created password
             </Button>
           )}
@@ -117,6 +133,16 @@ const ListMember: React.FC = () => {
           )}
         />
       </Table>
+      <Modal
+        title="Basic Modal"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
     </div>
   );
 };

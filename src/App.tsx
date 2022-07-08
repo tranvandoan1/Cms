@@ -31,9 +31,9 @@ import ListSetlistDetail from "./app/views/Components/Page/ManageSetlist/ListSet
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<SignIn />} />
+      {/* <Route path="/" element={<SignIn />} />
       <Route path="/signin/" element={<SignIn />} />
-      <Route path="/signup/" element={<SignUp />} />
+      <Route path="/signup/" element={<SignUp />} /> */}
       <Route path="/list-artist" element={<ListArtist />} />
       <Route path="/artist&&name=:name&&id=:id/" element={<LayoutArtist />}>
         <Route index element={<ListDetailArtist />} />
