@@ -22,6 +22,10 @@ import EidtMember from "./app/views/Components/Page/ManageMember/EidtMember";
 import SignUp from "./app/views/Components/LogIn/SignUp";
 import SignIn from "./app/views/Components/LogIn/SignIn";
 import ListArtist from "./app/views/Components/Page/ListArtist";
+import AdminRoute from "./app/views/Auth/AdminRoute";
+import IndexGeneratePassword from "./app/views/Components/Page/ManageGene/IndexGeneratePassword";
+import AddGeneratePassword from "./app/views/Components/Page/ManageGene/AddGeneratePassword";
+import EditGeneratePassword from "./app/views/Components/Page/ManageGene/EditGeneratePassword";
 
 function App() {
   return (
@@ -63,6 +67,18 @@ function App() {
         <Route
           path="manage-stage-plot/edit&&name=:name&&id=:id"
           element={<EditStagePlot />}
+        />
+        <Route
+          path="manage-generate-password"
+          element={<IndexGeneratePassword />}
+        />
+        <Route
+          path="manage-generate-password/add"
+          element={<AddGeneratePassword />}
+        />
+        <Route
+          path="manage-generate-password/edit&&email=:email&&id=:id"
+          element={<EditGeneratePassword />}
         />
       </Route>
     </Routes>

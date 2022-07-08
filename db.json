@@ -1,5 +1,5 @@
 {
-  "artist": [
+  "StagePlot": [
     {
       "name": "Mới sửa",
       "time_upload": "2022-07-29T10:40:07.677Z",
@@ -179,5 +179,6 @@
       "bar": "Quán nhảy",
       "id": 2
     }
-  ]
+  ],
+  "$schema": []
 }
