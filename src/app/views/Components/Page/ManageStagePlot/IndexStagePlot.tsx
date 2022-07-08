@@ -20,7 +20,7 @@ const IndexStagePlot: React.FC = () => {
 
   useEffect(() => {
     dispath(getAllStagePlot());
-  },[]);
+  }, []);
 
   const onHandleRemove = async (id: number) => {
     const isConfirm = window.confirm("bạn muốn xóa sản phẩm này?");
@@ -65,7 +65,7 @@ const IndexStagePlot: React.FC = () => {
       key: "images",
       render: (images: any) => (
         <>
-          <img src={images} width="180" />
+          <img src={images} width="90" />
         </>
       ),
     },
