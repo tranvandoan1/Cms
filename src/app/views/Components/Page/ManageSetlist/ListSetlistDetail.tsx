@@ -6,24 +6,25 @@ import { Link, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
 
 import "../../../../Style/ListDetailArtist.css";
-import { getSetList } from "../../../../Features/SetListSlice/SetListSlice";
+import {
+  editSetList,
+  getSetList,
+} from "../../../../Features/SetListSlice/SetListSlice";
 import {
   getSong,
-  removeSong,
 } from "./../../../../Features/SongSlice/SongSlice";
 const ListSetlistDetail: React.FC = () => {
-  const { name, id } = useParams();
+  const { name, id, id_setlist, name_setlist } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
   const setLists = useAppSelector((data: any) => data.setlist.value);
   const dataSongs = useAppSelector((data: any) => data.songs.value);
-  const dataSetLists = setLists?.find((item: any) => item.id == id);
-
+  const dataSetLists = setLists?.find((item: any) => item.id == id_setlist);
   const newDataSongs: any = [];
   dataSongs.filter((item: any) => {
-    for (let i = 0; i < dataSetLists.songs?.length; i++) {
-      if (item.id == dataSetLists.songs[i]) {
+    for (let i = 0; i < dataSetLists?.id_music?.length; i++) {
+      if (item.id == dataSetLists?.id_music[i]) {
         newDataSongs.push(item);
       }
     }
@@ -33,15 +34,25 @@ const ListSetlistDetail: React.FC = () => {
     dispatch(getSetList());
     dispatch(getSong());
   }, []);
-  const deleteSong = (id: any) => {
-    dispatch(removeSong(id));
+  const deleteSetList = (data: any) => {
+    let newData: any = {};
+    newData = {
+      artist_id: dataSetLists.artist_id,
+      detail: dataSetLists.detail,
+      id: dataSetLists.id,
+      name: dataSetLists.name,
+      time_start: dataSetLists.time_start,
+      time_upload: dataSetLists.time_upload,
+      id_music: dataSetLists.id_music.filter((mu: any) => mu !== data.id),
+    };
+    dispatch(editSetList(newData));
     message.success("Successful delete");
   };
 
   // search
   const [dataSearch, setDataSearch] = useState();
   const search = (value: any) => {
-    const dataSearch = dataSongs.filter((person: any) => {
+    const dataSearch = dataSongs?.filter((person: any) => {
       return person.name.toLowerCase().includes(value);
     });
     setDataSearch(dataSearch);
@@ -51,7 +62,11 @@ const ListSetlistDetail: React.FC = () => {
       title: "Title",
       dataIndex: "name",
       key: "name",
-      render: (name: any) => <div style={{ width: 100 }}>{name}</div>,
+      render: (name: any) => (
+        <Link to={`stage-plot`}>
+          <div style={{ width: 100, color: "#fff" }}>{name}</div>
+        </Link>
+      ),
     },
     {
       title: "Time",
@@ -90,7 +105,7 @@ const ListSetlistDetail: React.FC = () => {
       render: (id: any, data: any) => (
         <Popconfirm
           title="Are you sure to delete this task?"
-          onConfirm={() => deleteSong(id)}
+          onConfirm={() => deleteSetList(data)}
           okText="Yes"
           cancelText="No"
         >
@@ -105,8 +120,8 @@ const ListSetlistDetail: React.FC = () => {
         style={{
           display: "flex",
           alignItems: "center",
-          margin: "20px 0",
           justifyContent: "space-between",
+          marginTop: 20,
         }}
       >
         <div className="flex">
@@ -131,10 +146,14 @@ const ListSetlistDetail: React.FC = () => {
           </span>
         </div>
       </div>
+      <span style={{ fontSize: 29.5714, color: "#fff", margin: "20px 0" }}>
+        {name_setlist}
+      </span>
       <Table
         dataSource={dataSearch == undefined ? newDataSongs : dataSearch}
         columns={columns}
         rowKey={"1"}
+        style={{ marginTop: 10 }}
       />
     </div>
   );

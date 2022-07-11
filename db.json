@@ -1,111 +1,15 @@
 {
-  "StagePlot": [
-    {
-      "name": "Mới sửa3e",
-      "time_upload": "2022-7-8",
-      "time_start": "2022-07-12T10:40:05.864Z",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fsticker.webp?alt=media&token=ebf2af05-aee6-48ec-8f73-b6ca79023a79",
-      "number_members": ["2", "4"],
-      "artist_id": 0.9175662264095152,
-      "id": 1
-    },
-    {
-      "name": "YG",
-      "time_upload": "2022-7-8",
-      "time_start": "2022-07-06T10:41:38.868Z",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2FBlackpink-G.jpg?alt=media&token=b9697eb8-d3b5-4f62-9f6c-4463a3db46df",
-      "number_members": [],
-      "artist_id": 0.9175662264095154,
-      "id": 2
-    },
-    {
-      "name": "BLACKPINK",
-      "time_upload": "2022-7-8",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fthanh-tich-sau-24-gio-dau-phat-hanh-lovesick-girls-luot-xem-qua-thap-so-voi-ky-vong-buoc-thut-lui-cua-blackpink-160-5271054.jpg?alt=media&token=7ffbb05c-591a-4eca-90b3-d47d7da30856",
-      "time_start": "2022-07-06T10:41:38.868Z",
-      "number_members": [],
-      "artist_id": 0.9175662264095152,
-      "id": 3
-    },
-    {
-      "name": "Lesserafim",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fhinh-anh-nhom-nhac-moi.jpg?alt=media&token=0f3a4e99-db61-4762-89ea-4285a5cf1bee",
-      "time_upload": "2022-7-8",
-      "time_start": "2022-07-06T10:41:38.868Z",
-      "number_members": [],
-      "artist_id": 0.9175662264095152,
-      "id": 4
-    },
-    {
-      "name": "BTS",
-      "time_upload": "2022-07-30T08:45:08.623Z",
-      "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
-      "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": ["2", "1"],
-      "artist_id": 0.5568098971460946,
-      "id": 5
-    },
-    {
-      "name": "BTS",
-      "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
-      "time_upload": "2022-07-30T08:45:08.623Z",
-      "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": ["2", "1"],
-      "artist_id": 0.5568098971460946,
-      "id": 6
-    },
-    {
-      "name": "BTS",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Ftieu-su-gfriend-1-1.jpg?alt=media&token=304ff1e4-91fe-4b6e-b78a-5e20f3b0399a",
-      "time_upload": "2022-7-8",
-      "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": ["2", "1"],
-      "artist_id": 0.5568098971460946,
-      "id": 7
-    },
-    {
-      "name": "BTS1",
-      "time_upload": "2022-07-30T08:45:08.623Z",
-      "time_start": "2022-07-05T08:45:06.313Z",
-      "avatar": "https://i.doanhnhansaigon.vn/2019/03/26/2-1553591476_750x0.jpg",
-      "number_members": ["2", "1"],
-      "artist_id": 0.5568098971460946,
-      "id": 8
-    },
-    {
-      "name": "K-Pop BTS",
-      "time_upload": "2022-7-8",
-      "time_start": "2022-07-05T08:45:06.313Z",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2F71631-twitter.jpeg?alt=media&token=fee68dc9-a3dc-4f8e-a0a2-50bad4ca9ac5",
-      "number_members": ["2", "1"],
-      "artist_id": 0.9175662264095154,
-      "id": 9
-    },
-    {
-      "name": "GFriend ",
-      "time_start": "2022-07-14T04:30:30.081Z",
-      "number_members": ["1", "4", "5"],
-      "artist_id": 0.7536581127978996,
-      "id": 10,
-      "time_upload": "2022-7-8",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Ftieu-su-gfriend-1-1.jpg?alt=media&token=bcee825c-cd28-4bd6-ae9c-5dee17346976"
-    },
-    {
-      "name": "Kpop Twice",
-      "time_start": "2022-07-13T05:07:44.231Z",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2FHinh-anh-nhom-nhac-nu-kpop-TWICE-dep-moi-nhat-09.jpg?alt=media&token=d93b0374-acf6-4fef-b107-8870887f91d0",
-      "number_members": ["2", "6"],
-      "artist_id": 0.6665617322581583,
-      "id": 11
-    }
-  ],
+  "stagePlot": [],
   "artist": [
     {
-      "name": "Mới sửa3e",
-      "time_upload": "2022-7-8",
+      "name": "Tư do",
+      "time_upload": "2022-7-11",
       "time_start": "2022-07-12T10:40:05.864Z",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fsticker.webp?alt=media&token=ebf2af05-aee6-48ec-8f73-b6ca79023a79",
-      "number_members": ["2", "4"],
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fbon-appetit-017.png?alt=media&token=13ad86d3-abdd-4be2-824c-605d83450c1c",
+      "number_members": [
+        "2",
+        "4"
+      ],
       "artist_id": 0.9175662264095152,
       "id": 1
     },
@@ -120,7 +24,7 @@
     },
     {
       "name": "BLACKPINK",
-      "time_upload": "2022-7-8",
+      "time_upload": "2022-7-11",
       "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fthanh-tich-sau-24-gio-dau-phat-hanh-lovesick-girls-luot-xem-qua-thap-so-voi-ky-vong-buoc-thut-lui-cua-blackpink-160-5271054.jpg?alt=media&token=7ffbb05c-591a-4eca-90b3-d47d7da30856",
       "time_start": "2022-07-06T10:41:38.868Z",
       "number_members": [],
@@ -141,7 +45,10 @@
       "time_upload": "2022-07-30T08:45:08.623Z",
       "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
       "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": ["2", "1"],
+      "number_members": [
+        "2",
+        "1"
+      ],
       "artist_id": 0.5568098971460946,
       "id": 5
     },
@@ -150,7 +57,10 @@
       "avatar": "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
       "time_upload": "2022-07-30T08:45:08.623Z",
       "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": ["2", "1"],
+      "number_members": [
+        "2",
+        "1"
+      ],
       "artist_id": 0.5568098971460946,
       "id": 6
     },
@@ -159,7 +69,10 @@
       "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Ftieu-su-gfriend-1-1.jpg?alt=media&token=304ff1e4-91fe-4b6e-b78a-5e20f3b0399a",
       "time_upload": "2022-7-8",
       "time_start": "2022-07-05T08:45:06.313Z",
-      "number_members": ["2", "1"],
+      "number_members": [
+        "2",
+        "1"
+      ],
       "artist_id": 0.5568098971460946,
       "id": 7
     },
@@ -168,7 +81,10 @@
       "time_upload": "2022-07-30T08:45:08.623Z",
       "time_start": "2022-07-05T08:45:06.313Z",
       "avatar": "https://i.doanhnhansaigon.vn/2019/03/26/2-1553591476_750x0.jpg",
-      "number_members": ["2", "1"],
+      "number_members": [
+        "2",
+        "1"
+      ],
       "artist_id": 0.5568098971460946,
       "id": 8
     },
@@ -177,14 +93,21 @@
       "time_upload": "2022-7-8",
       "time_start": "2022-07-05T08:45:06.313Z",
       "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2F71631-twitter.jpeg?alt=media&token=fee68dc9-a3dc-4f8e-a0a2-50bad4ca9ac5",
-      "number_members": ["2", "1"],
+      "number_members": [
+        "2",
+        "1"
+      ],
       "artist_id": 0.9175662264095154,
       "id": 9
     },
     {
       "name": "GFriend ",
       "time_start": "2022-07-14T04:30:30.081Z",
-      "number_members": ["1", "4", "5"],
+      "number_members": [
+        "1",
+        "4",
+        "5"
+      ],
       "artist_id": 0.7536581127978996,
       "id": 10,
       "time_upload": "2022-7-8",
@@ -194,7 +117,10 @@
       "name": "Kpop Twice",
       "time_start": "2022-07-13T05:07:44.231Z",
       "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2FHinh-anh-nhom-nhac-nu-kpop-TWICE-dep-moi-nhat-09.jpg?alt=media&token=d93b0374-acf6-4fef-b107-8870887f91d0",
-      "number_members": ["2", "6"],
+      "number_members": [
+        "2",
+        "6"
+      ],
       "artist_id": 0.6665617322581583,
       "id": 11
     }
@@ -215,10 +141,10 @@
       "artist_id": 0.6665617322581583
     },
     {
-      "color": "#2d5850",
-      "first_letter": "V",
-      "name": "Vũ",
-      "artist_id": 0.9175662264095154,
+      "name": "Vũ 1",
+      "color": "#ff00cd",
+      "first_letter": "VG",
+      "artist_id": "2",
       "id": 3
     },
     {
@@ -243,11 +169,23 @@
       "id": 6
     },
     {
-      "color": "#330fff",
-      "first_letter": "D",
-      "name": "Dũng",
-      "artist_id": 0.9175662264095152,
+      "detail": "text",
+      "name": "Cháy phố đê",
+      "artist_id": "2",
+      "id_music": [
+        4,
+        5
+      ],
+      "time_start": "\n      00:03:05",
+      "time_upload": "\n      00:13:05",
       "id": 7
+    },
+    {
+      "color": "#0018ff",
+      "first_letter": "SKY",
+      "name": "Hiểu SKY",
+      "artist_id": "2",
+      "id": 8
     }
   ],
   "setlists": [
@@ -258,16 +196,36 @@
       "id": 1,
       "name": "Cháy lên đi",
       "artist_id": "2",
-      "id_music": [4]
+      "id_music": [
+        4
+      ]
+    },
+    {
+      "artist_id": "2",
+      "detail": "text",
+      "id": 2,
+      "name": "Cùng nhau cháy nhé",
+      "time_start": "\n      00:04:05",
+      "time_upload": "2022-07-11T06:53:42.976Z",
+      "id_music": [
+        4,
+        5,
+        7
+      ]
     },
     {
       "detail": "text",
-      "name": "Cháy phố đê",
-      "artist_id": "2",
-      "id_music": [4, 5, 7],
-      "time_start": "\n      00:03:05",
-      "time_upload": "\n      00:13:05",
-      "id": 2
+      "time_upload": "2022-07-08T16:25:10.998Z",
+      "name": "Tháng 7 dực dỡ",
+      "artist_id": "3",
+      "id_music": [
+        3,
+        5,
+        7,
+        8
+      ],
+      "time_start": "\n      00:09:04",
+      "id": 3
     }
   ],
   "songs": [
@@ -324,16 +282,15 @@
       "id": 6
     },
     {
-      "name": "Đi về nhà",
-      "time": "00:04:019",
-      "lyrics": "<div class=\"ujudUb\">Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu nắng mưa gần xa<br>Thất b&aacute;t vang danh<br>Nh&agrave; vẫn lu&ocirc;n chờ ta<br>Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu c&oacute; mu&ocirc;n tr&ugrave;ng qua<br>Vật đổi sao dời<br>Nh&agrave; vẫn lu&ocirc;n l&agrave; nh&agrave; (đi v&ecirc;̀ nhà)</div>\n<div class=\"ujudUb\">Ya lao v&agrave;o đời và kiếm cơm lao v&agrave;o đời t&igrave;m cơ hội<br>Những th&agrave;nh thị thường lấp l&aacute;nh còn đ&ecirc;m th&agrave;nh thị thường trơ trọi<br>Như mọi đứa trẻ kh&aacute;c lớn l&ecirc;n muốn đi xa ho&agrave;i (xa hoài)<br>Nh&agrave; th&igrave; vẫn ở y&ecirc;n đ&oacute; đợi những đứa con đang ra ngo&agrave;i</div>\n<div class=\"ujudUb\">Bước ra ngo&agrave;i mới biết kh&ocirc;ng ở đ&acirc;u bằng ở nh&agrave; (ở nh&agrave;)<br>Bi&ecirc;́t c&oacute; g&igrave; để m&acirc;́t trước khi sẵn s&agrave;ng mở qu&agrave; (mở quà)<br>Kh&ocirc;ng phải l&agrave; v&otilde; sĩ nhưng m&agrave; phải giỏi đấu đ&aacute;<br>Nhiều khi kiệt sức chỉ v&igrave; gắng giữ m&igrave;nh kh&ocirc;ng xấu xa</div>\n<div class=\"ujudUb\">Đ&ocirc;i l&uacute;c bỗng thấy đồng cảm với Mai An Ti&ecirc;m<br>Bước ch&acirc;n ra l&agrave; s&oacute;ng gi&oacute; chỉ c&oacute; nh&agrave; m&atilde;i an y&ecirc;n<br>Ngo&agrave;i kia phức tạp như rễ m&aacute; v&agrave; d&acirc;y mơ (d&acirc;y mơ)<br>Về nh&agrave; để c&oacute; l&uacute;c cho ph&eacute;p m&igrave;nh được ng&acirc;y thơ</div>\n<div class=\"ujudUb\">Mang theo bao n&aacute;o nức l&ecirc;n chiếc xe n&agrave;y<br>Trọn một niềm thao thức xu&acirc;n níu đ&ecirc;m ng&agrave;y<br>C&ugrave;ng d&ograve;ng người tr&ecirc;n phố mang sắc mai hương đ&agrave;o<br>T&igrave;m về nơi ấm &ecirc;m</div>\n<div class=\"ujudUb\">Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu nắng mưa gần xa<br>Thất b&aacute;t vang danh<br>Nh&agrave; vẫn lu&ocirc;n chờ ta<br>Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu c&oacute; mu&ocirc;n tr&ugrave;ng qua (dẫu mu&ocirc;n trùng qua)<br>Vật đổi sao dời (vật đ&ocirc;̉i sao dời)<br>Nh&agrave; vẫn lu&ocirc;n l&agrave; nh&agrave;</div>\n<div class=\"ujudUb\">Về ng&ocirc;i nh&agrave; c&oacute; g&oacute;c vườn nhiều ch&oacute; nhiều g&agrave;<br>Đ&aacute;m bạn n&oacute;i con kh&oacute; chiều<br>M&agrave; lại th&iacute;ch gi&oacute; trời hơn gi&oacute; điều hoà ah<br>Về ăn cơm mẹ nấu về mặc &aacute;o mẹ may<br>Về đưa ba ra chợ mua c&acirc;y đ&agrave;o c&acirc;y mai về b&agrave;y</div>\n<div class=\"ujudUb\">Cả năm trời l&agrave;m việc nhiều khi r&atilde; rời như c&aacute;i m&aacute;y oh<br>Về nh&agrave; thấy &aacute;p lực nhẹ như bấc thổi c&aacute;i l&agrave; bay (th&ocirc;̉i cái là bay)<br>Ấm &ecirc;m hơn bếp lửa ngọt b&ugrave;i hơn l&uacute;a non<br>Nh&agrave; vẫn lu&ocirc;n ở đ&oacute; mong chờ những đứa con</div>\n<div class=\"ujudUb\">Dẫu cho mưa cho nắng vẫn kh&ocirc;ng bao giờ nề h&agrave;<br>Hạnh ph&uacute;c chỉ đơn giản l&agrave; c&ograve;n được về nh&agrave; oh<br>Hạnh ph&uacute;c đi về nh&agrave;<br>C&ocirc; đơn đi về nh&agrave;<br>Th&agrave;nh c&ocirc;ng đi về nh&agrave;<br>Thất bại đi về nh&agrave;</div>\n<div class=\"ujudUb\">Mệt qu&aacute; đi về nh&agrave;<br>M&ocirc;ng lung đi về nh&agrave;<br>Ch&ecirc;nh v&ecirc;nh đi về nh&agrave;<br>Kh&ocirc;ng c&oacute; việc g&igrave; vậy th&igrave; đi về nh&agrave;<br>Kh&ocirc;ng c&oacute; việc g&igrave; vậy th&igrave; đi về nh&agrave;<br>Đi về nh&agrave; đi về nh&agrave;</div>\n<div class=\"ujudUb\">Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu nắng mưa gần xa<br>Thất b&aacute;t vang danh<br>Nh&agrave; vẫn lu&ocirc;n chờ ta<br>Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu c&oacute; mu&ocirc;n tr&ugrave;ng qua<br>Vật đổi sao dời<br>Nh&agrave; vẫn lu&ocirc;n l&agrave; nh&agrave;</div>\n<div class=\"ujudUb\">Nh&agrave; c&oacute; thể lớn c&oacute; thể nhỏ c&oacute; thể kh&ocirc;ng khang trang<br>Cha mẹ n&agrave;o cũng muốn con được sống đ&agrave;ng ho&agrave;ng<br>Lớn l&ecirc;n l&agrave;m người mong một tương lai s&aacute;ng lạng<br>Cặm cụi cả đời kh&ocirc;ng bao giờ thấy than v&atilde;n</div>\n<div class=\"ujudUb WRZytc\">Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu nắng mưa gần xa<br>Thất b&aacute;t vang danh<br>Nh&agrave; vẫn lu&ocirc;n chờ ta<br>Đường về nh&agrave; l&agrave; v&agrave;o tim ta<br>Dẫu c&oacute; mu&ocirc;n tr&ugrave;ng qua<br>Vật đổi sao dời<br>Nh&agrave; vẫn lu&ocirc;n l&agrave; nh&agrave;</div>",
-      "section": "5K",
-      "bar": "342",
-      "bpm": "434",
-      "mic": "VŨ",
-      "mp4": "00:04:019",
-      "costume": "X",
-      "small_props": "KÈN",
+      "detail": "text",
+      "name": "Cháy phố đê",
+      "artist_id": "2",
+      "id_music": [
+        4,
+        5
+      ],
+      "time_start": "\n      00:03:05",
+      "time_upload": "\n      00:13:05",
       "id": 7
     },
     {

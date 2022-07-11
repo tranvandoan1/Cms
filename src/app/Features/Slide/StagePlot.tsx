@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { add, edit, filter, garbage, get, getAll, remove } from "../Api/StagePlot";
+import { add, edit, filter, garbage, get, getAll, remove } from "../../API/StagePlot";
 
 const initialState = {
   StagePlot: [],
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export const getAllStagePlot = createAsyncThunk(
-  "StagePlot/getAll",
+  "StagePlot/getAllStagePlot",
   async () => {
     const { data } = await getAll();
     return data;
@@ -68,7 +68,7 @@ export const getStagePlot = createAsyncThunk(
   }
 )
 
-const StagePlot = createSlice({
+const stagePlot = createSlice({
   name: "StagePlot",
   initialState,
   reducers: {},
@@ -106,4 +106,4 @@ const StagePlot = createSlice({
   },
 });
 
-export default StagePlot;
+export default stagePlot.reducer;

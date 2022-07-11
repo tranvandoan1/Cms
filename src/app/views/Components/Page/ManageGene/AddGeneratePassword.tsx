@@ -1,6 +1,6 @@
 import { Form, Input, Button } from "antd";
 import { useNavigate } from "react-router-dom";
-import { signup } from "../../../Api/Auth";
+import { signup } from "../../../../API/Auth";
 const AddGeneratePassword: React.FC = () => {
   const navigate = useNavigate();
   const onFinish = async (values: any) => {

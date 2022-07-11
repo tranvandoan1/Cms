@@ -5,23 +5,29 @@ export const getMember = createAsyncThunk("member/getMember", async () => {
   return members;
 });
 export const addMember = createAsyncThunk(
-  "member/getMember",
+  "member/addMember",
   async (data: any) => {
     await add(data);
+    const { data: members } = await getAll();
+    return members;
   }
 );
 export const uploadMember = createAsyncThunk(
   "member/uploadMember",
   async (data: any) => {
-    console.log(data)
+    console.log(data);
     await upload(data.id, data.data);
+    const { data: members } = await getAll();
+    return members;
   }
 );
+
 export const removeMember = createAsyncThunk(
-  "member/uploadMember",
+  "member/removeMember",
   async (id: any) => {
     await remove(id);
-    await getAll();
+    const { data: members } = await getAll();
+    return members;
   }
 );
 
@@ -42,6 +48,16 @@ const memberSlice = createSlice({
     builder.addCase(getMember.fulfilled, (state, action) => {
       state.value = action.payload;
     });
+    builder.addCase(removeMember.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(addMember.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+    builder.addCase(uploadMember.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
+
   },
 });
 export const { removeMemberr, uploadMemberr } = memberSlice.actions;

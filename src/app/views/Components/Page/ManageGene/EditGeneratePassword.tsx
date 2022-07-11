@@ -2,8 +2,8 @@ import { Form,Button,Input } from "antd"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
-import { edit, get } from "../../../Api/Auth"
-import { editUser } from "../../../Slide/AuthSlide"
+import { edit, get } from "../../../../API/Auth"
+import { editUser } from "../../../../Features/Slide/AuthSlide"
 const EditGeneratePassword:React.FC = ()=>{
     const {id} = useParams()
     const [user,setUsers] = useState<any>()

@@ -16,8 +16,16 @@ export const uploadSetList = createAsyncThunk(
   "setLists/uploadSetList",
   async (data: any) => {
     await upload(data.id, data.data);
-    const { data: SetLists } = await getAll();
-    return SetLists;
+    const { data: setLists } = await getAll();
+    return setLists;
+  }
+);
+export const editSetList = createAsyncThunk(
+  "member/editSetList",
+  async (data: any) => {
+    await upload(data.id, data);
+    const { data: setLists } = await getAll();
+    return setLists;
   }
 );
 export const removeSetList = createAsyncThunk(
@@ -35,14 +43,7 @@ const setListsSlice = createSlice({
   initialState: {
     value: [],
   },
-  reducers: {
-    removeSetListt(state: any, action: any) {
-      state.value = action.payload;
-    },
-    uploadSetListt(state: any, action: any) {
-      state.value = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getSetList.fulfilled, (state, action) => {
       state.value = action.payload;
@@ -56,9 +57,10 @@ const setListsSlice = createSlice({
     builder.addCase(uploadSetList.fulfilled, (state, action) => {
       state.value = action.payload;
     });
-
+    builder.addCase(editSetList.fulfilled, (state, action) => {
+      state.value = action.payload;
+    });
   },
 });
-export const { removeSetListt, uploadSetListt } = setListsSlice.actions;
 
 export default setListsSlice.reducer;

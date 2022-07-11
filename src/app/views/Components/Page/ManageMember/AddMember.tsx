@@ -1,8 +1,8 @@
-import { Button, DatePicker, Form, Input } from "antd";
+import { Button, DatePicker, Form, Input, message } from "antd";
 import React, { useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AppDispatch } from "../../../../APP/Store";
 import { addMember } from "../../../../Features/MemberSlice/MemberSlice";
 
@@ -15,15 +15,17 @@ const AddMember = (props: Props) => {
   const [color, setColor] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+  const { name, id } = useParams();
   const onFinish = (values: any) => {
     const newData = {
       color: color,
       first_letter: values.first_letter,
       name: values.name,
-      artist_id: "",
+      artist_id: id,
     };
     dispatch(addMember(newData));
-    navigate("/admin/manage-member");
+    navigate(`/artist&&name=${name}&&id=${id}/member`);
+    message.success("Edit successful");
   };
 
   return (
@@ -35,7 +37,7 @@ const AddMember = (props: Props) => {
           marginBottom: 10,
         }}
       >
-        <h3>Thêm thành viên</h3>
+        <h3 style={{ color: "#fff", marginTop: "20px" }}>Add Member</h3>
       </div>
       <Form
         name="basic"

@@ -20,21 +20,21 @@ import {
   Upload,
 } from "antd";
 import React, { useEffect, useState } from "react";
-import "../../../Style/LayoutAdmin.css";
+import "../../../../Style/LayoutAdmin.css";
 import { Link, useNavigate } from "react-router-dom";
-import { AppDispatch, RootState } from "../../../APP/Store";
+import { AppDispatch, RootState } from "../../../../APP/Store";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import {
   getArtist,
   removeArtist,
   uploadArtist,
-} from "./../../../Features/ArtistSlice/ArtistSlice";
+} from "../../../../Features/ArtistSlice/ArtistSlice";
 import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { storage } from "../../firebase";
+import { storage } from "../../../firebase";
 import moment from "moment";
-import AddArtist from "./ManageArtist/AddArtist";
+import AddArtist from "./AddArtist";
 const { Header, Content } = Layout;
 
 const ListArtist: React.FC = () => {

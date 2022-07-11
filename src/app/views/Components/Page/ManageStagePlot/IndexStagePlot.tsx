@@ -6,27 +6,30 @@ import {
 } from "@ant-design/icons";
 import { Button, Input, Table } from "antd";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { AppDispatch, RootState } from "../../../../APP/Store";
 import {
   filterStagePlot,
   getAllStagePlot,
   removeStagePlot,
-} from "../../../Slide/StagePlot";
+} from "../../../../Features/Slide/StagePlot";
 
 const IndexStagePlot: React.FC = () => {
-  const StagePlot = useSelector((state: any) => state.StagePlot.StagePlot);
-  const dispath: any = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+  const StagePlot = useSelector((state: any) => state.stagePlot.StagePlot);
 
   useEffect(() => {
-    dispath(getAllStagePlot());
+    dispatch(getAllStagePlot());
   }, []);
 
   const onHandleRemove = async (id: number) => {
     const isConfirm = window.confirm("bạn muốn xóa sản phẩm này?");
 
     if (isConfirm) {
-      dispath(removeStagePlot(id));
+      dispatch(removeStagePlot(id));
     }
   };
   const Search = () => {
@@ -34,7 +37,7 @@ const IndexStagePlot: React.FC = () => {
     const value: any = values.value;
     console.log(value);
     if (StagePlot) {
-      dispath(filterStagePlot(value));
+      dispatch(filterStagePlot(value));
     }
   };
   // console.log(StagePlot);

@@ -1,9 +1,6 @@
 import { Button, Form, Input, Modal, Upload } from "antd";
-import styles from "../../../Style/Login.module.css";
 import "../../../Style/Login.css";
 import { Link, useNavigate } from "react-router-dom";
-import { storage } from "./../../firebase/index";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 const SignIn = () => {
   const navigate = useNavigate();
@@ -11,7 +8,7 @@ const SignIn = () => {
     console.log(values);
     navigate("/list-artist");
   };
-
+  console.log("đâsdas");
   return (
     <div className="background">
       <Modal title="NRC - Sân khấu" visible={true} width={500}>

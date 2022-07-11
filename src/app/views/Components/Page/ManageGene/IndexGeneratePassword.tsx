@@ -6,43 +6,44 @@ import {
 } from "@ant-design/icons";
 import { Input, Button, Table } from "antd";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { filter, getAll } from "../../../Api/Auth";
-import { deleteUser, getAllUser } from "../../../Slide/AuthSlide";
+import { filter, getAll } from "../../../../API/Auth";
+import { AppDispatch, RootState } from "../../../../APP/Store";
+import { deleteUser, getAllUser } from "../../../../Features/Slide/AuthSlide";
 
 const IndexGeneratePassword: React.FC = () => {
-
-    const users = useSelector((state:any) => state.user.user)
-    const dispath:any = useDispatch()
-    useEffect(()=>{
-        dispath(getAllUser())
-    },[])
-    const Search = async() => {
-      const values: any = document.getElementById("search");
-      const value: any = values.value;
-      console.log(value);
-      const {data} = await filter(value)
-      console.log(data);
-    };
-    const onHandleRemove = (item:any) =>{
-        if(item.id ===1){
-            alert("bạn không thể xóa tài khoản admin")
-        }else{
-          const isConfirm = window.confirm("bạn muốn xóa sản phẩm này?");
-          if(isConfirm){
-            dispath(deleteUser(item.id))
-          }
-        }
+  const dispatch = useDispatch<AppDispatch>();
+  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+  const users = useSelector((state: any) => state.user.user);
+  useEffect(() => {
+    dispatch(getAllUser());
+  }, []);
+  const Search = async () => {
+    const values: any = document.getElementById("search");
+    const value: any = values.value;
+    console.log(value);
+    const { data } = await filter(value);
+    console.log(data);
+  };
+  const onHandleRemove = (item: any) => {
+    if (item.id === 1) {
+      alert("bạn không thể xóa tài khoản admin");
+    } else {
+      const isConfirm = window.confirm("bạn muốn xóa sản phẩm này?");
+      if (isConfirm) {
+        dispatch(deleteUser(item.id));
+      }
     }
-    console.log(users);
-    
+  };
+  console.log(users);
+
   const columns = [
     {
-        title: "Tên",
-        dataIndex: "name",
-        key: "name",
-      },
+      title: "Tên",
+      dataIndex: "name",
+      key: "name",
+    },
     {
       title: "Tài Khoản",
       dataIndex: "email",
@@ -113,15 +114,13 @@ const IndexGeneratePassword: React.FC = () => {
           </Link>
         </div>
       </div>
-          {
-          (users) ?(
-             <Table
-             dataSource={users}
-             columns={columns}
-             rowKey={(item:any) => item.id}
-           />
-          ):null}
-     
+      {users ? (
+        <Table
+          dataSource={users}
+          columns={columns}
+          rowKey={(item: any) => item.id}
+        />
+      ) : null}
     </div>
   );
 };

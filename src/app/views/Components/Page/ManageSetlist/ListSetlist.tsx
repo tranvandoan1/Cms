@@ -92,7 +92,7 @@ const ListMember: React.FC = () => {
           dataIndex="name"
           key="name"
           render={(name: any, data: any) => (
-            <Link to={`id=${data.id}`}>
+            <Link to={`name-setlist=${data.name}&&id_setlist=${data.id}`}>
               <span style={{ color: "#fff" }}>{name}</span>
             </Link>
           )}
@@ -118,7 +118,7 @@ const ListMember: React.FC = () => {
           dataIndex="id"
           render={(id: any, data: any) => (
             <>
-              <Link to={`edit&&name=${data.name}&&id=${id}`}>
+              <Link to={`edit&&name_setlist=${data.name}&&id_setlist=${id}`}>
                 <EditOutlined style={{ marginRight: 10, color: "#fff" }} />
               </Link>
               <Popconfirm

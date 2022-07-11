@@ -17,6 +17,7 @@ export const uploadSong = createAsyncThunk(
     return songs;
   }
 );
+
 export const removeSong = createAsyncThunk(
   "songs/removeSong",
   async (id: any) => {
@@ -52,6 +53,7 @@ const songSlices = createSlice({
     builder.addCase(addSong.fulfilled, (state, action) => {
       state.value = action.payload;
     });
+ 
   },
 });
 export const { removeSongg, uploadSongg } = songSlices.actions;

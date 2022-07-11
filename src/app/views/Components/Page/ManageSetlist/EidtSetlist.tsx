@@ -18,7 +18,6 @@ import { getArtist } from "../../../../Features/ArtistSlice/ArtistSlice";
 import { getSetList } from "../../../../Features/SetListSlice/SetListSlice";
 import {
   uploadSetList,
-  uploadSetListt,
 } from "../../../../Features/SetListSlice/SetListSlice";
 import { getSong } from "../../../../Features/SongSlice/SongSlice";
 const { RangePicker } = DatePicker;
@@ -28,38 +27,41 @@ type Props = {};
 
 const EidtSetlist = (props: Props) => {
   const navigate = useNavigate();
-  const { name, id } = useParams();
+  const { name, id, name_setlist, id_setlist } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const dataSetList = useAppSelector((data: any) => data.setlist.value);
   const dataSongs = useAppSelector((data: any) => data.songs.value);
-  const dataEdit = dataSetList?.find((item: any) => item.id == id);
+  const dataEdit = dataSetList?.find((item: any) => item.id == id_setlist);
+  console.log(dataSongs);
   useEffect(() => {
     dispatch(getSetList());
     dispatch(getSong());
   }, []);
   const onFinish = (values: any) => {
-    const time = new Date(values.time._d);
+    const time_start = new Date(values.time_start._d);
     const time_upload = new Date();
     const editData: any = {
       detail: values.detail == undefined ? dataEdit.detail : values.detail,
       time_upload: time_upload,
-      name: values.name == undefined ? dataEdit.name : values.name_munamesic,
+      name: values.name == undefined ? dataEdit.name : values.name,
       artist_id: dataEdit.artist_id,
-      id_music: values.songs == undefined ? dataEdit.songs : values.songs,
+      id_music:
+        values.id_music == undefined ? dataEdit.id_music : values.id_music,
       time_start:
-        time == undefined
-          ? dataEdit.time
+        values.time_start == undefined
+          ? dataEdit.time_start
           : `
-      ${String(time.getHours()).length == 1 && 0}${time.getHours()}:${
-              String(time.getMinutes()).length == 1 ? 0 : ""
-            }${time.getMinutes()}:${
-              String(time.getMilliseconds()).length == 1 && 0
-            }${time.getSeconds()}`,
+      ${
+        String(time_start.getHours()).length == 1 && 0
+      }${time_start.getHours()}:${
+              String(time_start.getMinutes()).length == 1 ? 0 : ""
+            }${time_start.getMinutes()}:${
+              String(time_start.getMilliseconds()).length == 1 && 0
+            }${time_start.getSeconds()}`,
     };
-
     dispatch(uploadSetList({ id: id, data: editData }));
-    navigate(`/artist&&name=${name}&&id=${id}/songs`);
+    navigate(`/artist&&name=${name}&&id=${id}/setlist`);
     message.success("Edit successful");
   };
 
@@ -168,7 +170,7 @@ const EidtSetlist = (props: Props) => {
             }}
           >
             <Button type="primary" htmlType="submit">
-              Thêm
+              Sửa
             </Button>
           </Form.Item>
         </Form>

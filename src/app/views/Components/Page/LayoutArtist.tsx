@@ -1,12 +1,7 @@
 import {
-  BranchesOutlined,
-  CaretRightOutlined,
-  DeploymentUnitOutlined,
   EnterOutlined,
-  LeftOutlined,
   LogoutOutlined,
   SettingOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import {
   Avatar,
@@ -18,19 +13,13 @@ import {
   Menu,
   Row,
 } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../../../Style/LayoutAdmin.css";
-import {
-  Link,
-  Navigate,
-  Outlet,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../APP/Store";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { getArtist } from "../../../Features/ArtistSlice/ArtistSlice";
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content } = Layout;
 
 function getItem(label: any, key: any, itemIcon: any) {
   return {
@@ -41,13 +30,6 @@ function getItem(label: any, key: any, itemIcon: any) {
 }
 const LayoutArtist: React.FC = () => {
   const navigate = useNavigate();
-  const { name, id } = useParams();
-  const dispatch = useDispatch<AppDispatch>();
-  const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const dataArtist = useAppSelector((data: any) => data.artist.value);
-  useEffect(() => {
-    dispatch(getArtist());
-  }, []);
 
   const items: any = [
     getItem("Setlist", "2", <Link to="setlist" />),
@@ -137,89 +119,6 @@ const LayoutArtist: React.FC = () => {
           </Content>
         </div>
       </Layout>
-
-      {/* <Layout
-        style={{
-          minHeight: "100vh",
-        }}
-      >
-        <Sider
-          style={{
-            overflow: "auto",
-            height: "100vh",
-            position: "fixed",
-            left: 0,
-            top: 0,
-            bottom: 0,
-            borderRight: "1px solid rgb(245, 245, 245)",
-          }}
-          className="site-layout-background"
-        >
-          <div className="logo">NRC - Sân khấu</div>
-          <Menu
-            style={{
-              width: 256,
-            }}
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            mode="inline"
-            items={items}
-          />
-        </Sider>
-        <Layout
-          className="site-layout"
-          style={{
-            overflow: "auto",
-            height: "100vh",
-            marginLeft: 200,
-            display: "flex",
-            flex: 1,
-            flexDirection: "column",
-          }}
-        >
-          <Header
-            className="site-layout-background"
-            style={{
-              padding: 0,
-              position: "sticky",
-              top: 0,
-              zIndex: 100,
-              boxShadow: "0 0 0 5px rgb(245, 245, 245)",
-            }}
-          >
-            <div style={{ textAlign: "right", marginRight: 20 }}>
-              <Avatar
-                size={40}
-                style={{ marginRight: 10 }}
-                src="https://img.websosanh.vn/v2/users/review/images/4wvuq0i4ozs1q.jpg?compress=85"
-              />
-              <span>
-                ADMIN :{" "}
-                <span style={{ color: "red", fontWeight: "600" }}>
-                  tranvandoan
-                </span>{" "}
-              </span>
-            </div>
-          </Header>
-          <Content
-            style={{
-              margin: "0 0 0 16px",
-              flex: 1,
-              height: "100%",
-            }}
-          >
-            <div
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                marginTop: 10,
-              }}
-            >
-              <Outlet />
-            </div>
-          </Content>
-        </Layout>
-      </Layout> */}
     </div>
   );
 };

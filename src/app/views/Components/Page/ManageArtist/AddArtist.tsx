@@ -156,9 +156,11 @@ const AddArtist = (props: Props) => {
           {loading == true ? (
             <Spin style={{ marginLeft: 10 }} />
           ) : (
-            <div className="edit">
-              <img src={imageUrlAvatar == undefined ? "" : imageUrlAvatar} />
-            </div>
+            imageUrlAvatar !== undefined && (
+              <div className="edit">
+                <img src={imageUrlAvatar == undefined ? "" : imageUrlAvatar} />
+              </div>
+            )
           )}
         </Form.Item>
 

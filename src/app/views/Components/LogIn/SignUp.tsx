@@ -1,7 +1,6 @@
 import { Button, Checkbox, Form, Input, Modal, Upload } from "antd";
 import React from "react";
 import styles from "../../../Style/Login.module.css";
-import "../../../Style/Login.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { UploadOutlined } from "@ant-design/icons";

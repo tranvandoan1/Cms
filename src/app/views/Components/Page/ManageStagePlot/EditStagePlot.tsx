@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Form, Input, Select } from "antd";
-import { get } from "../../../Api/StagePlot";
-import { editStagePlot } from "../../../Slide/StagePlot";
+import { get } from "../../../../API/StagePlot";
+import { editStagePlot } from "../../../../Features/Slide/StagePlot";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
 const { Option } = Select;

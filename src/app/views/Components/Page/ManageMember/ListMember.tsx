@@ -4,12 +4,15 @@ import {
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { Button, Input, Space, Table } from "antd";
+import { Button, Input, message, Popconfirm, Space, Table } from "antd";
 import React, { useEffect } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
-import { getMember } from "../../../../Features/MemberSlice/MemberSlice";
+import {
+  getMember,
+  removeMember,
+} from "../../../../Features/MemberSlice/MemberSlice";
 import { getArtist } from "../../../../Features/ArtistSlice/ArtistSlice";
 
 const IndexMember: React.FC = () => {
@@ -17,15 +20,17 @@ const IndexMember: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const dataMembers = useAppSelector((data: any) => data.member.value);
-  const dataArtists = useAppSelector((data: any) => data.artist.value);
-  const dataArtist = dataArtists?.find((item: any) => item.id == id);
-  const listMember = dataMembers?.filter(
-    (item: any) => item.artist_id == dataArtist?.artist_id
+  const listDataArtist = dataMembers?.filter(
+    (item: any) => item.artist_id == id
   );
   useEffect(() => {
     dispatch(getMember());
-    dispatch(getArtist());
   }, []);
+
+  const deleteSong = (id: any) => {
+    dispatch(removeMember(id));
+    message.success("Successful delete");
+  };
 
   const columns = [
     {
@@ -63,15 +68,21 @@ const IndexMember: React.FC = () => {
     },
 
     {
-      title: "Thao tác",
       dataIndex: "id",
       key: "id",
       render: (id: any, data: any) => (
         <>
-          <Link to={`edit&&name=${data.name}&&id=${id}`}>
-            <EditOutlined style={{ marginRight: 10 }} />
+          <Link to={`edit&&name-member=${data.name}&&idMember=${id}`}>
+            <EditOutlined style={{ marginRight: 10, color: "#fff" }} />
           </Link>
-          <DeleteOutlined />
+          <Popconfirm
+            title="Are you sure to delete this task?"
+            onConfirm={() => deleteSong(id)}
+            okText="Yes"
+            cancelText="No"
+          >
+            <DeleteOutlined style={{ color: "red" }} />
+          </Popconfirm>
         </>
       ),
     },
@@ -96,18 +107,20 @@ const IndexMember: React.FC = () => {
           </Button>
         </div>
         <div className="flex">
-          <Button style={{ background: "black", color: "#fff" }}>
-            <PlusOutlined />
-          </Button>
+          <Link to={`/artist&&name=${name}&&id=${id}/member/add`}>
+            {" "}
+            <Button style={{ background: "black", color: "#fff" }}>
+              <PlusOutlined />
+            </Button>
+          </Link>
           <span className="add" style={{ marginLeft: 10 }}>
             Add New Member
           </span>
         </div>
       </div>
       <Table
-        bordered
         rowKey={(item: any) => item.id}
-        dataSource={listMember}
+        dataSource={listDataArtist}
         columns={columns}
       />
     </div>

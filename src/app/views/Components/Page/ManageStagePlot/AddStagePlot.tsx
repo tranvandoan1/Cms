@@ -2,7 +2,7 @@ import { Button, Form, Input, Select } from "antd";
 import React, { createRef, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addStagePlot } from "../../../Slide/StagePlot";
+import { addStagePlot } from "../../../../Features/Slide/StagePlot";
 import { ReactSketchCanvas, ExportImageType } from "react-sketch-canvas";
 const { Option } = Select;
 

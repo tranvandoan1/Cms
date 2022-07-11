@@ -1,4 +1,4 @@
-import { Button, DatePicker, Form, Input } from "antd";
+import { Button, DatePicker, Form, Input, message } from "antd";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../APP/Store";
@@ -19,14 +19,15 @@ const { TextArea } = Input;
 
 type Props = {};
 const EidtMember = (props: Props) => {
+  const navigate = useNavigate();
   const [color, setColor] = useState();
-  const navigete = useNavigate();
-  const { id } = useParams();
+  const { name, id, id_member } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
   const dataMember = useAppSelector((data: any) => data.member.value);
-  const dataEdit = dataMember?.find((item: any) => item.id == id);
+  const dataEdit = dataMember?.find((item: any) => item.id == id_member);
+  console.log(dataEdit);
 
   useEffect(() => {
     dispatch(getMember());
@@ -39,18 +40,19 @@ const EidtMember = (props: Props) => {
         values.first_letter == undefined
           ? dataEdit?.first_letter
           : values.first_letter,
+      artist_id: id,
     };
     const newData: any = [];
     dataMember.map((item: any) => {
-      if (item.id == id) {
-        newData.push({ ...editData, id });
+      if (item.id == id_member) {
+        newData.push({ ...editData, id_member });
       } else {
         newData.push(item);
       }
     });
-    dispatch(uploadMember({ id: id, data: editData }));
-    dispatch(uploadMemberr(newData));
-    navigete("/admin/manage-member");
+    dispatch(uploadMember({ id: id_member, data: editData }));
+    navigate(`/artist&&name=${name}&&id=${id}/member`);
+    message.success("Edit successful");
   };
 
   return (
@@ -62,7 +64,7 @@ const EidtMember = (props: Props) => {
           marginBottom: 10,
         }}
       >
-        <h3>Sửa thành viên</h3>
+        <h3 style={{ color: "#fff", marginTop: "20px" }}>Edit Member</h3>
       </div>
       {dataEdit !== undefined && (
         <Form
