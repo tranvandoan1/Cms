@@ -29,30 +29,79 @@ const EditStagePlot: React.FC = () => {
   }, []);
 
   const onFinish = (values: any) => {
-    const represen = values.name.split("")[0];
     console.log(values);
     canvas.current
       .exportImage("png")
       .then((data: any) => {
-        console.log(values.images.length);
-
-        if (values.images.length === 0 && values.color === undefined) {
+       
+        if (values.images.length === 0 && values.color === undefined && values.name === undefined) {
           const newStagePlot = {
-            ...StagePlot,
-            name: values.name,
-            represen: represen,
+            ...StagePlot
           };
           console.log(newStagePlot);
           dispath(editStagePlot(newStagePlot));
           alert("Sửa thành công");
           navigate("/admin/manage-stage-plot");
-        } else {
+        } else if(values.images.length === 0 && values.name === undefined){
+          // const represen = values.name.split("")[0];
           const newStagePlot = {
             ...StagePlot,
-            name: values.name,
+            color: values.color
+          };
+          console.log(newStagePlot);
+          dispath(editStagePlot(newStagePlot));
+          alert("Sửa thành công");
+          navigate("/admin/manage-stage-plot");
+        }else if(values.images.length === 0 && values.color === undefined){
+          const represen = values.name.split("")[0];
+          const newStagePlot = {
+            ...StagePlot,
+            name:values.name,
+            represen: represen
+          };
+          console.log(newStagePlot);
+          dispath(editStagePlot(newStagePlot));
+          alert("Sửa thành công");
+          navigate("/admin/manage-stage-plot");
+        }else if(values.images.length === 0){
+          const represen = values.name.split("")[0];
+          const newStagePlot = {
+            ...StagePlot,
+            name:values.name,
+            color: values.color,
+            represen: represen
+          };
+          console.log(newStagePlot);
+          dispath(editStagePlot(newStagePlot));
+          alert("Sửa thành công");
+          navigate("/admin/manage-stage-plot");
+        }else if(values.name === undefined && values.color === undefined){
+          const newStagePlot = {
+            ...StagePlot,
+            images: data
+          };
+          console.log(newStagePlot);
+          dispath(editStagePlot(newStagePlot));
+          alert("Sửa thành công");
+          navigate("/admin/manage-stage-plot");
+        }else if(values.name === undefined){
+          const newStagePlot = {
+            ...StagePlot,
+            color: values.color,
+            images: data
+          };
+          console.log(newStagePlot);
+          dispath(editStagePlot(newStagePlot));
+          alert("Sửa thành công");
+          navigate("/admin/manage-stage-plot");
+        }else{
+          const represen = values.name.split("")[0];
+          const newStagePlot = {
+            ...StagePlot,
+            name:values.name,
             color: values.color,
             represen: represen,
-            images: data,
+            images: data
           };
           console.log(newStagePlot);
           dispath(editStagePlot(newStagePlot));
@@ -95,11 +144,26 @@ const EditStagePlot: React.FC = () => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <Form.Item label="Tên Stage Plot" name="name" labelAlign="left">
+          <Form.Item 
+          labelAlign="left"
+          label="Tên Stage Plot" 
+          name="name" 
+          rules={[
+            {
+              transform(value:any) {
+                  if(value === ""){
+                    return {
+                      message:"bạn chưa nhập tên StagePlot!"
+                    }
+                  }
+              },
+            }
+          ]}
+          >
             <Input
               placeholder="Tên Các Stage Plot "
               defaultValue={StagePlot?.name}
-              value={StagePlot?.name}
+             
             />
           </Form.Item>
 

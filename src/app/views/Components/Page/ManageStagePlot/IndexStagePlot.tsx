@@ -37,7 +37,7 @@ const IndexStagePlot: React.FC = () => {
       dispath(filterStagePlot(value));
     }
   };
-  // console.log(StagePlot);
+  console.log(StagePlot);
 
   const columns = [
     {
@@ -63,11 +63,13 @@ const IndexStagePlot: React.FC = () => {
       title: "Ảnh",
       dataIndex: "images",
       key: "images",
-      render: (images: any) => (
-        <>
-          <img src={images} width="90" />
-        </>
-      ),
+      render: (images: any) =>(
+        <img src={images} alt="" width={180} />
+      )
+       
+      
+       
+      
     },
 
     {

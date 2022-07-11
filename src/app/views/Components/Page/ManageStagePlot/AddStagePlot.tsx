@@ -1,83 +1,148 @@
-import { Button, Form, Input, Select } from "antd";
-import React, { createRef, useRef, useState } from "react";
+import React, { Component, useRef, useState } from "react";
+import { Stage, Layer, Arrow, Circle, Line } from "react-konva";
+import { Form, Input, Row, Col, Button } from "antd";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { addStagePlot } from "../../../Slide/StagePlot";
-import { ReactSketchCanvas, ExportImageType } from "react-sketch-canvas";
-const { Option } = Select;
+import { useNavigate } from "react-router-dom";
 
+const historyStep:any = 0;
+
+interface Drawable {
+  x: any;
+  y: any;
+  startx: any;
+  starty: any;
+  points: any;
+  color:any
+}
+
+class Drawable {
+  constructor(startx: any, starty: any) {
+    this.startx = startx;
+    this.starty = starty;
+  }
+}
+
+class FreePathDrawable extends Drawable {
+  constructor(startx: any, starty: any, color:any) {
+    super(startx, starty);
+    this.color = color
+    this.points = [startx, starty];
+  }
+  registerMovement(x: any, y: any) {
+    this.points = [...this.points, x, y];
+  }
+  render() {
+    return <Line points={this.points} fill="black" stroke={this.color}  />;
+  }
+}
+
+class ArrowDrawable extends Drawable {
+  constructor(startx: any, starty: any,color:any) {
+    super(startx, starty);
+    this.x = startx;
+    this.y = starty;
+    this.color = color
+  }
+  registerMovement(x: any, y: any) {
+    this.x = x;
+    this.y = y;
+  }
+  render() {
+    const points: any = [this.startx, this.starty, this.x, this.y];
+    return <Line points={points} fill="black" stroke={this.color}  />;
+  }
+}
+
+class CircleDrawable extends Drawable {
+  constructor(startx: any, starty: any, color:any) {
+    super(startx, starty);
+    this.startx = startx;
+    this.starty = starty;
+    this.color = color
+  }
+  registerMovement(x: any, y: any) {
+    this.x = x;
+    this.y = y;
+  }
+  render() {
+    const dx = this.startx - this.x;
+    const dy = this.starty - this.y;
+    const radius = Math.sqrt(dx * dx + dy * dy);
+    return (
+      <Circle radius={radius} x={this.startx} y={this.starty} stroke={this.color} />
+    );
+  }
+}
 const AddStagePlot: React.FC = () => {
+  const [drawables, setDrawables] = useState<any>([]);
+  const [newDrawable, setNewDrawable] = useState<any>([]);
+  const [newDrawableType, setNewDrawableType] =
+    useState<any>("FreePathDrawable");
+  const stageRef = useRef(null);
   const dispath: any = useDispatch();
   const navigate = useNavigate();
-  const [exportImageType, setexportImageType] = useState("png");
-  const canvas: any = useRef<HTMLInputElement>();
-  const canvasRef = createRef();
-  const [strokeColor, setStrokeColor] = useState<string>("black");
-  const onFinish = async (values: any) => {
-    console.log(values.color);
-    const represen = values.name.split("")[0];
-    // console.log(canvas.current.exportImage("image/png"));
-    if (values.color === undefined) {
-      canvas.current
-        .exportImage()
-        .then((data: any) => {
-          console.log(data);
-          const newStagePlot = {
-            name: values.name,
-            color: "black",
-            represen: represen,
-            images: data,
-          };
-          console.log(newStagePlot);
-          dispath(addStagePlot(newStagePlot));
-          alert("Thêm thành công");
-          navigate("/admin/manage-stage-plot");
-        })
-        .catch((e: any) => {
-          console.log(e, "dấdasd");
-        });
-    } else {
-      canvas.current
-        .exportImage()
-        .then((data: any) => {
-          console.log(data);
-          const newStagePlot = {
-            name: values.name,
-            color: values.color,
-            represen: represen,
-            images: data,
-          };
-          console.log(newStagePlot);
-          dispath(addStagePlot(newStagePlot));
-          alert("Thêm thành công");
-          navigate("/admin/manage-stage-plot");
-        })
-        .catch((e: any) => {
-          console.log(e, "dấdasd");
-        });
+  const getNewDrawableBasedOnType = (x: any, y: any, type: any,color:any) => {
+    const drawableClasses: any = {
+      FreePathDrawable,
+      ArrowDrawable,
+      CircleDrawable,
+    };
+    return new drawableClasses[type](x, y, color);
+  };
+
+  const handleMouseDown = (e: any) => {
+    if (newDrawable.length === 0) {
+      const { x, y } = e.target.getStage().getPointerPosition();
+      const color:any = document.getElementById("color")
+      const colors:any = color.value
+      const newDrawable = getNewDrawableBasedOnType(x, y, newDrawableType,colors);
+      setNewDrawable([newDrawable]);
     }
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
+  const handleMouseUp = (e: any) => {
+    if (newDrawable.length === 1) {
+      const { x, y } = e.target.getStage().getPointerPosition();
+      const drawableToAdd = newDrawable[0];
+      drawableToAdd.registerMovement(x, y);
+      drawables.push(drawableToAdd);
+      setNewDrawable([]);
+      setDrawables(drawables);
+    }
   };
 
-  const changeColor = () => {
-    const colorbox: any = window.document.getElementById("color");
-    setStrokeColor(colorbox.value);
+  const handleMouseMove = (e: any) => {
+    if (newDrawable.length === 1) {
+      const { x, y } = e.target.getStage().getPointerPosition();
+      const updatedNewDrawable = newDrawable[0];
+      updatedNewDrawable.registerMovement(x, y);
+      setNewDrawable([updatedNewDrawable]);
+    }
   };
 
+  const drawabless = [...drawables,...newDrawable];
+  
+  const onFinish = async (values: any) => {
+    console.log(values);
+    const uri: any = stageRef.current;
+    const images = uri.toDataURL();
+    const newStagePlot = {
+      name: values.name,
+      images: images,
+    };
+    await dispath(addStagePlot(newStagePlot));
+    alert("thêm StagePlot thành công");
+    navigate("/admin/manage-stage-plot");
+  };
+  const onFinishFailed = (values: any) => {};
+  const handleUndo = () =>{
+    if(drawabless){
+      
+    }
+  }
   return (
     <div>
-      <div
-        style={{
-          paddingBottom: 10,
-          borderBottom: "1px solid rgb(228, 228, 228) ",
-          marginBottom: 10,
-        }}
-      >
-        <h3>Thêm Stage Plot</h3>
-      </div>
       <Form
         name="basic"
         initialValues={{
@@ -88,96 +153,68 @@ const AddStagePlot: React.FC = () => {
         autoComplete="off"
       >
         <Form.Item
-          label="Tên Stage Plot"
+          label="Tên StagePlot"
           name="name"
           labelAlign="left"
           rules={[
             {
               required: true,
-              message: "Bạn chưa nhập tên!",
+              message: "Bạn chưa nhập tên StagePlot!",
             },
           ]}
         >
-          <Input type="text" placeholder="Tên Các Stage Plot " />
+          <Input placeholder="Tên bài hát" />
         </Form.Item>
 
-        <Form.Item
-          label="Màu sắc"
-          labelAlign="left"
-          wrapperCol={{
-            span: 1,
-          }}
-          name="color"
-        >
-          <input type="color" />
-        </Form.Item>
-        <div style={{ display: "flex" }}>
-          <label style={{ marginLeft: "5.5%", marginBottom: 10 }}>
-            Chọn màu sắc bút vẽ
-            <input
-              type="color"
-              style={{ marginLeft: 10, marginBottom: 10, width: "30px" }}
-              id="color"
-              onChange={() => changeColor()}
-            />
-          </label>
-
-          <div style={{ marginLeft: "2%" }}>
-            <Button
-              style={{ margin: "0px 5px" }}
-              type="primary"
-              onClick={() => {
-                canvas.current.redo();
-              }}
-            >
-              tiến
-            </Button>
-            <Button
-              style={{ margin: "0px 5px" }}
-              type="primary"
-              danger
-              onClick={() => {
-                canvas.current.undo();
-              }}
-            >
-              lùi
-            </Button>
-            <Button
-              style={{ margin: "0px 5px" }}
-              type="primary"
-              danger
-              onClick={() => {
-                canvas.current.clearCanvas();
-              }}
-            >
-              clear
-            </Button>
-          </div>
+        <div style={{ marginLeft: "5%",display:"flex" }}>
+          <input type="color" id="color"  />
+          <button
+            onClick={(e) => {
+              setNewDrawableType("ArrowDrawable");
+            }}
+          >
+            Draw Arrows
+          </button>
+          <button
+            onClick={(e) => {
+              setNewDrawableType("CircleDrawable");
+            }}
+          >
+            Draw Circles
+          </button>
+          <button
+            onClick={(e) => {
+              setNewDrawableType("FreePathDrawable");
+            }}
+          >
+            Draw FreeHand!
+          </button>
         </div>
         <Form.Item
-          label="pencil"
-          labelAlign="left"
+          label="Pencil"
           name="images"
-          rules={[
-            {
-              required: true,
-              message: "Bạn chưa vẽ đội hình!",
-            },
-          ]}
+          labelAlign="left"
+          style={{ marginTop: 20 }}
         >
-          <ReactSketchCanvas
-            ref={canvas}
-            strokeWidth={4}
-            strokeColor={strokeColor}
-            height="520px"
-            style={{
-              border: "0.0625rem solid #9c9c9c",
-              borderRadius: "0.25rem",
-            }}
-          />
+          <Stage
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            width={1200}
+            height={700}
+            ref={stageRef}
+            style={{ borderStyle: "solid", borderWidth: 1 }}
+          >
+            <Layer>
+              {drawabless.map((drawable: any,index:any) => {
+                return drawable.render();
+              })}
+            </Layer>
+          </Stage>
         </Form.Item>
-        <Form.Item style={{ marginLeft: "5.5%" }}>
-          <Button type="primary" htmlType="submit" style={{ marginTop: 20 }}>
+
+        <Form.Item style={{ marginLeft: "5%" }}>
+          <Button type="primary" htmlType="submit">
             Thêm
           </Button>
         </Form.Item>
