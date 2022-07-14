@@ -23,8 +23,8 @@ const ListSetlistDetail: React.FC = () => {
   const dataSetLists = setLists?.find((item: any) => item.id == id_setlist);
   const newDataSongs: any = [];
   dataSongs.filter((item: any) => {
-    for (let i = 0; i < dataSetLists?.id_music?.length; i++) {
-      if (item.id == dataSetLists?.id_music[i]) {
+    for (let i = 0; i < dataSetLists?.songs?.length; i++) {
+      if (item.id == dataSetLists?.songs[i]) {
         newDataSongs.push(item);
       }
     }
