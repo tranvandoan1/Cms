@@ -29,7 +29,6 @@ function App() {
         <Route path="/" element={<SignIn />} />
         <Route path="/signin/" element={<SignIn />} />
         <Route path="/signup/" element={<SignUp />} />
-        <Route path="stage-plot/add" element={<AddStagePlot />} />
 
         <Route path="/list-artist" element={<ListArtist />} />
         <Route path="/artist&&name=:name&&id=:id/" element={<LayoutArtist />}>
@@ -56,6 +55,7 @@ function App() {
             element={<EidtSong />}
           />
           <Route path="stage-plot" element={<IndexStagePlot />} />
+          <Route path="stage-plot/add" element={<AddStagePlot />} />
           <Route
             path="stage-plot/edit&&name=:name&&id=:id"
             element={<EditStagePlot />}

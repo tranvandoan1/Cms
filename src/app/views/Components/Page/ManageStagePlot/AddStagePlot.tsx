@@ -167,9 +167,10 @@ const AddStagePlot: React.FC = () => {
         >
           <ReactSketchCanvas
             ref={canvas}
-            strokeWidth={4}
+            strokeWidth={20}
             strokeColor={strokeColor}
             height="520px"
+            backgroundImage={'black'}
             style={{
               border: "0.0625rem solid #9c9c9c",
               borderRadius: "0.25rem",
