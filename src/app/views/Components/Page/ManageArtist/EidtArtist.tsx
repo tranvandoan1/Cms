@@ -1,4 +1,4 @@
-import { Button, DatePicker, Form, Input } from "antd";
+import { Button, DatePicker, Form, Input, Select } from "antd";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../APP/Store";
@@ -9,6 +9,11 @@ import {
 } from "../../../../Features/ArtistSlice/ArtistSlice";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
+import {
+  getMember,
+  uploadMember,
+} from "../../../../Features/MemberSlice/MemberSlice";
+
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
@@ -18,13 +23,51 @@ const EidtArtist = (props: Props) => {
   const navigete = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
+  const [members, setMembers]: any = useState();
+
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const dataArtist = useAppSelector((data: any) => data.artist.value);
+
   const dataEdit = dataArtist?.find((item: any) => item.id == id);
+
+  const dataMember = useAppSelector((data: any) => data.member.value);
+  const dataMemberNew = dataMember?.filter(
+    (item: any) => item.artist_id == dataEdit?.artist_id
+  );
   useEffect(() => {
+    dispatch(getMember());
     dispatch(getArtist());
   }, []);
   const onFinish = (values: any) => {
+    const artist_id = Math.random();
+    const clearMember: any = [];
+    dataMemberNew.map((item: any) =>
+      clearMember.push({ ...item, artist_id: "" })
+    );
+    clearMember.map(
+      async (item: any) =>
+        await dispatch(uploadMember({ id: item.id, data: item }))
+    );
+
+    const dataMemberUpload: any = [];
+    dataMember.map((item: any) => {
+      members.map((member: any) => {
+        if (member == item.id) {
+          dataMemberUpload.push({
+            ...item,
+            artist_id:
+              dataEdit?.artist_id == undefined
+                ? artist_id
+                : dataEdit?.artist_id,
+          });
+        }
+      });
+    });
+    dataMemberUpload.map(
+      async (item: any) =>
+        await dispatch(uploadMember({ id: item.id, data: item }))
+    );
+
     const editData: any = {
       name: values.name == undefined ? dataEdit?.name : values.name,
       time_end:
@@ -33,6 +76,9 @@ const EidtArtist = (props: Props) => {
         values.time_start == undefined
           ? dataEdit?.time_start
           : values.time_start,
+      number_members: members,
+      artist_id:
+        dataEdit?.artist_id == undefined ? artist_id : dataEdit?.artist_id,
     };
     const newData: any = [];
     dataArtist.map((item: any) => {
@@ -44,7 +90,10 @@ const EidtArtist = (props: Props) => {
     });
     dispatch(uploadArtist({ id: id, data: editData }));
     dispatch(uploadArtistt(newData));
-    navigete("/manage-artist");
+    navigete("/admin/manage-artist");
+  };
+  const handleChange = (values: any) => {
+    setMembers(values);
   };
 
   return (
@@ -56,7 +105,7 @@ const EidtArtist = (props: Props) => {
           marginBottom: 10,
         }}
       >
-        <h3>Sửa artist</h3>
+        <h3>Sửa nhóm nhạc </h3>
       </div>
       {dataEdit !== undefined && (
         <Form
@@ -101,6 +150,30 @@ const EidtArtist = (props: Props) => {
               placeholder="Ngày sửa"
               format={dateFormat}
             />
+          </Form.Item>
+          <Form.Item
+            label="Thêm thành viên"
+            labelAlign="left"
+            name="number_members"
+          >
+            <span>
+              Thành viện hiện tại :{" "}
+              {dataMemberNew?.map((item: any) => `${item.name}`).length == 0
+                ? "Chưa có thành viên"
+                : dataMemberNew?.map((item: any) => `${item.name},`)}
+            </span>
+            <Select
+              mode="multiple"
+              style={{
+                width: "100%",
+              }}
+              placeholder="Thêm thành viên"
+              onChange={handleChange}
+            >
+              {dataMember.map((item: any, index: any) => {
+                return <Select.Option key={item.id}>{item.name}</Select.Option>;
+              })}
+            </Select>
           </Form.Item>
           <Form.Item
             wrapperCol={{

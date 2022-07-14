@@ -1,25 +1,27 @@
 import {
   DeleteOutlined,
   EditOutlined,
+  LeftOutlined,
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
 import { Button, Input, Table } from "antd";
-import useSelection from "antd/lib/table/hooks/useSelection";
 import React, { useEffect } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
 import {
   getArtist,
   removeArtist,
   removeArtistt,
 } from "../../../../Features/ArtistSlice/ArtistSlice";
-
-const IndexArtist: React.FC = () => {
+import "../../../../Style/ListDetailArtist.css";
+const ListMember: React.FC = () => {
+  const { name, id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const dataArtist = useAppSelector((data: any) => data.artist.value);
+  const dataArtists = useAppSelector((data: any) => data.artist.value);
+  const dataArtist = dataArtists?.filter((item: any) => item.id == id);
   useEffect(() => {
     dispatch(getArtist());
   }, []);
@@ -31,31 +33,46 @@ const IndexArtist: React.FC = () => {
 
   const columns: any = [
     {
-      title: "Tên",
+      title: "Title",
       dataIndex: "name",
       key: "name",
     },
+
     {
-      title: "Ngày tháng tạo",
+      title: "Created",
       dataIndex: "time_start",
       key: "time_start",
     },
     {
-      title: "Ngày tháng sửa",
-      dataIndex: "time_end",
-      key: "time_end",
+      title: "Updated",
+      dataIndex: "time_upload",
+      key: "time_upload",
     },
-
+    {
+      title: "Detailed",
+      dataIndex: "time_upload",
+      key: "time_upload",
+    },
+    {
+      title: "Genpass",
+      dataIndex: "time_upload",
+      key: "time_upload",
+      render: (id: any) => (
+        <Button style={{ background: "#00B0F0", color: "#fff" }}>
+          Created password
+        </Button>
+      ),
+    },
     {
       title: "Thao tác",
       dataIndex: "id",
       key: "id",
-      render: (id: any, data: any) => (
+      render: (id: any, data: any, index: any) => (
         <>
           <Link to={`edit&&name=${data.name}&&id=${id}`}>
             <EditOutlined style={{ marginRight: 10 }} />
           </Link>
-          <DeleteOutlined onClick={() => deleteArtist(id)} />
+          <DeleteOutlined />
         </>
       ),
     },
@@ -65,30 +82,26 @@ const IndexArtist: React.FC = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          paddingBottom: 10,
-          borderBottom: "1px solid rgb(228, 228, 228) ",
-          marginBottom: 10,
+          margin: "20px 0",
+          justifyContent: "space-between",
         }}
       >
-        <h3>Quản lý artist</h3>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <Input
-            style={{ marginRight: 10 }}
-            placeholder="Tìm kiếm"
-            prefix={<SearchOutlined />}
-          />
-          <Link to="add">
-            <Button
-              icon={<PlusOutlined style={{ color: "#1890ff" }} />}
-            ></Button>
-          </Link>
+        <div className="flex">
+          <Input placeholder="Basic usage" />
+          <Button
+            style={{ background: "black", color: "#fff", marginLeft: 10 }}
+          >
+            Search
+          </Button>
+        </div>
+        <div className="flex">
+          <Button style={{ background: "black", color: "#fff" }}>
+            <PlusOutlined />
+          </Button>
+          <span className="add" style={{ marginLeft: 10 }}>
+            Create New SetList
+          </span>
         </div>
       </div>
       <Table
@@ -100,4 +113,4 @@ const IndexArtist: React.FC = () => {
   );
 };
 
-export default IndexArtist;
+export default ListMember;

@@ -1,27 +1,113 @@
-#components-layout-demo-side .logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.3);
+.ant-layout {
+  background-color: #2f2f2f !important;
 }
-
-.site-layout .site-layout-background {
-  background: #fff;
+.layout {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  overflow: auto;
 }
-.logo {
-  font-family: "Dancing Script", cursive;
-  font-size: 20px;
-  text-align: center;
-  padding: 10px;
-  border-bottom: 1px solid rgb(245, 245, 245);
-}
-.ant-layout-sider::-webkit-scrollbar {
+.layout::-webkit-scrollbar {
   height: 0;
   width: 0;
 }
-.ant-layout::-webkit-scrollbar {
-  height: 0;
-  width: 0;
+.site-layout-content {
 }
-.ant-layout-sider-children {
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.outlet {
+}
+.list-artist {
+  margin-top: 10px;
+  background-color: black;
+  width: 100%;
+  font-size: 18px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+.avatar {
+  width: 100%;
+  height: 212px;
+  position: relative;
+  overflow: hidden;
+}
+.avatar > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: capitalize;
+  color: #fff;
+}
+.ant-menu-title-content {
+  color: #fff;
+}
+.ant-menu {
+  background-color: #001529 !important;
+  position: relative;
+}
+.ant-menu-item-active {
+}
+.ant-menu-overflow-item {
+  margin-right: 10px;
+}
+.ant-menu-item-active::before,
+.ant-menu-item-selected::before {
+  content: " ";
+  position: absolute;
   background-color: #fff;
+  height: 3px;
+  width: 100%;
+  bottom: 0;
+  border-bottom: 0.5px solid black;
+}
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+  background-color: #001529 !important;
+}
+.ant-menu.ant-menu-dark .ant-menu-item-selected {
+  background-color: #001529 !important;
+}
+.ant-menu-overflow-item .ant-menu-item .ant-menu-item-only-child {
+  text-align: center !important;
+}
+.add {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+
+  color: #ffffff;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

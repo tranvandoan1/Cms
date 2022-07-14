@@ -1,0 +1,115 @@
+.ant-modal-wrap{
+  background-color: #2f2f2f;
+}
+.ant-modal-content{
+  background-color: black;
+}
+.ant-modal-close,
+.ant-modal-footer {
+  display: none !important;
+}
+.ant-modal-title {
+  color: red;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.ant-form-item-label > label{
+  color: #fff ;
+}
+.ant-modal-header {
+  display: none;
+}
+
+h3 {
+  font-size: 1.7rem;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #fff;
+}
+
+
+.name > input {
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 2px;
+  font-size: 1rem;
+}
+
+.password > .input {
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 2px;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.button-login,
+.button-signup {
+  width: 100%;
+  border: 0;
+  background-color: black;
+  font-size: 0.9rem;
+  border-radius: 2px;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.button-login {
+  margin-top: 30px;
+  background-color: red;
+}
+.button-login:hover {
+  background-color: red;
+}
+.hr {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgb(167, 167, 167);
+  margin: 10px 0;
+}
+
+.hr::before {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  content: "";
+  width: 40%;
+  height: 0.5px;
+  background-color: rgb(224, 224, 224);
+}
+
+.hr::after {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  content: "";
+  width: 40%;
+  height: 0.5px;
+  background-color: rgb(224, 224, 224);
+}
+
+.button-signup {
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  color: black;
+  padding: 5px;
+}
+
+.text-danger {
+  color: black;
+  text-align: left;
+  font-size: 0.9rem;
+  display: none;
+  margin: 40px 0;
+}
