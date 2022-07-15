@@ -122,7 +122,7 @@ const IndexStagePlot: React.FC = () => {
             prefix={<SearchOutlined />}
             onChange={() => Search()}
           />
-          <Link to="/manage-stage-plot/add">
+          <Link to="add">
             <Button
               icon={<PlusOutlined style={{ color: "#1890ff" }} />}
             ></Button>

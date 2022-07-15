@@ -15,6 +15,7 @@ export const remove = (id, data) => {
   return axiosClient.delete(url, data);
 };
 export const upload = (id, data) => {
+  console.log(id,data)
   const url = `/artist/${id}`;
   return axiosClient.put(url, data);
 };

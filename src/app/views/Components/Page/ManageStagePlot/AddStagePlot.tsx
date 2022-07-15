@@ -3,7 +3,7 @@ import { Layer, Stage, Line } from "react-konva";
 import Circ from "./Draw/Circle";
 import Elip from "./Draw/Elip";
 import Rectangle from "./Draw/Rectangle";
-import { Form } from "antd";
+import { Button, Form, Input } from "antd";
 import "./../../../../Style/StagePlot.css";
 const AddStagePlot = () => {
   const [selectedId, selectShape] = useState<any>(null);
@@ -24,6 +24,7 @@ const AddStagePlot = () => {
   const [redos, setRedo] = useState<any>([]);
   const isDrawing = useRef<any>(false);
   const stageRef = useRef<any>();
+  console.log(rectangles);
   const getRandomInt = (max: any) => {
     return Math.floor(Math.random() * Math.floor(max));
   };
@@ -304,64 +305,90 @@ const AddStagePlot = () => {
       setShapes(shs);
     }
   };
-  return (
-    <div className="div">
 
-      <Form style={{ marginLeft: "5%",paddingTop:20,paddingBottom:20}}>
-        <div>
-          <label htmlFor="">Tên StagePlot : </label>
-          <input
-            type="text"
-            style={{ width: 1100 }}
-            placeholder="nhập tên StagePlot..."
-          />
-        </div>
-        <h1 style={{ textAlign: "center" }}>vẽ</h1>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <input
-            type="color"
-            style={{ margin: 10 }}
-            onChange={(e) => handleChangeColor(e)}
-          />
-          <button
-            onClick={() => {
-              addRectangle();
-              setTool("rectangle");
+  const onFinish = (values: any) => {
+    // console.log(stageRef.current);
+    const uri = stageRef.current.files;
+    console.log(uri);
+  };
+  return (
+    <div>
+      <div
+        style={{
+          paddingBottom: 10,
+          borderBottom: "1px solid rgb(228, 228, 228) ",
+          marginBottom: 30,
+        }}
+      >
+        <h3 style={{ color: "#fff", marginTop: "20px" }}>Add setlist</h3>
+      </div>
+      <Form
+        name="basic"
+        labelCol={{
+          span: 6,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        autoComplete="off"
+      >
+        <Form.Item name="name" label="Tên StagePlot" labelAlign="left">
+          <Input placeholder="nhập tên StagePlot..." />
+        </Form.Item>
+        <Form.Item name="ve" label="Vẽ" labelAlign="left">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            Rectangle
-          </button>
-          <button
-            onClick={() => {
-              addCircle();
-              setTool(null);
-            }}
-          >
-            Circle
-          </button>
-          <button
-            onClick={() => {
-              addElip();
-              setTool(null);
-            }}
-          >
-            elip
-          </button>
-          <button onClick={() => setTool("pen")}>pen</button>
-          <button onClick={undo}>undo</button>
-          <button onClick={redo}>redo</button>
-        </div>
-        <div
-          style={{
-            backgroundColor:"GrayText",
-            width: "1200px",
-            height: "800px",
-            borderRadius:20
-          }}
-        >
+            <input
+              type="color"
+              style={{ margin: 10 }}
+              onChange={(e) => handleChangeColor(e)}
+            />
+            <Button
+              onClick={() => {
+                addRectangle();
+                setTool("rectangle");
+              }}
+            >
+              Rectangle
+            </Button>
+            <Button
+              onClick={() => {
+                addCircle();
+                setTool(null);
+              }}
+            >
+              Circle
+            </Button>
+            <Button
+              onClick={() => {
+                addElip();
+                setTool(null);
+              }}
+            >
+              elip
+            </Button>
+            <Button onClick={() => setTool("pen")}>pen</Button>
+            <Button onClick={undo}>undo</Button>
+            <Button onClick={redo}>redo</Button>
+          </div>
           <Stage
-            width={1200}
-            height={800}
+            width={800}
+            height={300}
+            style={{
+              boxShadow: "0 0 10px red",
+              height: "300px",
+              width: "800px",
+              background: "#fff",
+            }}
             onMouseDown={(e) => {
               checkDeselect(e);
               handleMouseDown(e);
@@ -382,7 +409,6 @@ const AddStagePlot = () => {
                     isSelected={rect.id === selectedId}
                     onMousemove={() => setTool("rectangle")}
                     onSelect={() => {
-                      console.log("aaa");
                       setTool("rectangle");
                       if (selectedId === null) {
                         selectShape(rect.id);
@@ -470,10 +496,74 @@ const AddStagePlot = () => {
               })}
             </Layer>
           </Stage>
-        </div>
-        <button>Thêm</button>
+        </Form.Item>
+
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
       </Form>
     </div>
+
+    // <Form
+    //   labelCol={{
+    //     span: 8,
+    //   }}
+    //   wrapperCol={{
+    //     span: 16,
+    //   }}
+    //   initialValues={{
+    //     remember: true,
+    //   }}
+    //   onFinish={onFinish}
+    //   autoComplete="off"
+    // >
+    //   <Form.Item name="name" label="Tên StagePlot">
+    //     <Input type="text" placeholder="nhập tên StagePlot..." />
+    //   </Form.Item>
+    //   <div style={{ display: "flex", justifyContent: "center" }}>
+    //     <input
+    //       type="color"
+    //       style={{ margin: 10 }}
+    //       onChange={(e) => handleChangeColor(e)}
+    //     />
+    //     <Button
+    //       onClick={() => {
+    //         addRectangle();
+    //         setTool("rectangle");
+    //       }}
+    //     >
+    //       Rectangle
+    //     </Button>
+    //     <Button
+    //       onClick={() => {
+    //         addCircle();
+    //         setTool(null);
+    //       }}
+    //     >
+    //       Circle
+    //     </Button>
+    //     <Button
+    //       onClick={() => {
+    //         addElip();
+    //         setTool(null);
+    //       }}
+    //     >
+    //       elip
+    //     </Button>
+    //     <Button onClick={() => setTool("pen")}>pen</Button>
+    //     <Button onClick={undo}>undo</Button>
+    //     <Button onClick={redo}>redo</Button>
+    //   </div>
+
+    //   <button>Thêm</button>
+    // </Form>
   );
 };
 

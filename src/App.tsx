@@ -22,7 +22,6 @@ import AddGeneratePassword from "./app/views/Components/Page/ManageGene/AddGener
 import EditGeneratePassword from "./app/views/Components/Page/ManageGene/EditGeneratePassword";
 import ListSetlistDetail from "./app/views/Components/Page/ManageSetlist/ListSetlistDetail";
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +32,7 @@ function App() {
 
         <Route path="/list-artist" element={<ListArtist />} />
         <Route path="/artist&&name=:name&&id=:id/" element={<LayoutArtist />}>
+          {/* setlist */}
           <Route path="setlist" element={<ListSetlist />} />
           <Route
             path="setlist/name-setlist=:name_setlist&&id_setlist=:id_setlist"
@@ -43,18 +43,23 @@ function App() {
             path="setlist/edit&&name_setlist=:name_setlist&&id_setlist=:id_setlist"
             element={<EidtSetlist />}
           />
+
+          {/* member */}
           <Route path="member" element={<ListMember />} />
           <Route path="member/add" element={<AddMember />} />
           <Route
             path="member/edit&&name-member=:name_member&&idMember=:id_member"
             element={<EidtMember />}
           />
+          {/* song */}
           <Route path="songs" element={<ListSongs />} />
           <Route path="song/add" element={<AddSong />} />
           <Route
             path="song/edit&&name_song=:name_song&&id_song=:id_song"
             element={<EidtSong />}
           />
+
+          {/* stage-plot */}
           <Route path="stage-plot" element={<IndexStagePlot />} />
           <Route path="stage-plot/add" element={<AddStagePlot />} />
           <Route
@@ -73,8 +78,6 @@ function App() {
             path="manage-generate-password/edit&&email=:email&&id=:id"
             element={<EditGeneratePassword />}
           />
-                <Route path="/manage-stage-plot" element={<IndexStagePlot />} />
-      <Route path="/manage-stage-plot/add" element={<AddStagePlot />} />
         </Route>
       </Routes>
     </BrowserRouter>

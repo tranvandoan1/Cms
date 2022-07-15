@@ -54,7 +54,7 @@ const ListArtist: React.FC = () => {
     dispatch(getArtist());
   }, []);
   const logout = () => {
-    navigate("/signin");
+    navigate("/");
   };
   // upload image
   const UploadAvatatr = (file: any) => {
@@ -70,16 +70,20 @@ const ListArtist: React.FC = () => {
   // upload
   const onClickSave = (item: any) => {
     const newData = {
-      ...item,
       time_upload: `${moment().year()}-${
         moment().month() + 1
       }-${moment().date()}`,
       name: nameArtist == undefined ? item.name : nameArtist,
       avatar: imageUrlAvatar == undefined ? item.avatar : imageUrlAvatar,
+      artist_id:item.artist_id,
+      number_members:item.number_members,
+      time_start:item.time_start
     };
+    console.log(newData)
     message.success("Successful upload");
     dispatch(uploadArtist({ id: item.id, data: newData }));
     setIdEdit(undefined);
+    setImageUrlAvatar(undefined);
   };
 
   // menu
@@ -231,9 +235,7 @@ const ListArtist: React.FC = () => {
                                         src={
                                           imageUrlAvatar
                                             ? imageUrlAvatar
-                                            : item.avatar !== "" &&
-                                              (console.log(item.avatar),
-                                              item.avatar)
+                                            : item.avatar !== "" && item.avatar
                                         }
                                       />
                                     </div>
