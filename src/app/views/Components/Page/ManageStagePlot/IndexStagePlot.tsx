@@ -40,7 +40,7 @@ const IndexStagePlot: React.FC = () => {
       dispatch(filterStagePlot(value));
     }
   };
-  // console.log(StagePlot);
+  console.log(StagePlot);
 
   const columns = [
     {
@@ -66,11 +66,13 @@ const IndexStagePlot: React.FC = () => {
       title: "Ảnh",
       dataIndex: "images",
       key: "images",
-      render: (images: any) => (
-        <>
-          <img src={images} width="90" />
-        </>
-      ),
+      render: (images: any) =>(
+        <img src={images} alt="" width={180} />
+      )
+       
+      
+       
+      
     },
 
     {
@@ -81,7 +83,7 @@ const IndexStagePlot: React.FC = () => {
         <>
           <div>
             <Link
-              to={`/admin/manage-stage-plot/edit&&name=${item.name}&&id=${item.id}`}
+              to={`/manage-stage-plot/edit&&name=${item.name}&&id=${item.id}`}
             >
               <EditOutlined style={{ marginRight: 10 }} />
             </Link>
@@ -120,36 +122,14 @@ const IndexStagePlot: React.FC = () => {
             prefix={<SearchOutlined />}
             onChange={() => Search()}
           />
-          <Link to="/admin/manage-stage-plot/add">
+          <Link to="/manage-stage-plot/add">
             <Button
               icon={<PlusOutlined style={{ color: "#1890ff" }} />}
             ></Button>
           </Link>
         </div>
       </div>
-      {/* <ReactSketchCanvas 
-        ref={canvas} 
-        style={{border:"0.0625rem solid #9c9c9c", borderRadius:"0.25rem"}}
-        strokeWidth={4} 
-        strokeColor="black"
-        width="600"
-        height="400px"
-      />
-      <button
-        onClick={() => {
-          canvas.current
-            .exportImage("png")
-            .then((data: any) => {
-              console.log(data);
-            })
-            .catch((e: any) => {
-              console.log(e, "dấdasd");
-            });
-        }}
-      >
-        Get Image
-      </button> */}
-
+     
       <Table
         dataSource={StagePlot}
         columns={columns}

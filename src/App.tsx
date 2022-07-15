@@ -22,6 +22,7 @@ import AddGeneratePassword from "./app/views/Components/Page/ManageGene/AddGener
 import EditGeneratePassword from "./app/views/Components/Page/ManageGene/EditGeneratePassword";
 import ListSetlistDetail from "./app/views/Components/Page/ManageSetlist/ListSetlistDetail";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -72,6 +73,8 @@ function App() {
             path="manage-generate-password/edit&&email=:email&&id=:id"
             element={<EditGeneratePassword />}
           />
+                <Route path="/manage-stage-plot" element={<IndexStagePlot />} />
+      <Route path="/manage-stage-plot/add" element={<AddStagePlot />} />
         </Route>
       </Routes>
     </BrowserRouter>
