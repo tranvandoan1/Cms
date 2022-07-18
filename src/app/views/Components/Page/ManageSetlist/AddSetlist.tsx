@@ -14,7 +14,6 @@ import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../APP/Store";
 import { getSong } from "./../../../../Features/SongSlice/SongSlice";
-import { getArtist } from "./../../../../Features/ArtistSlice/ArtistSlice";
 import { addSetList } from "../../../../Features/SetListSlice/SetListSlice";
 import { useNavigate, useParams } from "react-router-dom";
 const { RangePicker } = DatePicker;
@@ -28,6 +27,7 @@ const AddSetlist = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const dataSongs = useAppSelector((data: any) => data.songs.value);
+  const songOfArtist = dataSongs?.filter((item: any) => item.artist_id == id);
   useEffect(() => {
     dispatch(getSong());
   }, []);
@@ -37,7 +37,7 @@ const AddSetlist = (props: Props) => {
       detail: values.detail,
       name: values.name,
       artist_id: id,
-      songs: values.id_music,
+      id_song: values.id_song,
       time_upload: "",
       time_start: `
       ${
@@ -48,7 +48,6 @@ const AddSetlist = (props: Props) => {
         String(time_start.getMilliseconds()).length == 1 && 0
       }${time_start.getSeconds()}`,
     };
-    console.log(newData);
     dispatch(addSetList(newData));
     navigate(`/artist&&name=${name}&&id=${id}/setlist`);
     message.success("Add successful");
@@ -99,7 +98,7 @@ const AddSetlist = (props: Props) => {
           <Col xs={12} sm={4} md={12} lg={12} xl={12}>
             <Form.Item
               label="Songs"
-              name="id_music"
+              name="id_song"
               labelAlign="left"
               style={{ padding: "0 20px" }}
               rules={[
@@ -117,7 +116,7 @@ const AddSetlist = (props: Props) => {
                 }}
                 placeholder="Choose a song"
               >
-                {dataSongs.map((item: any, index: any) => (
+                {songOfArtist?.map((item: any, index: any) => (
                   <Select.Option key={index} value={item.id}>
                     {item.name}
                   </Select.Option>
@@ -166,8 +165,8 @@ const AddSetlist = (props: Props) => {
         </Form.Item>
         <Form.Item
           wrapperCol={{
-            offset: 12,
-            span: 20,
+            offset: 4,
+            span: 18,
           }}
         >
           <Button type="primary" htmlType="submit">

@@ -5,20 +5,14 @@ import {
 } from "@ant-design/icons";
 import {
   Avatar,
-  Breadcrumb,
   Button,
-  Col,
   Dropdown,
   Layout,
   Menu,
-  Row,
 } from "antd";
 import React, { useEffect } from "react";
 import "../../../Style/LayoutAdmin.css";
-import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
-import { AppDispatch, RootState } from "../../../APP/Store";
-import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { getArtist } from "../../../Features/ArtistSlice/ArtistSlice";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 const { Header, Content } = Layout;
 
 function getItem(label: any, key: any, itemIcon: any) {

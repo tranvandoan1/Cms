@@ -17,10 +17,9 @@ import EidtMember from "./app/views/Components/Page/ManageMember/EidtMember";
 import SignUp from "./app/views/Components/LogIn/SignUp";
 import SignIn from "./app/views/Components/LogIn/SignIn";
 import ListArtist from "./app/views/Components/Page/ManageArtist/ListArtist";
-import IndexGeneratePassword from "./app/views/Components/Page/ManageGene/IndexGeneratePassword";
-import AddGeneratePassword from "./app/views/Components/Page/ManageGene/AddGeneratePassword";
-import EditGeneratePassword from "./app/views/Components/Page/ManageGene/EditGeneratePassword";
+
 import ListSetlistDetail from "./app/views/Components/Page/ManageSetlist/ListSetlistDetail";
+import ListDetailSong from './app/views/Components/Page/ManageSongs/ListDetailSong';
 
 function App() {
   return (
@@ -53,6 +52,10 @@ function App() {
           />
           {/* song */}
           <Route path="songs" element={<ListSongs />} />
+          <Route
+            path="songs/name-song=:name_song&&id-song=:id_song"
+            element={<ListDetailSong />}
+          />
           <Route path="song/add" element={<AddSong />} />
           <Route
             path="song/edit&&name_song=:name_song&&id_song=:id_song"
@@ -60,23 +63,17 @@ function App() {
           />
 
           {/* stage-plot */}
-          <Route path="stage-plot" element={<IndexStagePlot />} />
-          <Route path="stage-plot/add" element={<AddStagePlot />} />
+          <Route
+            path="setlist/name-setlist=:name_setlist&&id_setlist=:id_setlist/stage-plot"
+            element={<IndexStagePlot />}
+          />
+          <Route
+            path="setlist/name-setlist=:name_setlist&&id_setlist=:id_setlist/stage-plot/add"
+            element={<AddStagePlot />}
+          />
           <Route
             path="stage-plot/edit&&name=:name&&id=:id"
             element={<EditStagePlot />}
-          />
-          <Route
-            path="manage-generate-password"
-            element={<IndexGeneratePassword />}
-          />
-          <Route
-            path="manage-generate-password/add"
-            element={<AddGeneratePassword />}
-          />
-          <Route
-            path="manage-generate-password/edit&&email=:email&&id=:id"
-            element={<EditGeneratePassword />}
           />
         </Route>
       </Routes>

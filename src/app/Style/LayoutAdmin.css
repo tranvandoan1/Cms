@@ -84,6 +84,9 @@
   height: 3px;
   width: 100%;
   bottom: 0;
+  left: 0;
+  right: 0;
+  
   border-bottom: 0.5px solid black;
 }
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
@@ -126,9 +129,6 @@
 }
 .ant-modal-content {
   background-color: #fff !important;
-}
-.ant-form-item-label > label {
-  /* color: black !important; */
 }
 .title-add-artist h3 {
   margin-bottom: 0 !important;

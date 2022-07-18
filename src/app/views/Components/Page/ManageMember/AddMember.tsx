@@ -87,7 +87,7 @@ const AddMember = (props: Props) => {
           rules={[
             {
               required: true,
-              message: "Bạn chưa chọn thời gian kết thúc!",
+              message: "Bạn chưa chọn màu đại diện!",
             },
           ]}
         >

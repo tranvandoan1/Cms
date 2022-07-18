@@ -1,39 +1,27 @@
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, DatePicker, Form, Input, Select, Spin, Upload } from "antd";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
-import {
-  addArtist,
-  getArtist,
-} from "../../../../Features/ArtistSlice/ArtistSlice";
+import { addArtist } from "../../../../Features/ArtistSlice/ArtistSlice";
 import { storage } from "../../../firebase";
 import {
   getMember,
   uploadMember,
 } from "./../../../../Features/MemberSlice/MemberSlice";
 import "../../../../Style/ListDetailArtist.css";
-const { RangePicker } = DatePicker;
-const { TextArea } = Input;
 
 type Props = {
   check: () => void;
 };
-type Members = {
-  members: any;
-};
 
 const AddArtist = (props: Props) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const [members, setMembers]: any = useState();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const dataArtist = useAppSelector((data: any) => data.artist.value);
   const dataMember = useAppSelector((data: any) => data.member.value);
   useEffect(() => {
-    dispatch(getArtist());
     dispatch(getMember());
   }, []);
 

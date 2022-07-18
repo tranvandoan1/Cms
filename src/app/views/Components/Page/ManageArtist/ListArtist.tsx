@@ -53,6 +53,7 @@ const ListArtist: React.FC = () => {
   useEffect(() => {
     dispatch(getArtist());
   }, []);
+  
   const logout = () => {
     navigate("/");
   };
@@ -79,7 +80,6 @@ const ListArtist: React.FC = () => {
       number_members:item.number_members,
       time_start:item.time_start
     };
-    console.log(newData)
     message.success("Successful upload");
     dispatch(uploadArtist({ id: item.id, data: newData }));
     setIdEdit(undefined);

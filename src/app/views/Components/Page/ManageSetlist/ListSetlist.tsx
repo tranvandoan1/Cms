@@ -1,24 +1,18 @@
-import {
-  DeleteOutlined,
-  EditOutlined,
-  LeftOutlined,
-  PlusOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
-import { Button, Input, message, Modal, Popconfirm, Table } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, Form, Input, message, Modal, Popconfirm, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
-import {
-  getArtist,
-  removeArtist,
-} from "../../../../Features/ArtistSlice/ArtistSlice";
+
 import "../../../../Style/ListDetailArtist.css";
 import {
   getSetList,
   removeSetList,
 } from "./../../../../Features/SetListSlice/SetListSlice";
+import { BiPencil, BiTrash } from "react-icons/bi";
+import { NavLink } from "react-router-dom";
+
 const { Column, ColumnGroup } = Table;
 const ListMember: React.FC = () => {
   const { name, id } = useParams();
@@ -41,14 +35,10 @@ const ListMember: React.FC = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-
+  const onFinish = (value: any) => {};
   return (
     <div>
       <div
@@ -119,7 +109,14 @@ const ListMember: React.FC = () => {
           render={(id: any, data: any) => (
             <>
               <Link to={`edit&&name_setlist=${data.name}&&id_setlist=${id}`}>
-                <EditOutlined style={{ marginRight: 10, color: "#fff" }} />
+                <BiPencil
+                  style={{
+                    marginRight: 10,
+                    color: "#fff",
+                    marginTop: 5,
+                    fontSize: 20,
+                  }}
+                />
               </Link>
               <Popconfirm
                 title="Are you sure to delete this task?"
@@ -127,7 +124,13 @@ const ListMember: React.FC = () => {
                 okText="Yes"
                 cancelText="No"
               >
-                <DeleteOutlined style={{ color: "#FF0000" }} />
+                <BiTrash
+                  style={{
+                    color: "#FF0000",
+                    fontSize: 20,
+                    cursor: "pointer",
+                  }}
+                />
               </Popconfirm>
             </>
           )}
@@ -136,12 +139,48 @@ const ListMember: React.FC = () => {
       <Modal
         title="Basic Modal"
         visible={isModalVisible}
-        onOk={handleOk}
         onCancel={handleCancel}
+        style={{ boxShadow: "0 0 10px blue" }}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <Form
+          name="basic"
+          labelCol={{ span: 6 }}
+          wrapperCol={{ span: 18 }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          autoComplete="off"
+        >
+          <Form.Item
+            label="Producer"
+            name="producer"
+            labelAlign="left"
+          >
+            <Input.Password placeholder="Password producer" />
+          </Form.Item>
+          <Form.Item
+            label="Coordinator"
+            labelAlign="left"
+            name="coordinator"
+          >
+            <Input.Password placeholder="Password coordinator" />
+          </Form.Item>
+          <Form.Item
+            labelAlign="left"
+            label="Visitor"
+            name="visitor"
+          >
+            <Input.Password placeholder="Password visitor" />
+          </Form.Item>
+
+          <Form.Item wrapperCol={{ offset: 16, span: 16 }}>
+            <Button style={{ marginRight: 10 }} onClick={handleCancel}>
+              Cancel
+            </Button>
+            <Button type="primary" htmlType="submit">
+              Add
+            </Button>
+          </Form.Item>
+        </Form>
       </Modal>
     </div>
   );

@@ -5,6 +5,11 @@ import Elip from "./Draw/Elip";
 import Rectangle from "./Draw/Rectangle";
 import { Button, Form, Input } from "antd";
 import "./../../../../Style/StagePlot.css";
+import image from "../../../../assets/images/Group43.png";
+import edit from "../../../../assets/images/edit.png";
+import Vector from "../../../../assets/images/Vector.png";
+import Vector1 from "../../../../assets/images/Vector1.png";
+import Vector12 from "../../../../assets/images/Vector12.png";
 const AddStagePlot = () => {
   const [selectedId, selectShape] = useState<any>(null);
   const [rectangles, setrectangles] = useState<any>([]);
@@ -17,14 +22,13 @@ const AddStagePlot = () => {
 
   const [removeId, setRemoveId] = useState<any>(null);
 
-  const [color, setColor] = useState<any>("#000000");
+  const [color, setColor] = useState<any>("#00B0F0");
   const [tool, setTool] = useState<any>("pen");
   const [, updateState] = useState<any>();
 
-  const [redos, setRedo] = useState<any>([]);
   const isDrawing = useRef<any>(false);
   const stageRef = useRef<any>();
-  console.log(rectangles);
+
   const getRandomInt = (max: any) => {
     return Math.floor(Math.random() * Math.floor(max));
   };
@@ -173,8 +177,6 @@ const AddStagePlot = () => {
     }
 
     const lastId = removeId[removeId.length - 1];
-    console.log(lastId);
-    console.log(lines);
     remove.map((item: any) => {
       if (item.id == lastId) {
         console.log(item);
@@ -221,16 +223,8 @@ const AddStagePlot = () => {
         }
       }
     });
-    // setRemoveId(shapes);
-    // remove.map((item: any) => {
-    //   if (item.id !== lastId) {
-    //     console.log(item);
-    //     setRemove([item]);
-    //   }
-    // });
   };
-  // console.log(remove?.length);
-  // console.log(redos);
+
   document.addEventListener("keydown", (e) => {
     if (e.code === "Delete") {
       let index = rectangles.findIndex((r: any) => r.id === selectedId);
@@ -265,15 +259,6 @@ const AddStagePlot = () => {
         },
       ]);
     }
-    // if(tool === "rectangle"){
-    //   isDrawing.current = true;
-    //   const pos = e.target.getStage().getPointerPosition();
-    //   const x = pos.x
-    //   const y = pos.y
-    //   console.log(x,y);
-    //   const scaleX =  pos.x -x
-    //   console.log(scaleX);
-    // }
   };
   const handleMouseMove = (e: any) => {
     // no drawing - skipping
@@ -289,14 +274,6 @@ const AddStagePlot = () => {
       const line = lines.concat();
       setLines(line);
     }
-    // if (tool === "rectangle") {
-    //   if (!isDrawing.current) {
-    //     return;
-    //   }
-    //   const stage = e.target.getStage();
-    //   const point = stage.getPointerPosition();
-    //   console.log(point)
-    // }
   };
   const handleMouseUp = () => {
     if (tool === "pen") {
@@ -306,11 +283,11 @@ const AddStagePlot = () => {
     }
   };
 
-  const onFinish = (values: any) => {
-    // console.log(stageRef.current);
-    const uri = stageRef.current.files;
+  const onFinish = () => {
+    const uri = stageRef.current.toDataURL();
     console.log(uri);
   };
+
   return (
     <div>
       <div
@@ -320,31 +297,22 @@ const AddStagePlot = () => {
           marginBottom: 30,
         }}
       >
-        <h3 style={{ color: "#fff", marginTop: "20px" }}>Add setlist</h3>
+        <h3 style={{ color: "#fff", marginTop: "20px" }}>Add stage plot</h3>
       </div>
       <Form
         name="basic"
-        labelCol={{
-          span: 6,
-        }}
-        wrapperCol={{
-          span: 16,
-        }}
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
         autoComplete="off"
       >
-        <Form.Item name="name" label="Tên StagePlot" labelAlign="left">
-          <Input placeholder="nhập tên StagePlot..." />
-        </Form.Item>
-        <Form.Item name="ve" label="Vẽ" labelAlign="left">
+        <Form.Item name="ve" labelAlign="left">
           <div
             style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              overflow: "hidden",
             }}
           >
             <input
@@ -380,122 +348,113 @@ const AddStagePlot = () => {
             <Button onClick={undo}>undo</Button>
             <Button onClick={redo}>redo</Button>
           </div>
-          <Stage
-            width={800}
-            height={300}
+          <div
             style={{
-              boxShadow: "0 0 10px red",
-              height: "300px",
-              width: "800px",
-              background: "#fff",
+              border: "2px solid #00B0F0",
+              padding: 10,
+              width: "100%",
+              height: "100%",
+              borderRadius: 3,
+              background: "black",
             }}
-            onMouseDown={(e) => {
-              checkDeselect(e);
-              handleMouseDown(e);
-            }}
-            onMousemove={handleMouseMove}
-            onMouseup={handleMouseUp}
-            onTouchStart={(e: any) => {
-              checkDeselect(e);
-            }}
-            ref={stageRef}
           >
-            <Layer>
-              {rectangles.map((rect: any, index: number) => {
-                return (
-                  <Rectangle
-                    key={index}
-                    shapeProps={rect}
-                    isSelected={rect.id === selectedId}
-                    onMousemove={() => setTool("rectangle")}
-                    onSelect={() => {
-                      setTool("rectangle");
-                      if (selectedId === null) {
-                        selectShape(rect.id);
-                      } else if (selectedId === rect.id) {
-                        selectShape(null);
-                      } else {
-                        selectShape(rect.id);
-                      }
-                    }}
-                    onChange={(newAttrs: any) => {
-                      setTool("rectangle");
-                      const rects = rectangles.slice();
-                      rects[index] = newAttrs;
-                      setrectangles(rects);
-                    }}
-                  />
-                );
-              })}
+            <Stage
+              width={window.innerWidth}
+              height={340}
+              style={{
+                height: "340px",
+                width: "100%",
+                background: "black",
+                backgroundImage: `url(${image})`,
+                border: "2px solid #00B0F0",
+                overflow: "hidden",
+              }}
+              onMouseDown={(e) => {
+                checkDeselect(e);
+                handleMouseDown(e);
+              }}
+              onMousemove={handleMouseMove}
+              onMouseup={handleMouseUp}
+              onTouchStart={(e: any) => {
+                checkDeselect(e);
+              }}
+              ref={stageRef}
+            >
+              <Layer>
+                {rectangles.map((rect: any, index: number) => {
+                  return (
+                    <Rectangle
+                      key={index}
+                      shapeProps={rect}
+                      isSelected={rect.id === selectedId}
+                      onMousemove={() => setTool("rectangle")}
+                      onSelect={() => {
+                        setTool("rectangle");
+                        if (selectedId === null) {
+                          selectShape(rect.id);
+                        } else if (selectedId === rect.id) {
+                          selectShape(null);
+                        } else {
+                          selectShape(rect.id);
+                        }
+                      }}
+                      onChange={(newAttrs: any) => {
+                        setTool("rectangle");
+                        const rects = rectangles.slice();
+                        rects[index] = newAttrs;
+                        setrectangles(rects);
+                      }}
+                    />
+                  );
+                })}
 
-              {circles.map((circle: any, index: number) => {
-                return (
-                  <Circ
-                    key={index}
-                    shapeProps={circle}
-                    isSelected={circle.id === selectedId}
-                    onSelect={() => {
-                      setTool("circle");
-                      if (selectedId === null) {
-                        selectShape(circle.id);
-                      } else if (selectedId === circle.id) {
-                        selectShape(null);
-                      } else {
-                        selectShape(circle.id);
-                      }
-                    }}
-                    onChange={(newAttrs: any) => {
-                      setTool("circle");
-                      const circs = circles.slice();
-                      circs[index] = newAttrs;
-                      setCircles(circs);
-                    }}
-                  />
-                );
-              })}
+                {circles.map((circle: any, index: number) => {
+                  return (
+                    <Circ
+                      key={index}
+                      shapeProps={circle}
+                      isSelected={circle.id === selectedId}
+                      onSelect={() => {
+                        setTool("circle");
+                        if (selectedId === null) {
+                          selectShape(circle.id);
+                        } else if (selectedId === circle.id) {
+                          selectShape(null);
+                        } else {
+                          selectShape(circle.id);
+                        }
+                      }}
+                      onChange={(newAttrs: any) => {
+                        setTool("circle");
+                        const circs = circles.slice();
+                        circs[index] = newAttrs;
+                        setCircles(circs);
+                      }}
+                    />
+                  );
+                })}
 
-              {lines.map((line: any, i: number) => {
-                return (
-                  <Line
-                    key={i}
-                    points={line.points}
-                    stroke={line.color}
-                    strokeWidth={line.size}
-                    tension={0.5}
-                    lineCap="round"
-                    globalCompositeOperation={
-                      line.tool === "eraser" ? "destination-out" : "source-over"
-                    }
-                  />
-                );
-              })}
-              {elips.map((elip: any, index: any) => {
-                return (
-                  <Elip
-                    key={index}
-                    shapeProps={elip}
-                    isSelected={elip.id === selectedId}
-                    onSelect={() => {
-                      setTool("elip");
-                      if (selectedId === null) {
-                        selectShape(elip.id);
-                      } else if (selectedId === elip.id) {
-                        selectShape(null);
-                      } else {
-                        selectShape(elip.id);
+                {lines.map((line: any, i: number) => {
+                  return (
+                    <Line
+                      key={i}
+                      points={line.points}
+                      stroke={line.color}
+                      strokeWidth={line.size}
+                      tension={0.5}
+                      lineCap="round"
+                      globalCompositeOperation={
+                        line.tool === "eraser"
+                          ? "destination-out"
+                          : "source-over"
                       }
-                    }}
-                    onChange={(newAttrs: any) => {
-                      setTool("elip");
-                      const elip = elips.slice();
-                      elip[index] = newAttrs;
-                      setElips(elip);
-                    }}
-                  />
-                );
-              })}
-            </Layer>
-          </Stage>
+                    />
+                  );
+                })}
+              </Layer>
+            </Stage>
+            <img src={edit} style={{ width: "100%" }} alt="" />
+          </div>
         </Form.Item>
 
         <Form.Item
@@ -504,66 +463,27 @@ const AddStagePlot = () => {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <img
+              src={Vector}
+              alt=""
+              style={{ width: "7%", cursor: "pointer" }}
+            />
+            <img
+              src={Vector1}
+              alt=""
+              style={{ width: "7%", cursor: "pointer", margin: "0 20px" }}
+            />
+            <img
+              src={Vector12}
+              alt=""
+              style={{ width: "7%", cursor: "pointer" }}
+              onClick={() => onFinish()}
+            />
+          </div>
         </Form.Item>
       </Form>
     </div>
-
-    // <Form
-    //   labelCol={{
-    //     span: 8,
-    //   }}
-    //   wrapperCol={{
-    //     span: 16,
-    //   }}
-    //   initialValues={{
-    //     remember: true,
-    //   }}
-    //   onFinish={onFinish}
-    //   autoComplete="off"
-    // >
-    //   <Form.Item name="name" label="Tên StagePlot">
-    //     <Input type="text" placeholder="nhập tên StagePlot..." />
-    //   </Form.Item>
-    //   <div style={{ display: "flex", justifyContent: "center" }}>
-    //     <input
-    //       type="color"
-    //       style={{ margin: 10 }}
-    //       onChange={(e) => handleChangeColor(e)}
-    //     />
-    //     <Button
-    //       onClick={() => {
-    //         addRectangle();
-    //         setTool("rectangle");
-    //       }}
-    //     >
-    //       Rectangle
-    //     </Button>
-    //     <Button
-    //       onClick={() => {
-    //         addCircle();
-    //         setTool(null);
-    //       }}
-    //     >
-    //       Circle
-    //     </Button>
-    //     <Button
-    //       onClick={() => {
-    //         addElip();
-    //         setTool(null);
-    //       }}
-    //     >
-    //       elip
-    //     </Button>
-    //     <Button onClick={() => setTool("pen")}>pen</Button>
-    //     <Button onClick={undo}>undo</Button>
-    //     <Button onClick={redo}>redo</Button>
-    //   </div>
-
-    //   <button>Thêm</button>
-    // </Form>
   );
 };
 

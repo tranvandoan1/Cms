@@ -1,10 +1,5 @@
-import {
-  DeleteOutlined,
-  EditOutlined,
-  PlusOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
-import { Button, Input, message, Popconfirm, Space, Table } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, Input, message, Popconfirm, Table } from "antd";
 import React, { useEffect } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -13,7 +8,7 @@ import {
   getMember,
   removeMember,
 } from "../../../../Features/MemberSlice/MemberSlice";
-import { getArtist } from "../../../../Features/ArtistSlice/ArtistSlice";
+import { BiPencil, BiTrash } from "react-icons/bi";
 
 const IndexMember: React.FC = () => {
   const { name, id } = useParams();
@@ -34,7 +29,7 @@ const IndexMember: React.FC = () => {
 
   const columns = [
     {
-      title: "#No",
+      title: "No",
       dataIndex: "id",
       key: "id",
       render: (color: any, data: any, index: any) => index,
@@ -58,7 +53,7 @@ const IndexMember: React.FC = () => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div
             style={{
-              width: "50px",
+              width: "100%",
               background: color,
               height: "50px",
             }}
@@ -66,14 +61,42 @@ const IndexMember: React.FC = () => {
         </div>
       ),
     },
-
+    {
+      dataIndex: "color",
+      key: "color",
+      render: (color: any, data: any) => (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            style={{
+              width: 43,
+              background: color,
+              height: 43,
+              borderRadius: 50,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {data.first_letter}
+          </div>
+        </div>
+      ),
+    },
     {
       dataIndex: "id",
       key: "id",
+      width: 100,
       render: (id: any, data: any) => (
         <>
           <Link to={`edit&&name-member=${data.name}&&idMember=${id}`}>
-            <EditOutlined style={{ marginRight: 10, color: "#fff" }} />
+            <BiPencil
+              style={{
+                marginRight: 10,
+                color: "#fff",
+                marginTop: 5,
+                fontSize: 20,
+              }}
+            />
           </Link>
           <Popconfirm
             title="Are you sure to delete this task?"
@@ -81,7 +104,9 @@ const IndexMember: React.FC = () => {
             okText="Yes"
             cancelText="No"
           >
-            <DeleteOutlined style={{ color: "red" }} />
+            <BiTrash
+              style={{ color: "#FF0000", fontSize: 20, cursor: "pointer" }}
+            />
           </Popconfirm>
         </>
       ),

@@ -15,6 +15,7 @@ export const addSetList = createAsyncThunk(
 export const uploadSetList = createAsyncThunk(
   "setLists/uploadSetList",
   async (data: any) => {
+    console.log(data)
     await upload(data.id, data.data);
     const { data: setLists } = await getAll();
     return setLists;

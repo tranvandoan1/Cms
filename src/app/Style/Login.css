@@ -1,7 +1,7 @@
-.ant-modal-wrap{
+.ant-modal-wrap {
   background-color: #2f2f2f;
 }
-.ant-modal-content{
+.ant-modal-content {
   background-color: black !important;
 }
 .ant-modal-close,
@@ -13,8 +13,8 @@
   font-size: 2rem;
   font-weight: 600;
 }
-.ant-form-item-label > label{
-  color: #fff ;
+.ant-form-item-label > label {
+  color: #fff;
 }
 .ant-modal-header {
   display: none;
@@ -28,7 +28,6 @@
   font-weight: 600;
   color: #fff;
 }
-
 
 .name > input {
   border: 1px solid rgb(194, 194, 194);
@@ -60,10 +59,10 @@ input:focus {
 
 .button-login {
   margin-top: 30px;
-  background-color: #00B0F0;
+  background-color: #00b0f0;
 }
 .button-login:hover {
-  background-color: #00B0F0;
+  background-color: #00b0f0;
 }
 .hr {
   width: 100%;
@@ -112,4 +111,24 @@ input:focus {
   font-size: 0.9rem;
   display: none;
   margin: 40px 0;
+}
+.ant-pagination-item,
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  background: none !important;
+  border: 0 !important;
+}
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  color: #fff;
+}
+.ant-pagination-prev:hover .ant-pagination-item-link:hover,
+.ant-pagination-next:hover .ant-pagination-item-link:hover {
+  color: #fff;
+}
+.ant-pagination-item > a {
+  color: #fff !important;
+}
+.ant-pagination-item-active > a {
+  color: #00b0f0 !important;
 }

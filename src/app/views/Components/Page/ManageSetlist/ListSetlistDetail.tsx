@@ -1,5 +1,14 @@
 import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
-import { Button, Input, message, Popconfirm, Table } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  message,
+  Modal,
+  Popconfirm,
+  Select,
+  Table,
+} from "antd";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -10,9 +19,9 @@ import {
   editSetList,
   getSetList,
 } from "../../../../Features/SetListSlice/SetListSlice";
-import {
-  getSong,
-} from "./../../../../Features/SongSlice/SongSlice";
+import { getSong } from "./../../../../Features/SongSlice/SongSlice";
+import {BiTrash } from "react-icons/bi";
+
 const ListSetlistDetail: React.FC = () => {
   const { name, id, id_setlist, name_setlist } = useParams();
   const dispatch = useDispatch<AppDispatch>();
@@ -21,10 +30,11 @@ const ListSetlistDetail: React.FC = () => {
   const setLists = useAppSelector((data: any) => data.setlist.value);
   const dataSongs = useAppSelector((data: any) => data.songs.value);
   const dataSetLists = setLists?.find((item: any) => item.id == id_setlist);
+  const songOfArtist = dataSongs.filter((item: any) => item.artist_id == id);
   const newDataSongs: any = [];
   dataSongs.filter((item: any) => {
-    for (let i = 0; i < dataSetLists?.songs?.length; i++) {
-      if (item.id == dataSetLists?.songs[i]) {
+    for (let i = 0; i < dataSetLists?.id_song?.length; i++) {
+      if (item.id == dataSetLists?.id_song[i]) {
         newDataSongs.push(item);
       }
     }
@@ -37,13 +47,8 @@ const ListSetlistDetail: React.FC = () => {
   const deleteSetList = (data: any) => {
     let newData: any = {};
     newData = {
-      artist_id: dataSetLists.artist_id,
-      detail: dataSetLists.detail,
-      id: dataSetLists.id,
-      name: dataSetLists.name,
-      time_start: dataSetLists.time_start,
-      time_upload: dataSetLists.time_upload,
-      id_music: dataSetLists.id_music.filter((mu: any) => mu !== data.id),
+      ...dataSetLists,
+      id_song: dataSetLists.id_song.filter((mu: any) => mu !== data.id),
     };
     dispatch(editSetList(newData));
     message.success("Successful delete");
@@ -109,11 +114,33 @@ const ListSetlistDetail: React.FC = () => {
           okText="Yes"
           cancelText="No"
         >
-          <DeleteOutlined style={{ color: "#FF0000" }} />
+          <BiTrash
+            style={{ color: "#FF0000", fontSize: 20, cursor: "pointer" }}
+          />
         </Popconfirm>
       ),
     },
   ];
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const onFinish = (value: any) => {
+    const newData = {
+      ...dataSetLists,
+      id_song: [...dataSetLists.id_song, ...value.id_song],
+    };
+    dispatch(editSetList(newData));
+    setIsModalVisible(false);
+    message.success("Successful add");
+  };
   return (
     <div>
       <div
@@ -136,11 +163,12 @@ const ListSetlistDetail: React.FC = () => {
           </Button>
         </div>
         <div className="flex">
-          <Link to={`/artist&&name=${name}&&id=${id}/song/add`}>
-            <Button style={{ background: "black", color: "#fff" }}>
-              <PlusOutlined />
-            </Button>
-          </Link>
+          <Button
+            style={{ background: "black", color: "#fff" }}
+            onClick={showModal}
+          >
+            <PlusOutlined />
+          </Button>
           <span className="add" style={{ marginLeft: 10 }}>
             Create New Song
           </span>
@@ -155,6 +183,69 @@ const ListSetlistDetail: React.FC = () => {
         rowKey={"1"}
         style={{ marginTop: 10 }}
       />
+      <Modal
+        title="Basic Modal"
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        style={{ boxShadow: "0 0 10px blue" }}
+      >
+        <Form
+          style={{ height: "100%" }}
+          name="basic"
+          labelCol={{
+            span: 8,
+          }}
+          wrapperCol={{
+            span: 16,
+          }}
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+          autoComplete="off"
+        >
+          <Form.Item
+            label="Tên bài hát"
+            name="id_song"
+            labelAlign="left"
+            rules={[
+              {
+                required: true,
+                message: "Please input your username!",
+              },
+            ]}
+          >
+            <Select
+              mode="multiple"
+              allowClear
+              style={{
+                width: "100%",
+              }}
+              placeholder="Chọn bài hát"
+              defaultValue={""}
+            >
+              {songOfArtist?.map((item: any) => {
+                return (
+                  <Select.Option key={item.id} value={item.id}>
+                    {item.name}
+                  </Select.Option>
+                );
+              })}
+            </Select>
+          </Form.Item>
+
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button type="primary" htmlType="submit">
+              Thêm
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 };

@@ -1,21 +1,14 @@
-import { Button, DatePicker, Form, Input, message } from "antd";
-import React, { useEffect, useState } from "react";
+import { Button, Form, Input, message } from "antd";
+import { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../APP/Store";
-import {
-  getArtist,
-  uploadArtist,
-} from "../../../../Features/ArtistSlice/ArtistSlice";
+
 import { useNavigate, useParams } from "react-router-dom";
-import moment from "moment";
 import { HexColorPicker } from "react-colorful";
 import {
   getMember,
   uploadMember,
-  uploadMemberr,
 } from "./../../../../Features/MemberSlice/MemberSlice";
-const { RangePicker } = DatePicker;
-const { TextArea } = Input;
 
 type Props = {};
 const EidtMember = (props: Props) => {
@@ -27,7 +20,6 @@ const EidtMember = (props: Props) => {
 
   const dataMember = useAppSelector((data: any) => data.member.value);
   const dataEdit = dataMember?.find((item: any) => item.id == id_member);
-  console.log(dataEdit);
 
   useEffect(() => {
     dispatch(getMember());
@@ -35,21 +27,14 @@ const EidtMember = (props: Props) => {
   const onFinish = (values: any) => {
     const editData: any = {
       name: values.name == undefined ? dataEdit?.name : values.name,
-      color: color == undefined ? dataEdit?.first_letter : color,
+      color: color == undefined ? dataEdit?.color : color,
       first_letter:
         values.first_letter == undefined
           ? dataEdit?.first_letter
           : values.first_letter,
       artist_id: id,
     };
-    const newData: any = [];
-    dataMember.map((item: any) => {
-      if (item.id == id_member) {
-        newData.push({ ...editData, id_member });
-      } else {
-        newData.push(item);
-      }
-    });
+
     dispatch(uploadMember({ id: id_member, data: editData }));
     navigate(`/artist&&name=${name}&&id=${id}/member`);
     message.success("Edit successful");

@@ -44,39 +44,13 @@ const IndexStagePlot: React.FC = () => {
 
   const columns = [
     {
-      title: "Tên",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Chữ cái đại diện",
-      dataIndex: "represen",
-      key: "represen",
-    },
-    {
-      title: "Màu đại diện",
-      dataIndex: "color",
-      key: "color",
-      render: (color: any) => (
-        <div style={{ width: "50px", background: color, height: "50px" }}></div>
-      ),
-    },
-
-    {
-      title: "Ảnh",
+      title: "Stage plot",
       dataIndex: "images",
       key: "images",
-      render: (images: any) =>(
-        <img src={images} alt="" width={180} />
-      )
-       
-      
-       
-      
+      render: (images: any) => <img src={images} alt="" width={180} />,
     },
 
     {
-      title: "Thao tác",
       dataIndex: "",
       key: "address",
       render: (item: any) => (
@@ -100,36 +74,34 @@ const IndexStagePlot: React.FC = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          paddingBottom: 10,
-          borderBottom: "1px solid rgb(228, 228, 228) ",
-          marginBottom: 10,
+          margin: "20px 0",
+          justifyContent: "space-between",
         }}
       >
-        <h3>Quản lý stage plot</h3>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
+        <div className="flex">
           <Input
-            type="text"
-            id="search"
-            style={{ marginRight: 10 }}
-            placeholder="Tìm kiếm"
-            prefix={<SearchOutlined />}
-            onChange={() => Search()}
+            // onChange={(e) => search(e.target.value)}
+            placeholder="Basic usage"
           />
-          <Link to="add">
-            <Button
-              icon={<PlusOutlined style={{ color: "#1890ff" }} />}
-            ></Button>
+          <Button
+            style={{ background: "black", color: "#fff", marginLeft: 10 }}
+          >
+            Search
+          </Button>
+        </div>
+        <div className="flex">
+          <Link to={`add`}>
+            <Button style={{ background: "black", color: "#fff" }}>
+              <PlusOutlined />
+            </Button>
           </Link>
+          <span className="add" style={{ marginLeft: 10 }}>
+            Create Stage Plot
+          </span>
         </div>
       </div>
-     
+
       <Table
         dataSource={StagePlot}
         columns={columns}

@@ -35,3 +35,6 @@
 .title-add-artist {
   color: #fff !important;
 }
+.ant-modal{
+  padding: 0 !important;
+}

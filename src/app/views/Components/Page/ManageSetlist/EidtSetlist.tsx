@@ -6,21 +6,16 @@ import {
   Input,
   message,
   Row,
-  Select,
   TimePicker,
 } from "antd";
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
-import { getArtist } from "../../../../Features/ArtistSlice/ArtistSlice";
 import { getSetList } from "../../../../Features/SetListSlice/SetListSlice";
-import {
-  uploadSetList,
-} from "../../../../Features/SetListSlice/SetListSlice";
+import { uploadSetList } from "../../../../Features/SetListSlice/SetListSlice";
 import { getSong } from "../../../../Features/SongSlice/SongSlice";
-const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 type Props = {};
@@ -31,36 +26,22 @@ const EidtSetlist = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
   const dataSetList = useAppSelector((data: any) => data.setlist.value);
-  const dataSongs = useAppSelector((data: any) => data.songs.value);
   const dataEdit = dataSetList?.find((item: any) => item.id == id_setlist);
-  console.log(dataSongs);
   useEffect(() => {
     dispatch(getSetList());
-    dispatch(getSong());
   }, []);
   const onFinish = (values: any) => {
-    const time_start = new Date(values.time_start._d);
     const time_upload = new Date();
-    const editData: any = {
+
+    const editData = {
       detail: values.detail == undefined ? dataEdit.detail : values.detail,
       time_upload: time_upload,
       name: values.name == undefined ? dataEdit.name : values.name,
       artist_id: dataEdit.artist_id,
-      id_music:
-        values.id_music == undefined ? dataEdit.id_music : values.id_music,
-      time_start:
-        values.time_start == undefined
-          ? dataEdit.time_start
-          : `
-      ${
-        String(time_start.getHours()).length == 1 && 0
-      }${time_start.getHours()}:${
-              String(time_start.getMinutes()).length == 1 ? 0 : ""
-            }${time_start.getMinutes()}:${
-              String(time_start.getMilliseconds()).length == 1 && 0
-            }${time_start.getSeconds()}`,
+      id_song: dataEdit.id_song,
+      time_start: dataEdit.time_start,
     };
-    dispatch(uploadSetList({ id: id, data: editData }));
+    dispatch(uploadSetList({ id: id_setlist, data: editData }));
     navigate(`/artist&&name=${name}&&id=${id}/setlist`);
     message.success("Edit successful");
   };
@@ -105,10 +86,10 @@ const EidtSetlist = (props: Props) => {
                 />
               </Form.Item>
             </Col>
-            <Col xs={12} sm={4} md={12} lg={12} xl={12}>
+            {/* <Col xs={12} sm={4} md={12} lg={12} xl={12}>
               <Form.Item
                 label="Songs"
-                name="id_music"
+                name="id_song"
                 labelAlign="left"
                 style={{ padding: "0 20px" }}
               >
@@ -118,7 +99,7 @@ const EidtSetlist = (props: Props) => {
                   style={{
                     width: "100%",
                   }}
-                  defaultValue={dataEdit.id_music}
+                  defaultValue={dataEdit.id_song}
                   placeholder="Choose a song"
                 >
                   {dataSongs.map((item: any, index: any) => (
@@ -128,7 +109,7 @@ const EidtSetlist = (props: Props) => {
                   ))}
                 </Select>
               </Form.Item>
-            </Col>
+            </Col> */}
             <Col xs={12} sm={4} md={12} lg={12} xl={12}>
               <Form.Item
                 label="Time start"

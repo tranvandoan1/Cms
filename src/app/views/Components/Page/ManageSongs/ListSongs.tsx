@@ -15,6 +15,7 @@ import {
   removeSongg,
 } from "../../../../Features/SongSlice/SongSlice";
 import "../../../../Style/ListSong.css";
+import { BiPencil, BiTrash } from "react-icons/bi";
 type ListSongs = {
   idd: any;
 };
@@ -32,7 +33,14 @@ const ListSongs: React.FC = () => {
       title: "Title",
       dataIndex: "name",
       key: "name",
-      render: (name: any) => <div style={{ width: 100 }}>{name}</div>,
+      render: (name: any, data: any) => (
+        <Link
+          to={`name-song=${name}&&id-song=${data.id}`}
+          style={{ width: 100, color: "#fff" }}
+        >
+          {name}
+        </Link>
+      ),
     },
     {
       title: "Time",
@@ -70,8 +78,13 @@ const ListSongs: React.FC = () => {
       key: "id",
       render: (id: any, data: any) => (
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Link to={`edit&&name_song=${data.name}&&id_song=${id}`}>
-            <EditOutlined style={{ marginRight: 10, color: "#fff" }} />
+          <Link
+            to={`edit&&name_song=${data.name}&&id_song=${id}`}
+            style={{ marginTop: 5 }}
+          >
+            <BiPencil
+              style={{ marginRight: 10, color: "#fff", fontSize: 20 }}
+            />
           </Link>
           <Popconfirm
             title="Are you sure to delete this task?"
@@ -79,7 +92,7 @@ const ListSongs: React.FC = () => {
             okText="Yes"
             cancelText="No"
           >
-            <DeleteOutlined style={{ color: "#FF0000" }} />
+            <BiTrash style={{ color: "#FF0000", fontSize: 20 }} />
           </Popconfirm>
         </div>
       ),
@@ -141,40 +154,3 @@ const ListSongs: React.FC = () => {
 };
 
 export default ListSongs;
-// {
-//   title: "Lyrics",
-//   dataIndex: "lyrics",
-//   key: "lyrics",
-//   render: (lyrics: any, data: any) => (
-//     <div style={{ width: "350px" }}>
-//       <p
-//         style={{ width: "100%" }}
-//         dangerouslySetInnerHTML={{
-//           __html:
-//             showLyrics == data.id ? lyrics : `${lyrics.slice(0, 400)}...`,
-//         }}
-//       />
-//       {showLyrics !== data.id && (
-//         <span
-//           className="see_more"
-//           onClick={() =>
-//             setShowLyrics(
-//               showLyrics == undefined
-//                 ? data.id
-//                 : showLyrics == data.id
-//                 ? undefined
-//                 : data.id
-//             )
-//           }
-//         >
-//           Xem thêm
-//         </span>
-//       )}
-//       {showLyrics == data.id && (
-//         <span className="see_more" onClick={() => setShowLyrics(undefined)}>
-//           Thu gọn
-//         </span>
-//       )}
-//     </div>
-//   ),
-// },
