@@ -19,17 +19,54 @@ import { getSong } from "../../../../Features/SongSlice/SongSlice";
 const { TextArea } = Input;
 
 type Props = {};
-
+const dataSetList: any = [
+  {
+    detail: "thực hành sớm đi",
+    time_upload: "2022-07-18T08:53:59.547Z",
+    name: "Cháy lên đi",
+    artist_id: "2",
+    id_song: [4, 5, 6],
+    time_start: "00:15:05",
+    id: 1,
+  },
+  {
+    artist_id: "2",
+    detail: "text",
+    id: 2,
+    name: "Cùng nhau cháy nhé",
+    time_start: "\n      00:04:05",
+    time_upload: "2022-07-11T06:53:42.976Z",
+    id_song: [4, 5],
+  },
+  {
+    artist_id: "3",
+    detail: "text",
+    id: 3,
+    name: "Tháng 7 dực dỡ",
+    time_start: "\n      00:09:04",
+    time_upload: "2022-07-08T16:25:10.998Z",
+    id_song: [],
+  },
+  {
+    detail: "cháy đi nè",
+    name: "Chuyến đi thiện nguyện",
+    artist_id: "5",
+    id_song: [],
+    time_upload: "",
+    time_start: "\n      00:05:07",
+    id: 4,
+  },
+];
 const EidtSetlist = (props: Props) => {
   const navigate = useNavigate();
   const { name, id, name_setlist, id_setlist } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const dataSetList = useAppSelector((data: any) => data.setlist.value);
+  // const dataSetList = useAppSelector((data: any) => data.setlist.value);
   const dataEdit = dataSetList?.find((item: any) => item.id == id_setlist);
-  useEffect(() => {
-    dispatch(getSetList());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getSetList());
+  // }, []);
   const onFinish = (values: any) => {
     const time_upload = new Date();
 
@@ -86,30 +123,7 @@ const EidtSetlist = (props: Props) => {
                 />
               </Form.Item>
             </Col>
-            {/* <Col xs={12} sm={4} md={12} lg={12} xl={12}>
-              <Form.Item
-                label="Songs"
-                name="id_song"
-                labelAlign="left"
-                style={{ padding: "0 20px" }}
-              >
-                <Select
-                  mode="multiple"
-                  allowClear
-                  style={{
-                    width: "100%",
-                  }}
-                  defaultValue={dataEdit.id_song}
-                  placeholder="Choose a song"
-                >
-                  {dataSongs.map((item: any, index: any) => (
-                    <Select.Option key={index} value={item.id}>
-                      {item.name}
-                    </Select.Option>
-                  ))}
-                </Select>
-              </Form.Item>
-            </Col> */}
+
             <Col xs={12} sm={4} md={12} lg={12} xl={12}>
               <Form.Item
                 label="Time start"

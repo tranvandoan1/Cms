@@ -2,17 +2,6 @@
   "stagePlot": [],
   "artist": [
     {
-      "time_upload": "2022-7-17",
-      "name": "Tư do",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2Fnrc.jpg?alt=media&token=8f4033c0-6ac1-4a41-96b3-8aa7db757ea1",
-      "number_members": [
-        "2",
-        "4"
-      ],
-      "time_start": "2022-07-12T10:40:05.864Z",
-      "id": 1
-    },
-    {
       "name": "YG",
       "time_upload": "2022-7-8",
       "time_start": "2022-07-06T10:41:38.868Z",
@@ -205,7 +194,10 @@
       "name": "Tháng 7 dực dỡ",
       "time_start": "\n      00:09:04",
       "time_upload": "2022-07-08T16:25:10.998Z",
-      "id_song": []
+      "id_song": [
+        "",
+        7
+      ]
     },
     {
       "detail": "cháy đi nè",

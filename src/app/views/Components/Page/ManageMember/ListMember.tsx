@@ -9,18 +9,75 @@ import {
   removeMember,
 } from "../../../../Features/MemberSlice/MemberSlice";
 import { BiPencil, BiTrash } from "react-icons/bi";
-
+const dataMembers: any = [
+  {
+    name: "Huynh",
+    color: "#010000",
+    first_letter: "H",
+    artist_id: 0.7536581127978996,
+    id: 1,
+  },
+  {
+    name: "Thắng",
+    color: "T",
+    first_letter: "T",
+    id: 2,
+    artist_id: 0.6665617322581583,
+  },
+  {
+    name: "Vũ",
+    color: "#ffcdcd",
+    first_letter: "V",
+    artist_id: "2",
+    id: 3,
+  },
+  {
+    color: "#ffe100",
+    first_letter: "K",
+    name: "Kiên",
+    artist_id: 0.7536581127978996,
+    id: 4,
+  },
+  {
+    color: "#60ff8f",
+    first_letter: "Đ",
+    name: "Đoàn",
+    artist_id: 0.7536581127978996,
+    id: 5,
+  },
+  {
+    color: "#b1f0ff",
+    first_letter: "H",
+    name: "Hiểu",
+    artist_id: 0.6665617322581583,
+    id: 6,
+  },
+  {
+    name: "Linh",
+    color: "#3b1d1d",
+    first_letter: "L",
+    artist_id: "2",
+    id: 7,
+  },
+  {
+    name: "Hiểu",
+    color: "#00ff13",
+    first_letter: "H",
+    artist_id: "2",
+    id: 8,
+  },
+];
 const IndexMember: React.FC = () => {
   const { name, id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const dataMembers = useAppSelector((data: any) => data.member.value);
+  // const dataMembers = useAppSelector((data: any) => data.member.value);
   const listDataArtist = dataMembers?.filter(
     (item: any) => item.artist_id == id
   );
-  useEffect(() => {
-    dispatch(getMember());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getMember());
+  // }, []);
 
   const deleteSong = (id: any) => {
     dispatch(removeMember(id));

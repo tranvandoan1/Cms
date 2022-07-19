@@ -63,12 +63,12 @@ function App() {
           />
 
           {/* stage-plot */}
-          <Route
+          {/* <Route
             path="setlist/name-setlist=:name_setlist&&id_setlist=:id_setlist/stage-plot"
             element={<IndexStagePlot />}
-          />
+          /> */}
           <Route
-            path="setlist/name-setlist=:name_setlist&&id_setlist=:id_setlist/stage-plot/add"
+            path="setlist/name-setlist=:name_setlist&&id_setlist=:id_setlist/stage-plot"
             element={<AddStagePlot />}
           />
           <Route

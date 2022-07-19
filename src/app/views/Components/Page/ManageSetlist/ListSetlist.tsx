@@ -12,17 +12,55 @@ import {
 } from "./../../../../Features/SetListSlice/SetListSlice";
 import { BiPencil, BiTrash } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
-
+const setLists: any = [
+  {
+    detail: "thực hành sớm đi",
+    time_upload: "2022-07-18T08:53:59.547Z",
+    name: "Cháy lên đi",
+    artist_id: "2",
+    id_song: [4, 5, 6],
+    time_start: "00:15:05",
+    id: 1,
+  },
+  {
+    artist_id: "2",
+    detail: "text",
+    id: 2,
+    name: "Cùng nhau cháy nhé",
+    time_start: "\n      00:04:05",
+    time_upload: "2022-07-11T06:53:42.976Z",
+    id_song: [4, 5],
+  },
+  {
+    artist_id: "3",
+    detail: "text",
+    id: 3,
+    name: "Tháng 7 dực dỡ",
+    time_start: "\n      00:09:04",
+    time_upload: "2022-07-08T16:25:10.998Z",
+    id_song: [],
+  },
+  {
+    detail: "cháy đi nè",
+    name: "Chuyến đi thiện nguyện",
+    artist_id: "5",
+    id_song: [],
+    time_upload: "",
+    time_start: "\n      00:05:07",
+    id: 4,
+  },
+];
 const { Column, ColumnGroup } = Table;
 const ListMember: React.FC = () => {
   const { name, id } = useParams();
   const dispatch = useDispatch<AppDispatch>();
   const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const setLists = useAppSelector((data: any) => data.setlist.value);
+  // const setLists = useAppSelector((data: any) => data.setlist.value);
   const dataSetLists = setLists?.filter((item: any) => item.artist_id == id);
-  useEffect(() => {
-    dispatch(getSetList());
-  }, []);
+
+  // useEffect(() => {
+  //   dispatch(getSetList());
+  // }, []);
 
   const confirm = (id: any) => {
     dispatch(removeSetList(id));
@@ -106,12 +144,13 @@ const ListMember: React.FC = () => {
 
         <Column
           dataIndex="id"
+          width={100}
           render={(id: any, data: any) => (
             <>
               <Link to={`edit&&name_setlist=${data.name}&&id_setlist=${id}`}>
                 <BiPencil
                   style={{
-                    marginRight: 10,
+                    marginRight: 20,
                     color: "#fff",
                     marginTop: 5,
                     fontSize: 20,
@@ -150,25 +189,13 @@ const ListMember: React.FC = () => {
           onFinish={onFinish}
           autoComplete="off"
         >
-          <Form.Item
-            label="Producer"
-            name="producer"
-            labelAlign="left"
-          >
+          <Form.Item label="Producer" name="producer" labelAlign="left">
             <Input.Password placeholder="Password producer" />
           </Form.Item>
-          <Form.Item
-            label="Coordinator"
-            labelAlign="left"
-            name="coordinator"
-          >
+          <Form.Item label="Coordinator" labelAlign="left" name="coordinator">
             <Input.Password placeholder="Password coordinator" />
           </Form.Item>
-          <Form.Item
-            labelAlign="left"
-            label="Visitor"
-            name="visitor"
-          >
+          <Form.Item labelAlign="left" label="Visitor" name="visitor">
             <Input.Password placeholder="Password visitor" />
           </Form.Item>
 

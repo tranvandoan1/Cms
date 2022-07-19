@@ -132,3 +132,6 @@ input:focus {
 .ant-pagination-item-active > a {
   color: #00b0f0 !important;
 }
+.ant-table-pagination.ant-pagination {
+  margin-right: 90px;
+}

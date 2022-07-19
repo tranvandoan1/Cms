@@ -290,24 +290,25 @@ const AddStagePlot = () => {
 
   return (
     <div>
-      <div
-        style={{
-          paddingBottom: 10,
-          borderBottom: "1px solid rgb(228, 228, 228) ",
-          marginBottom: 30,
-        }}
-      >
-        <h3 style={{ color: "#fff", marginTop: "20px" }}>Add stage plot</h3>
+      <div className="flex" style={{ width: "50%", margin: "30px 0" }}>
+        <Input placeholder="キーワード入力してください" />
+        <Button style={{ background: "black", color: "#fff", marginLeft: 10 }}>
+          Search
+        </Button>
       </div>
+      <span style={{ color: "#fff", fontSize: 20 }}>
+        サイレントマジョリティ
+      </span>
       <Form
         name="basic"
         initialValues={{
           remember: true,
         }}
         autoComplete="off"
+        style={{marginTop:10}}
       >
         <Form.Item name="ve" labelAlign="left">
-          <div
+          {/* <div
             style={{
               display: "flex",
               justifyContent: "center",
@@ -347,7 +348,7 @@ const AddStagePlot = () => {
             <Button onClick={() => setTool("pen")}>pen</Button>
             <Button onClick={undo}>undo</Button>
             <Button onClick={redo}>redo</Button>
-          </div>
+          </div> */}
           <div
             style={{
               border: "2px solid #00B0F0",
