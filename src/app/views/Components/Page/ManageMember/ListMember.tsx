@@ -1,4 +1,4 @@
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Input, message, Popconfirm, Table } from "antd";
 import React, { useEffect } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
@@ -14,7 +14,7 @@ const dataMembers: any = [
     name: "Huynh",
     color: "#010000",
     first_letter: "H",
-    artist_id: 0.7536581127978996,
+    artist_id: 3,
     id: 1,
   },
   {
@@ -22,7 +22,7 @@ const dataMembers: any = [
     color: "T",
     first_letter: "T",
     id: 2,
-    artist_id: 0.6665617322581583,
+    artist_id: 1,
   },
   {
     name: "Vũ",
@@ -35,21 +35,21 @@ const dataMembers: any = [
     color: "#ffe100",
     first_letter: "K",
     name: "Kiên",
-    artist_id: 0.7536581127978996,
+    artist_id: 3,
     id: 4,
   },
   {
     color: "#60ff8f",
     first_letter: "Đ",
     name: "Đoàn",
-    artist_id: 0.7536581127978996,
+    artist_id: 4,
     id: 5,
   },
   {
     color: "#b1f0ff",
     first_letter: "H",
     name: "Hiểu",
-    artist_id: 0.6665617322581583,
+    artist_id: 5,
     id: 6,
   },
   {
@@ -173,29 +173,56 @@ const IndexMember: React.FC = () => {
   return (
     <div>
       <div
+        className="flex"
         style={{
-          display: "flex",
-          alignItems: "center",
-          margin: "20px 0",
+          margin: "30px 0",
           justifyContent: "space-between",
         }}
       >
         <div className="flex">
-          <Input placeholder="Basic usage" />
+          <Input
+            placeholder="キーワード入力してください"
+            style={{
+              borderRadius: "7.3214px",
+              width: "604px",
+              height: "40px",
+            }}
+            suffix={<SearchOutlined />}
+          />
           <Button
-            style={{ background: "black", color: "#fff", marginLeft: 10 }}
+            style={{
+              background: "black",
+              color: "#fff",
+              marginLeft: 10,
+              borderRadius: "7.3214px",
+              height: "40px",
+              border: "1.23214px solid #FFFFFF",
+            }}
           >
-            Search
+            検索
           </Button>
         </div>
+
         <div className="flex">
-          <Link to={`/artist&&name=${name}&&id=${id}/member/add`}>
-            {" "}
-            <Button style={{ background: "black", color: "#fff" }}>
+          <Link to="add">
+            <Button
+              style={{
+                background: "black",
+                color: "#fff",
+                borderRadius: "7.3214px",
+                padding: "0 10px",
+              }}
+            >
               <PlusOutlined />
             </Button>
           </Link>
-          <span className="add" style={{ marginLeft: 10 }}>
+          <span
+            className="add"
+            style={{
+              marginLeft: 10,
+              marginRight: 100,
+            }}
+          >
             Add New Member
           </span>
         </div>

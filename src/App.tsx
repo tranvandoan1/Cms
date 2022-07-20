@@ -1,5 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import "./app/Style/reponsive.css";
+import "./app/Style/ant.css";
 import "antd/dist/antd.css";
 import LayoutArtist from "./app/views/Components/Page/LayoutArtist";
 import ListSetlist from "./app/views/Components/Page/ManageSetlist/ListSetlist";
@@ -56,7 +58,7 @@ function App() {
             path="songs/name-song=:name_song&&id-song=:id_song"
             element={<ListDetailSong />}
           />
-          <Route path="song/add" element={<AddSong />} />
+          <Route path="songs/add" element={<AddSong />} />
           <Route
             path="song/edit&&name_song=:name_song&&id_song=:id_song"
             element={<EidtSong />}

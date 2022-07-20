@@ -1,6 +1,3 @@
-.ant-layout {
-  background-color: #2f2f2f !important;
-}
 .layout {
   display: flex;
   height: 100vh;
@@ -11,8 +8,7 @@
   height: 0;
   width: 0;
 }
-.site-layout-content {
-}
+
 .header {
   position: sticky;
   top: 0;
@@ -24,9 +20,7 @@
   align-items: center;
   justify-content: space-between;
 }
-.ant-row {
-  row-gap: 0 !important;
-}
+
 .list-artist {
   margin-top: 5px;
   background-color: black;
@@ -55,8 +49,8 @@
   width: 100%;
   height: 100%;
 }
-.name {
-  font-family: "Poppins";
+.namee {
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -64,40 +58,7 @@
   text-transform: capitalize;
   color: #fff;
 }
-.ant-menu-title-content {
-  color: #fff;
-}
-.ant-menu {
-  background-color: #001529 !important;
-  position: relative;
-}
-.ant-menu-item-active {
-}
-.ant-menu-overflow-item {
-  margin-right: 10px;
-}
-.ant-menu-item-active::before,
-.ant-menu-item-selected::before {
-  content: " ";
-  position: absolute;
-  background-color: #fff;
-  height: 3px;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  
-  border-bottom: 0.5px solid black;
-}
-.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
-  background-color: #001529 !important;
-}
-.ant-menu.ant-menu-dark .ant-menu-item-selected {
-  background-color: #001529 !important;
-}
-.ant-menu-overflow-item .ant-menu-item .ant-menu-item-only-child {
-  text-align: center !important;
-}
+
 .add {
   font-family: "Poppins";
   font-style: normal;
@@ -116,22 +77,16 @@
   justify-content: center;
 }
 
-
-.ant-upload.ant-upload-select-picture-card {
-  width: 100%;
-  height: 100%;
-}
-.ant-upload-picture-card-wrapper {
-  height: 100%;
-}
-.ant-modal-wrap {
-  background-color: rgba(0, 0, 0, 0.4) !important;
-}
-.ant-modal-content {
-  background-color: #fff !important;
-}
 .title-add-artist h3 {
   margin-bottom: 0 !important;
   margin-top: 5px !important;
-  color: black ;
+  color: black;
+}
+
+.upload {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+.icon-out {
+  transform: rotate(180deg);
 }

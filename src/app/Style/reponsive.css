@@ -1,0 +1,64 @@
+/* pc plus */
+
+@media (min-width: 1024px) {
+  .box-list {
+  }
+}
+
+/* pc*/
+
+@media (width: 1024px) {
+}
+
+/* taplet */
+
+@media (min-width: 739px) and (max-width: 1023px) {
+  .box-list {
+    margin: 30px !important;
+  }
+  .title {
+    padding: 15px 10px !important;
+  }
+}
+
+/* mobele plus */
+
+@media (min-width: 539px) and (max-width: 739px) {
+  .box-list {
+    margin: 30px;
+  }
+  .title {
+    padding: 15px 10px !important;
+  }
+  .email {
+    border-radius: 10px !important;
+    height: 40px !important;
+  }
+  .button-login {
+    height: 40px !important;
+  }
+  .add{
+    display: none !important;
+  }
+}
+
+/* mobile */
+
+@media (max-width: 538px) {
+  .box {
+    margin: 0 !important;
+  }
+  .box-list {
+    margin: 10px;
+  }
+  .title {
+    padding: 15px 10px !important;
+  }
+  .email {
+    border-radius: 10px !important;
+    height: 40px !important;
+  }
+  .button-login {
+    height: 40px !important;
+  }
+}

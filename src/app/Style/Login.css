@@ -1,137 +1,81 @@
-.ant-modal-wrap {
-  background-color: #2f2f2f;
+.background {
+  height: 100vh;
 }
-.ant-modal-content {
-  background-color: black !important;
+.box {
+  width: 100%;
+  height: 90%;
+  background-color: #202020;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  box-shadow: 0px 5px 15px rgba(86, 122, 251, 0.5);
 }
-.ant-modal-close,
-.ant-modal-footer {
-  display: none !important;
-}
-.ant-modal-title {
-  color: red;
-  font-size: 2rem;
-  font-weight: 600;
-}
-.ant-form-item-label > label {
-  color: #fff;
-}
-.ant-modal-header {
-  display: none;
+.box-list {
+  width: 486px;
+  opacity: 1;
+  z-index: 1000;
+  background-color: #000000;
+  box-shadow: 0px 5px 15px #000000;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .title {
-  font-size: 1.7rem;
-  text-align: center;
-  margin-bottom: 40px;
-  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
   font-weight: 600;
-  color: #fff;
+  font-size: 18px;
+  display: flex;
+  text-transform: capitalize;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00b0f0;
+  padding: 15px 10px;
 }
 
-.name > input {
-  border: 1px solid rgb(194, 194, 194);
+.box-list input {
+  background-color: rgba(75, 75, 75, 0.25) !important;
+  outline: 0 !important;
+  font-size: 18px !important;
+  padding-left: 30px !important;
+  color: #00b0f0 !important;
+}
+.email {
+  border: none;
   border-radius: 2px;
-  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  border-radius: 15px;
+  height: 57px;
 }
-
-.password > .input {
-  border: 1px solid rgb(194, 194, 194);
-  border-radius: 2px;
-  margin-top: 20px;
-  font-size: 1rem;
+.add {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
 }
-
-input:focus {
-  outline: none;
-}
-
-.button-login,
-.button-signup {
+.button-login {
+  height: 50px;
   width: 100%;
-  border: 0;
-  background-color: black;
-  font-size: 0.9rem;
-  border-radius: 2px;
-  color: #fff !important;
-  cursor: pointer;
+  background: #00b0f0;
+  box-shadow: 5px 0px 10px rgba(194, 222, 255, 0.25);
+  border-radius: 12px;
 }
 
 .button-login {
-  margin-top: 30px;
   background-color: #00b0f0;
 }
-.button-login:hover {
-  background-color: #00b0f0;
-}
-.hr {
-  width: 100%;
-  position: relative;
-  z-index: 100;
-  text-align: center;
-  font-size: 0.8rem;
-  color: rgb(167, 167, 167);
-  margin: 10px 0;
-}
-
-.hr::before {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  content: "";
-  width: 40%;
-  height: 0.5px;
-  background-color: rgb(224, 224, 224);
-}
-
-.hr::after {
-  position: absolute;
-  top: 10px;
-  right: 0;
-  content: "";
-  width: 40%;
-  height: 0.5px;
-  background-color: rgb(224, 224, 224);
-}
-
-.button-signup {
-  text-align: center;
-  text-decoration: none;
-  font-size: 0.9rem;
+.button-text {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  color: black;
-  padding: 5px;
-}
-
-.text-danger {
-  color: black;
-  text-align: left;
-  font-size: 0.9rem;
-  display: none;
-  margin: 40px 0;
-}
-.ant-pagination-item,
-.ant-pagination-prev .ant-pagination-item-link,
-.ant-pagination-next .ant-pagination-item-link {
-  background: none !important;
-  border: 0 !important;
-}
-.ant-pagination-prev .ant-pagination-item-link,
-.ant-pagination-next .ant-pagination-item-link {
-  color: #fff;
-}
-.ant-pagination-prev:hover .ant-pagination-item-link:hover,
-.ant-pagination-next:hover .ant-pagination-item-link:hover {
-  color: #fff;
-}
-.ant-pagination-item > a {
-  color: #fff !important;
-}
-.ant-pagination-item-active > a {
-  color: #00b0f0 !important;
-}
-.ant-table-pagination.ant-pagination {
-  margin-right: 90px;
+  align-items: center;
+  text-align: center;
+  text-transform: capitalize;
+  color: #ffffff;
 }

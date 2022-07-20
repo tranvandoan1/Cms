@@ -3,16 +3,13 @@ import {
   LogoutOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import {
-  Avatar,
-  Button,
-  Dropdown,
-  Layout,
-  Menu,
-} from "antd";
+import { Avatar, Button, Dropdown, Layout, Menu } from "antd";
 import React, { useEffect } from "react";
 import "../../../Style/LayoutAdmin.css";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom";
+import back from "../../../assets/images/Group26951ádsa.png";
+import { AiFillSetting } from "react-icons/ai";
+import { BiLogOut } from "react-icons/bi";
 const { Header, Content } = Layout;
 
 function getItem(label: any, key: any, itemIcon: any) {
@@ -24,6 +21,7 @@ function getItem(label: any, key: any, itemIcon: any) {
 }
 const LayoutArtist: React.FC = () => {
   const navigate = useNavigate();
+  const { id_setlist } = useParams();
 
   const items: any = [
     getItem("Setlist", "2", <Link to="setlist" />),
@@ -35,7 +33,7 @@ const LayoutArtist: React.FC = () => {
     navigate("/signin");
   };
   const menu = (
-    <Menu style={{ marginTop: -30, padding: 5 }}>
+    <Menu style={{ marginTop: 0, padding: 5 }}>
       <Menu.Item key="userInfo" style={{ padding: "10px  20px" }}>
         <Avatar
           size={35}
@@ -53,7 +51,7 @@ const LayoutArtist: React.FC = () => {
   return (
     <div>
       <Layout className="layout">
-        <Header className="header">
+        <Header className="header" style={{ padding: "0 10px" }}>
           <div
             style={{
               display: "flex",
@@ -61,13 +59,19 @@ const LayoutArtist: React.FC = () => {
               width: "100%",
             }}
           >
-            <EnterOutlined
-              onClick={() => navigate(-1)}
+            <img
+              onClick={() =>
+                id_setlist == undefined
+                  ? navigate("/list-artist")
+                  : navigate(-1)
+              }
+              src={back}
+              alt=""
               style={{
-                fontSize: 20,
-                cursor: "pointer",
-                color: "#0647EE",
+                width: "3%",
                 marginTop: 10,
+                marginRight: 20,
+                cursor: "pointer",
               }}
             />
             <Menu
@@ -83,9 +87,9 @@ const LayoutArtist: React.FC = () => {
             />
           </div>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <SettingOutlined
+            <AiFillSetting
               style={{
-                fontSize: 20,
+                fontSize: 30,
                 cursor: "pointer",
                 color: "#fff",
                 marginRight: 25,
@@ -93,15 +97,14 @@ const LayoutArtist: React.FC = () => {
               }}
             />
             <Dropdown overlay={menu}>
-              <span>
-                <LogoutOutlined
-                  style={{
-                    fontSize: 20,
-                    cursor: "pointer",
-                    color: "#fff",
-                  }}
-                />
-              </span>
+              <BiLogOut
+                className="icon-out"
+                style={{
+                  fontSize: 30,
+                  cursor: "pointer",
+                  color: "#fff",
+                }}
+              />
             </Dropdown>
           </div>
         </Header>

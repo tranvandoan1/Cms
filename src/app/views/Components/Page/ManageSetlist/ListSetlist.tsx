@@ -1,11 +1,10 @@
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Form, Input, message, Modal, Popconfirm, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../../APP/Store";
 
-import "../../../../Style/ListDetailArtist.css";
 import {
   getSetList,
   removeSetList,
@@ -80,37 +79,67 @@ const ListMember: React.FC = () => {
   return (
     <div>
       <div
+        className="flex"
         style={{
-          display: "flex",
-          alignItems: "center",
-          margin: "20px 0",
+          margin: "30px 0",
           justifyContent: "space-between",
         }}
       >
         <div className="flex">
-          <Input placeholder="Basic usage" />
+          <Input
+            placeholder="キーワード入力してください"
+            style={{
+              borderRadius: "7.3214px",
+              width: "404px",
+              height: "40px",
+            }}
+            suffix={<SearchOutlined />}
+          />
           <Button
-            style={{ background: "black", color: "#fff", marginLeft: 10 }}
+            style={{
+              background: "black",
+              color: "#fff",
+              marginLeft: 10,
+              borderRadius: "7.3214px",
+              height: "40px",
+            }}
           >
-            Search
+            検索
           </Button>
         </div>
+
         <div className="flex">
-          <Link to="add">
-            <Button style={{ background: "black", color: "#fff" }}>
+          <Link to={"add"}>
+            <Button
+              style={{
+                background: "black",
+                color: "#fff",
+                borderRadius: "7.3214px",
+                padding: "0 10px",
+              }}
+            >
               <PlusOutlined />
             </Button>
           </Link>
-          <span className="add" style={{ marginLeft: 10 }}>
+
+          <span
+            className="add"
+            style={{
+              marginLeft: 10,
+              marginRight: 100,
+            }}
+          >
             Create New SetList
           </span>
         </div>
       </div>
+
       <Table dataSource={dataSetLists} rowKey={(item: any) => item.id}>
         <Column
           title="No"
           dataIndex="id"
           key="id"
+          width={80}
           render={(name: any, data: any, index: any) => (
             <span style={{ color: "#fff" }}>{index}</span>
           )}
@@ -125,12 +154,23 @@ const ListMember: React.FC = () => {
             </Link>
           )}
         />
-        <Column title="Created" dataIndex="time_start" key="time_start" />
-        <Column title="Updated" dataIndex="time_upload" key="time_upload" />
+        <Column
+          title="Created"
+          width={200}
+          dataIndex="time_start"
+          key="time_start"
+        />
+        <Column
+          title="Updated"
+          width={200}
+          dataIndex="time_upload"
+          key="time_upload"
+        />
         <Column title="Detailed" dataIndex="detail" key="detail" />
         <Column
           title="Generated password"
           dataIndex="id"
+          width={200}
           key="id"
           render={(id: any) => (
             <Button
@@ -198,15 +238,27 @@ const ListMember: React.FC = () => {
           <Form.Item labelAlign="left" label="Visitor" name="visitor">
             <Input.Password placeholder="Password visitor" />
           </Form.Item>
-
-          <Form.Item wrapperCol={{ offset: 16, span: 16 }}>
-            <Button style={{ marginRight: 10 }} onClick={handleCancel}>
-              Cancel
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+            }}
+          >
+            <span
+              style={{ color: "#fff", cursor: "pointer" }}
+              onClick={handleCancel}
+            >
+              キャンセル
+            </span>
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ padding: "5px 20px", marginLeft: 15 }}
+            >
+              保存
             </Button>
-            <Button type="primary" htmlType="submit">
-              Add
-            </Button>
-          </Form.Item>
+          </div>
         </Form>
       </Modal>
     </div>

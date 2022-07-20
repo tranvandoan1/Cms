@@ -2,12 +2,58 @@
   cursor: pointer;
   color: blue;
 }
-.tox-toolbar__primary{
+.tox-toolbar__primary {
   background-color: black !important;
-  color: #fff !important; 
+  color: #fff !important;
   border-bottom: 1px solid rgb(243, 243, 243) !important;
 }
-.tox-editor-header,.tox-statusbar{
+.tox-editor-header,
+.tox-statusbar {
   background-color: black !important;
+}
+/* login */
 
+.ant-pagination-item,
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  background: none !important;
+  border: 0 !important;
+}
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  color: #fff;
+}
+.ant-pagination-prev:hover .ant-pagination-item-link:hover,
+.ant-pagination-next:hover .ant-pagination-item-link:hover {
+  color: #fff;
+}
+.ant-pagination-item > a {
+  color: #fff !important;
+}
+.ant-pagination-item-active > a {
+  color: #00b0f0 !important;
+}
+.ant-table-pagination.ant-pagination {
+  margin-right: 90px;
+}
+.ant-modal-wrap {
+  background-color: #2f2f2f;
+}
+.ant-modal-content {
+  background-color: black !important;
+}
+.ant-modal-close,
+.ant-modal-footer {
+  display: none !important;
+}
+.ant-modal-title {
+  color: red;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.ant-form-item-label > label {
+  color: #fff;
+}
+.ant-modal-header {
+  display: none;
 }

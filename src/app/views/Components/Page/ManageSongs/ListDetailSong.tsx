@@ -1,4 +1,4 @@
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Input, message, Popconfirm, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
@@ -254,32 +254,54 @@ const ListDetailSong: React.FC = () => {
   return (
     <div>
       <div
+        className="flex"
         style={{
-          display: "flex",
-          alignItems: "center",
-          margin: "20px 0",
+          margin: "30px 0",
           justifyContent: "space-between",
         }}
       >
         <div className="flex">
           <Input
-            onChange={(e) => search(e.target.value)}
-            placeholder="Basic usage"
+            placeholder="キーワード入力してください"
+            style={{
+              borderRadius: "7.3214px",
+              width: "604px",
+              height: "40px",
+            }}
+            suffix={<SearchOutlined />}
           />
           <Button
-            style={{ background: "black", color: "#fff", marginLeft: 10 }}
+            style={{
+              background: "black",
+              color: "#fff",
+              marginLeft: 10,
+              borderRadius: "7.3214px",
+              height: "40px",
+              border: "1.23214px solid #FFFFFF",
+            }}
           >
-            Search
+            検索
           </Button>
         </div>
+
         <div className="flex">
-          <Link to={`/artist&&name=${name}&&id=${id}/song/add`}>
-            {" "}
-            <Button style={{ background: "black", color: "#fff" }}>
-              <PlusOutlined />
-            </Button>
-          </Link>
-          <span className="add" style={{ marginLeft: 10 }}>
+          <Button
+            style={{
+              background: "black",
+              color: "#fff",
+              borderRadius: "7.3214px",
+              padding: "0 10px",
+            }}
+          >
+            <PlusOutlined />
+          </Button>
+          <span
+            className="add"
+            style={{
+              marginLeft: 10,
+              marginRight: 100,
+            }}
+          >
             Add New Line
           </span>
         </div>

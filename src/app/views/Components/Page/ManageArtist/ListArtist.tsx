@@ -3,6 +3,7 @@ import {
   LogoutOutlined,
   PlusOutlined,
   SettingOutlined,
+  SearchOutlined,
 } from "@ant-design/icons";
 import {
   Avatar,
@@ -29,15 +30,15 @@ import {
   removeArtist,
   uploadArtist,
 } from "../../../../Features/ArtistSlice/ArtistSlice";
-import { FiEdit2 } from "react-icons/fi";
-import { AiOutlineDelete } from "react-icons/ai";
+
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../../firebase";
 import moment from "moment";
 import AddArtist from "./AddArtist";
+import { BiPencil, BiTrash } from "react-icons/bi";
+
 const { Header, Content } = Layout;
 const dataArtist: any = [
-
   {
     name: "YG",
     time_upload: "2022-7-8",
@@ -67,7 +68,7 @@ const dataArtist: any = [
   },
   {
     name: "BTS",
-    time_upload: "2022-07-30T08:45:08.623Z",
+    time_upload: "2022-7-8",
     avatar:
       "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
     time_start: "2022-07-05T08:45:06.313Z",
@@ -78,7 +79,7 @@ const dataArtist: any = [
     name: "BTS",
     avatar:
       "https://vtv1.mediacdn.vn/thumb_w/650/2020/6/14/twicetwice-1592113303136628954213.jpg",
-    time_upload: "2022-07-30T08:45:08.623Z",
+    time_upload: "2022-7-8",
     time_start: "2022-07-05T08:45:06.313Z",
     number_members: ["2", "1"],
     id: 6,
@@ -94,7 +95,7 @@ const dataArtist: any = [
   },
   {
     name: "BTS1",
-    time_upload: "2022-07-30T08:45:08.623Z",
+    time_upload: "2022-7-8",
     time_start: "2022-07-05T08:45:06.313Z",
     avatar: "https://i.doanhnhansaigon.vn/2019/03/26/2-1553591476_750x0.jpg",
     number_members: ["2", "1"],
@@ -121,6 +122,7 @@ const dataArtist: any = [
   {
     name: "Kpop Twice",
     time_start: "2022-07-13T05:07:44.231Z",
+    time_upload: "2022-7-8",
     avatar:
       "https://firebasestorage.googleapis.com/v0/b/nrc-sankhau.appspot.com/o/images%2FHinh-anh-nhom-nhac-nu-kpop-TWICE-dep-moi-nhat-09.jpg?alt=media&token=d93b0374-acf6-4fef-b107-8870887f91d0",
     number_members: ["2", "6"],
@@ -222,7 +224,11 @@ const ListArtist: React.FC = () => {
       <Layout className="layout">
         <Header
           className="header"
-          style={{ display: "flex", justifyContent: "space-between" }}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "0 50px",
+          }}
         >
           <Menu
             theme="dark"
@@ -260,7 +266,7 @@ const ListArtist: React.FC = () => {
             <div
               className="flex"
               style={{
-                margin: "20px 0",
+                margin: "30px 0",
                 justifyContent: "space-between",
               }}
             >
@@ -269,23 +275,46 @@ const ListArtist: React.FC = () => {
                   onChange={(e: any) => (
                     search(e.target.value), setNameSearch(e.target.value)
                   )}
-                  placeholder="Basic usage"
+                  placeholder="キーワード入力してください"
+                  style={{
+                    borderRadius: "7.3214px",
+                    width: "604px",
+                    height: "40px",
+                  }}
+                  suffix={<SearchOutlined />}
                 />
                 <Button
-                  style={{ background: "black", color: "#fff", marginLeft: 10 }}
+                  style={{
+                    background: "black",
+                    color: "#fff",
+                    marginLeft: 10,
+                    borderRadius: "7.3214px",
+                    height: "40px",
+                  }}
                 >
-                  Search
+                  検索
                 </Button>
               </div>
 
               <div className="flex">
                 <Button
                   onClick={showModal}
-                  style={{ background: "black", color: "#fff" }}
+                  style={{
+                    background: "black",
+                    color: "#fff",
+                    borderRadius: "7.3214px",
+                    padding: "0 10px",
+                  }}
                 >
                   <PlusOutlined />
                 </Button>
-                <span className="add" style={{ marginLeft: 10 }}>
+                <span
+                  className="add"
+                  style={{
+                    marginLeft: 10,
+                    marginRight: 20,
+                  }}
+                >
                   Create New Artist
                 </span>
               </div>
@@ -303,8 +332,8 @@ const ListArtist: React.FC = () => {
                     <Col
                       key={index}
                       className="gutter-row"
-                      xs={6}
-                      sm={6}
+                      xs={12}
+                      sm={12}
                       md={6}
                       lg={6}
                       xl={4}
@@ -356,7 +385,10 @@ const ListArtist: React.FC = () => {
                                   background: "black",
                                   color: "#fff",
                                   border: "none",
+                                  fontSize: 20,
+                                  outline: 0,
                                 }}
+                                className="input-edit"
                                 onChange={(e: any) =>
                                   setNameArtist(e.target.value)
                                 }
@@ -381,7 +413,7 @@ const ListArtist: React.FC = () => {
                                     okText="Yes"
                                     cancelText="No"
                                   >
-                                    <AiOutlineDelete
+                                    <BiTrash
                                       style={{
                                         color: "#FF0000",
                                         cursor: "pointer",
@@ -398,7 +430,10 @@ const ListArtist: React.FC = () => {
                                     onClick={() => onClickSave(item)}
                                   />
                                 </div>
-                                <span style={{ fontSize: 10, color: "#fff" }}>
+                                <span
+                                  style={{ fontSize: 10, color: "#fff" }}
+                                  className="upload"
+                                >
                                   Time Upload : {item.time_upload}
                                 </span>
                               </div>
@@ -412,7 +447,9 @@ const ListArtist: React.FC = () => {
                                   <img src={item.avatar} alt="" />
                                 </Link>
                               </div>
-                              <span className="name">{item.name}</span>
+                              <span style={{ marginTop: 10 }} className="namee">
+                                {item.name}
+                              </span>
 
                               <div
                                 style={{
@@ -421,15 +458,22 @@ const ListArtist: React.FC = () => {
                                   margin: "10px 0",
                                 }}
                               >
-                                <FiEdit2
-                                  style={{ color: "#fff", cursor: "pointer" }}
+                                <BiPencil
+                                  style={{
+                                    color: "#fff",
+                                    cursor: "pointer",
+                                    fontSize: 20,
+                                  }}
                                   onClick={() =>
                                     setIdEdit(
                                       idEdit == item.id ? undefined : item.id
                                     )
                                   }
                                 />
-                                <span style={{ fontSize: 10, color: "#fff" }}>
+                                <span
+                                  style={{ fontSize: 10, color: "#fff" }}
+                                  className="upload"
+                                >
                                   Time Upload : {item.time_upload}
                                 </span>
                               </div>

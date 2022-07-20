@@ -4,12 +4,12 @@ import Circ from "./Draw/Circle";
 import Elip from "./Draw/Elip";
 import Rectangle from "./Draw/Rectangle";
 import { Button, Form, Input } from "antd";
-import "./../../../../Style/StagePlot.css";
 import image from "../../../../assets/images/Group43.png";
 import edit from "../../../../assets/images/edit.png";
 import Vector from "../../../../assets/images/Vector.png";
 import Vector1 from "../../../../assets/images/Vector1.png";
 import Vector12 from "../../../../assets/images/Vector12.png";
+import { SearchOutlined } from '@ant-design/icons';
 const AddStagePlot = () => {
   const [selectedId, selectShape] = useState<any>(null);
   const [rectangles, setrectangles] = useState<any>([]);
@@ -290,11 +290,38 @@ const AddStagePlot = () => {
 
   return (
     <div>
-      <div className="flex" style={{ width: "50%", margin: "30px 0" }}>
-        <Input placeholder="キーワード入力してください" />
-        <Button style={{ background: "black", color: "#fff", marginLeft: 10 }}>
-          Search
-        </Button>
+       <div
+        className="flex"
+        style={{
+          margin: "30px 0",
+          justifyContent: "space-between",
+        }}
+      >
+        <div className="flex">
+          <Input
+            placeholder="キーワード入力してください"
+            style={{
+              borderRadius: "7.3214px",
+              width: "604px",
+              height: "40px",
+            }}
+            suffix={<SearchOutlined />}
+          />
+          <Button
+            style={{
+              background: "black",
+              color: "#fff",
+              marginLeft: 10,
+              borderRadius: "7.3214px",
+              height: "40px",
+              border: "1.23214px solid #FFFFFF",
+            }}
+          >
+            検索
+          </Button>
+        </div>
+
+        
       </div>
       <span style={{ color: "#fff", fontSize: 20 }}>
         サイレントマジョリティ
